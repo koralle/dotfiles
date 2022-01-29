@@ -3,3 +3,10 @@
 
 !/.gitignore
 
+# GitHub Actions
+!/.github
+!/.github/workflows
+!/.github/workflows/ci.yaml
+
+!/install-neovim.sh
+

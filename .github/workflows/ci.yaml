@@ -1,0 +1,14 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  install_neovim_on_ubuntu-20-04:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Neovim
+        run: bash install-neovim.sh && test $? -eq 0
+        shell: bash
+
