@@ -27,8 +27,17 @@ if type nvim >/dev/null 2>&1; then
   # ex) Installing Neovim v0.6.1 has been completed.
   echo "Installing Neovim $(nvim --version | head -n 1 | awk '{print $2}') has been completed."
   rm ./nvim.appimage
-  exit 0
 else
   exit 1
 fi
 
+# Installing Packer.nvim ...
+git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+if [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+  echo "Installing packer.nvim has been completed."
+  exit 0
+else
+  echo "Installing packer.nvim has been failed."
+  exit 1
+fi
