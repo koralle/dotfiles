@@ -48,6 +48,18 @@ vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', { noremap = fa
 vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { noremap = false, silent = true })
 
+-- Use K to show documentation in preview window.
+vim.api.nvim_set_keymap('n', 'K', ':lua show_documentation()<CR>', { noremap = true, silent = true })
+function show_documentation()
+  local filetype = vim.bo.filetype
+
+  if filetype == 'vim' or filetype == 'help' then
+    vim.api.nvim_command('h '.. filetype)
+  elseif vim.fn['coc#rpc#ready']() then
+    vim.fn.CocActionAsync('doHover')
+  end
+end
+
 -- Highlight the symbol and its references when holding the cursor.
 vim.cmd 'autocmd CursorHold * silent call CocActionAsync("highlight")'
 
