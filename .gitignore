@@ -37,8 +37,8 @@
 !/.nvim/lua/fern-renderer-nerdfont/init.lua
 
 # vim-airline
-!/.nvim/lua/vim-aireline
-!/.nvim/lua/vim-aireline/init.lua
+!/.nvim/lua/vim-airline
+!/.nvim/lua/vim-airline/init.lua
 
 # fzf-preview.vim
 !/.nvim/lua/fzf-preview
