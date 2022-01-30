@@ -44,3 +44,6 @@
 !/.nvim/lua/fzf-preview
 !/.nvim/lua/fzf-preview/init.lua
 
+!/.tig
+!/.tig/.tigrc
+
