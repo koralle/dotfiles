@@ -1,0 +1,21 @@
+# Number of threads.
+--threads=4
+
+--max-columns=150
+--max-columns-preview
+
+# Using glob patterns to include/exclude files or files
+--glob=!git/*
+
+# Set the colors
+--colors=line:style:bold
+
+# Smart case search.
+--smart-case
+
+# Print statistics about this ripgrep search.
+--stats
+
+# Search hidden files and directories
+--hidden
+

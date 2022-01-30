@@ -47,3 +47,7 @@
 !/.tig
 !/.tig/.tigrc
 
+# ripgrep
+!/.ripgrep
+!/.ripgrep/.ripgreprc
+
