@@ -10,3 +10,37 @@
 
 !/install-neovim.sh
 
+# Neovim
+!/.nvim
+!/.nvim/init.lua
+!/.nvim/coc-setting.json
+
+# Neovim Plugins
+!/.nvim/lua
+!/.nvim/lua/plugins.lua
+
+# coc.nvim
+!/.nvim/lua/coc
+!/.nvim/lua/coc/init.lua
+!/.nvim/lua/coc/extensions.lua
+
+# fern.vim
+!/.nvim/lua/fern
+!/.nvim/lua/fern/init.lua
+
+# fern-preview.vim
+!/.nvim/lua/fern-preview
+!/.nvim/lua/fern-preview/init.lua
+
+# fern-renderer-nerdfont
+!/.nvim/lua/fern-renderer-nerdfont
+!/.nvim/lua/fern-renderer-nerdfont/init.lua
+
+# vim-airline
+!/.nvim/lua/vim-aireline
+!/.nvim/lua/vim-aireline/init.lua
+
+# fzf-preview.vim
+!/.nvim/lua/fzf-preview
+!/.nvim/lua/fzf-preview/init.lua
+
