@@ -39,9 +39,6 @@ local font = "FiraCode Nerd Font 13"
 vim.o.guifont = font
 vim.o.guifontwide = font
 
--- 透過率の設定
-vim.o.pumblend = 10
-
 -- ターミナルモード時のkeymap
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', { noremap = true })
