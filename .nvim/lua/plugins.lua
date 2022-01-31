@@ -60,5 +60,8 @@ require'packer'.startup(function()
 
   use 'lambdalisue/gina.vim'
 
+  -- Neovimのウインドウサイズ変更がしやすくなる
+  use 'simeji/winresizer'
+
 end)
 
