@@ -61,3 +61,13 @@ vim.cmd 'set autochdir'
 
 vim.api.nvim_set_keymap('n', '<C-j>', ':bprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
+
+-- 画面分割のキーバインド
+vim.api.nvim_set_keymap('n', 'sj', '<C-W>j', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sk', '<C-W>k', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sl', '<C-W>l', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sh', '<C-W>h', { noremap = true })
+
+vim.api.nvim_set_keymap('n', 'ss', ':<C-u>sp<CR><C-w>j', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sv', ':<C-u>vs<CR><C-w>l', { noremap = true })
+
