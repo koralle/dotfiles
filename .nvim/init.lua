@@ -10,7 +10,7 @@ vim.cmd 'colorscheme gruvbox-material'
 vim.wo.number = true
 
 --現在いる列をハイライトする
---vim.wo.cursorcolumn = true
+vim.wo.cursorcolumn = true
 
 --現在いる行をハイライトする
 vim.wo.cursorline = true
