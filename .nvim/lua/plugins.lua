@@ -8,6 +8,7 @@ require 'coc'
 require 'coc.extensions'
 require 'fzf-preview'
 require 'vim-airline'
+require 'vim-sayonara'
 
 require'packer'.startup(function()
   use'tpope/vim-fugitive'
@@ -62,6 +63,9 @@ require'packer'.startup(function()
 
   -- Neovimのウインドウサイズ変更がしやすくなる
   use 'simeji/winresizer'
+
+  -- カレンドウインドウを閉じる事なくカレントバッファのみを閉じるプラグイン
+  use 'mhinz/vim-sayonara'
 
 end)
 
