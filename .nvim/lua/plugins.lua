@@ -9,6 +9,7 @@ require 'coc.extensions'
 require 'fzf-preview'
 require 'vim-airline'
 require 'vim-sayonara'
+require 'rust-vim'
 
 require'packer'.startup(function()
   use'tpope/vim-fugitive'
@@ -66,6 +67,8 @@ require'packer'.startup(function()
 
   -- カレンドウインドウを閉じる事なくカレントバッファのみを閉じるプラグイン
   use 'mhinz/vim-sayonara'
+
+  use 'rust-lang/rust.vim'
 
 end)
 
