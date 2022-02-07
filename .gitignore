@@ -55,3 +55,7 @@
 !/.ripgrep
 !/.ripgrep/.ripgreprc
 
+# rust-lang/rust.vim
+!/.nvim/lua/rust-vim
+!/.nvim/lua/rust-vim/init.lua
+
