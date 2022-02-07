@@ -77,7 +77,7 @@ vim.api.nvim_set_keymap('x', '<leader>fmt', '<Plug>(coc-format-selected)', {})
 vim.cmd([[
   augroup mygroup
     autocmd!
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected') expandtab softtabstop=2 shiftwidth=2 tabstop=4
     autocmd User CocJumpPlaceholder call CocActionSync('showSignatureHelp')
   augroup end
 ]])
