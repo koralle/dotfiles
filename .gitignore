@@ -44,6 +44,10 @@
 !/.nvim/lua/fzf-preview
 !/.nvim/lua/fzf-preview/init.lua
 
+# vim-sayonara
+!/.nvim/lua/vim-sayonara
+!/.nvim/lua/vim-sayonara/init.lua
+
 !/.tig
 !/.tig/.tigrc
 
