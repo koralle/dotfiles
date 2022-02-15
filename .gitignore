@@ -51,3 +51,7 @@
 !/.ripgrep
 !/.ripgrep/.ripgreprc
 
+# comfortable-motion
+!/.nvim/lua/comfortable-motion
+!/.nvim/lua/comfortable-motion/init.lua
+
