@@ -9,6 +9,7 @@ require 'coc.extensions'
 require 'fzf-preview'
 require 'vim-airline'
 require 'vim-sayonara'
+require 'comfortable-motion'
 require 'rust-vim'
 
 require'packer'.startup(function()
@@ -68,6 +69,9 @@ require'packer'.startup(function()
   -- カレンドウインドウを閉じる事なくカレントバッファのみを閉じるプラグイン
   use 'mhinz/vim-sayonara'
 
+  -- スクロール操作がヌルヌルになるプラグイン
+  use 'yuttie/comfortable-motion.vim'
+  
   use 'rust-lang/rust.vim'
 
 end)

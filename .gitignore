@@ -55,7 +55,10 @@
 !/.ripgrep
 !/.ripgrep/.ripgreprc
 
+# comfortable-motion
+!/.nvim/lua/comfortable-motion
+!/.nvim/lua/comfortable-motion/init.lua
+
 # rust-lang/rust.vim
 !/.nvim/lua/rust-vim
 !/.nvim/lua/rust-vim/init.lua
-
