@@ -10,6 +10,7 @@ require 'fzf-preview'
 require 'vim-airline'
 require 'vim-sayonara'
 require 'comfortable-motion'
+require 'rust-vim'
 
 require'packer'.startup(function()
   use'tpope/vim-fugitive'
@@ -70,6 +71,8 @@ require'packer'.startup(function()
 
   -- スクロール操作がヌルヌルになるプラグイン
   use 'yuttie/comfortable-motion.vim'
+  
+  use 'rust-lang/rust.vim'
 
 end)
 
