@@ -62,3 +62,8 @@
 # rust-lang/rust.vim
 !/.nvim/lua/rust-vim
 !/.nvim/lua/rust-vim/init.lua
+
+# nvim-treesitter/nvim-treesitter
+!/.nvim/lua/treesitter
+!/.nvim/lua/treesitter/init.lua
+

@@ -11,6 +11,7 @@ require 'vim-airline'
 require 'vim-sayonara'
 require 'comfortable-motion'
 require 'rust-vim'
+require 'treesitter'
 
 require'packer'.startup(function()
   use'tpope/vim-fugitive'
