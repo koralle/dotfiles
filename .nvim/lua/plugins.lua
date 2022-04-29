@@ -2,9 +2,88 @@ vim.cmd[[packadd packer.nvim]]
 
 require'packer'.startup(function(use)
   use 'wbthomason/packer.nvim'
+  use {
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer'
+  }
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip'
 
-  -- Colorscheme: gruvbox
+  -- Colorscheme: nightfox
   -- url: https://github.com/ellisonleao/gruvbox.nvim
-  use { "ellisonleao/gruvbox.nvim" }
+  use { "EdenEast/nightfox.nvim" }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
+
+  use {
+    'nvim-telescope/telescope-packer.nvim',
+    requires = 'nvim-telescope/telescope.nvim'
+  }
+
+  use {
+    'lambdalisue/fern.vim',
+    require = 'antoinemadec/FixCursorHold.nvim'
+  }
+
+  use {
+    'yuki-yano/fern-preview',
+    'lambdalisue/fern-renderer-nerdfont.vim',
+    requires = 'lambdalisue/fern.vim'
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
+
+  use 'lukas-reineke/indent-blankline.nvim'
+
+  use 'norcalli/nvim-colorizer.lua'
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
+  use 'yuttie/comfortable-motion.vim'
+  use {
+    'windwp/nvim-autopairs',
+    'windwp/nvim-ts-autotag'
+  }
+
+  use 'simrat39/rust-tools.nvim'
+
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'info',
+        auto_session_suppress_dirs = {'~/', '~/Projects'}
+      }
+    end
+  }
+
+  use {
+    'p00f/nvim-ts-rainbow',
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    'yioneko/nvim-yati',
+    'stevearc/aerial.nvim',
+    requires = 'nvim-treesitter/nvim-treesitter'
+  }
+
+  use 'simeji/winresizer'
+
 end)
 
