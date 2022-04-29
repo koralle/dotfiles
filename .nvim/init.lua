@@ -3,8 +3,9 @@ require 'plugins'
 vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
 
 --カラースキームの変更
-vim.cmd 'colorscheme gruvbox-material'
---vim.o.termguicolors = true
+vim.o.termguicolors = true
+vim.opt.background = "dark"
+vim.cmd([[colorscheme gruvbox]])
 
 --行番号を表示する
 vim.wo.number = true
