@@ -1,11 +1,14 @@
 require 'plugins'
+require 'setup'
 
 vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
+
+vim.cmd([[set mouse=a]])
 
 --カラースキームの変更
 vim.o.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme duskfox]])
 
 --行番号を表示する
 vim.wo.number = true
@@ -59,9 +62,6 @@ vim.o.listchars="tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:_"
 vim.cmd "let g:vimsyn_embed = '1'"
 
 vim.cmd 'set autochdir'
-
-vim.api.nvim_set_keymap('n', '<C-j>', ':bprev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
 
 -- 画面分割のキーバインド
 vim.api.nvim_set_keymap('n', 'sj', '<C-W>j', { noremap = true })
