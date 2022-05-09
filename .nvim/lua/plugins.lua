@@ -89,5 +89,12 @@ require'packer'.startup(function(use)
 
   use 'simeji/winresizer'
 
+  use 'mfussenegger/nvim-dap'
+  use {
+    'nvim-telescope/telescope-dap.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap' }
+  }
+
+  use 'iamcco/markdown-preview.nvim'
 end)
 
