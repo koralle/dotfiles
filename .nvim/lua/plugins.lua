@@ -1,7 +1,6 @@
 vim.cmd[[packadd packer.nvim]]
 
-require'packer'.startup(function(use)
-  use 'wbthomason/packer.nvim'
+require'packer'.startup(function(use) use 'wbthomason/packer.nvim'
   use {
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer'
@@ -70,16 +69,6 @@ require'packer'.startup(function(use)
   use 'simrat39/rust-tools.nvim'
 
   use {
-    'rmagatti/auto-session',
-    config = function()
-      require('auto-session').setup {
-        log_level = 'info',
-        auto_session_suppress_dirs = {'~/', '~/Projects'}
-      }
-    end
-  }
-
-  use {
     'p00f/nvim-ts-rainbow',
     'JoosepAlviste/nvim-ts-context-commentstring',
     'yioneko/nvim-yati',
@@ -96,5 +85,7 @@ require'packer'.startup(function(use)
   }
 
   use 'iamcco/markdown-preview.nvim'
+  
+  use 'nathom/filetype.nvim'
 end)
 

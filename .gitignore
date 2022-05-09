@@ -1,14 +1,2 @@
 # all ingore
-*
-
-!/.gitignore
-
-# GitHub Actions
-!/.github
-!/.github/workflows
-!/.github/workflows/ci.yaml
-
-!/install-neovim.sh
-
-# Neovim
-!/.nvim/
+.git
