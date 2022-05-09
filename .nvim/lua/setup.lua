@@ -17,3 +17,5 @@ require 'aerial'
 require 'user-settings/dap'
 require 'user-settings/nvim-tree_lua'
 require 'user-settings/filetype_nvim'
+require 'user-settings/nvim-web-devicons'
+
