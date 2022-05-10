@@ -81,6 +81,7 @@ require'packer'.startup(function(use) use 'wbthomason/packer.nvim'
   use 'mfussenegger/nvim-dap'
   use {
     'nvim-telescope/telescope-dap.nvim',
+    'rcarriga/nvim-dap-ui',
     requires = { 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap' }
   }
 
