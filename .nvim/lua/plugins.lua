@@ -1,79 +1,93 @@
 vim.cmd[[packadd packer.nvim]]
 
---require 'vim-airline'
-require 'fern'
-require 'fern-preview'
-require 'fern-renderer-nerdfont'
-require 'coc'
-require 'coc.extensions'
-require 'fzf-preview'
-require 'vim-airline'
-require 'vim-sayonara'
-require 'comfortable-motion'
-require 'rust-vim'
-require 'treesitter'
+require'packer'.startup(function(use) use 'wbthomason/packer.nvim'
+  use {
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer'
+  }
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip'
 
-require'packer'.startup(function()
-  use'tpope/vim-fugitive'
-  use'tpope/vim-repeat'
-  use 'wbthomason/packer.nvim'
+  -- Colorscheme: nightfox
+  -- url: https://github.com/ellisonleao/gruvbox.nvim
+  use { "EdenEast/nightfox.nvim" }
 
-  use 'vim-jp/vimdoc-ja'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
-  -- vim-airline
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  use 'edkolev/tmuxline.vim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
 
-  -- ファイラの設定
-  use 'lambdalisue/fern.vim'
-  use 'yuki-yano/fern-preview.vim'
-  use 'lambdalisue/nerdfont.vim'
-  use 'lambdalisue/fern-renderer-nerdfont.vim'
-  use 'lambdalisue/fern-git-status.vim'
-  use 'lambdalisue/fern-bookmark.vim'
+  use {
+    'nvim-telescope/telescope-packer.nvim',
+    requires = 'nvim-telescope/telescope.nvim'
+  }
 
-  -- ()とか""の自動展開
-  use 'cohama/lexima.vim'
+  --use {
+  --  'lambdalisue/fern.vim',
+  --  require = 'antoinemadec/FixCursorHold.nvim'
+  --}
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
 
-  -- coc.nvim
-  use { 'neoclide/coc.nvim', branch = 'release', run = 'yarn install --frozen-lockfile' }
+  --use {
+  --  'yuki-yano/fern-preview',
+  --  'lambdalisue/fern-renderer-nerdfont.vim',
+  --  requires = 'lambdalisue/fern.vim'
+  --}
 
-  -- nvim-treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
 
-  use 'antoinemadec/FixCursorHold.nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
 
   use 'norcalli/nvim-colorizer.lua'
 
-  use 'akinsho/toggleterm.nvim'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
-  use 'kdheepak/lazygit.nvim'
+  use 'yuttie/comfortable-motion.vim'
+  use {
+    'windwp/nvim-autopairs',
+    'windwp/nvim-ts-autotag'
+  }
 
-  -- UML Preview
-  use 'skanehira/preview-uml.vim'
+  use 'simrat39/rust-tools.nvim'
 
-  -- Markdown Preview
-  use 'kat0h/bufpreview.vim'
+  use {
+    'p00f/nvim-ts-rainbow',
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    'yioneko/nvim-yati',
+    'stevearc/aerial.nvim',
+    requires = 'nvim-treesitter/nvim-treesitter'
+  }
 
-  use 'dhruvasagar/vim-table-mode'
-
-  use 'sainnhe/gruvbox-material'
-
-  use { 'junegunn/fzf', run = "fzf#install" }
-
-  use 'lambdalisue/gina.vim'
-
-  -- Neovimのウインドウサイズ変更がしやすくなる
   use 'simeji/winresizer'
 
-  -- カレンドウインドウを閉じる事なくカレントバッファのみを閉じるプラグイン
-  use 'mhinz/vim-sayonara'
+  use 'mfussenegger/nvim-dap'
+  use {
+    'nvim-telescope/telescope-dap.nvim',
+    'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
+    requires = { 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap' }
+  }
 
-  -- スクロール操作がヌルヌルになるプラグイン
-  use 'yuttie/comfortable-motion.vim'
+  use 'iamcco/markdown-preview.nvim'
   
-  use 'rust-lang/rust.vim'
-
+  use 'nathom/filetype.nvim'
 end)
 
