@@ -89,5 +89,8 @@ require'packer'.startup(function(use) use 'wbthomason/packer.nvim'
   use 'iamcco/markdown-preview.nvim'
   
   use 'nathom/filetype.nvim'
+
+  use 'folke/which-key.nvim'
+
 end)
 
