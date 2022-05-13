@@ -28,3 +28,6 @@ require'nvim-tree'.setup {
 
 vim.api.nvim_set_var('nvim_tree_git_hl', 1)
 
+vim.cmd([[
+  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+]])
