@@ -66,8 +66,6 @@ require'packer'.startup(function(use) use 'wbthomason/packer.nvim'
     'windwp/nvim-ts-autotag'
   }
 
-  use 'simrat39/rust-tools.nvim'
-
   use {
     'p00f/nvim-ts-rainbow',
     'JoosepAlviste/nvim-ts-context-commentstring',
