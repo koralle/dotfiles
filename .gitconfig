@@ -19,3 +19,42 @@
 
 [diff]
   colorMoved = default
+
+[alias]
+  s   = status
+  st  = status
+  ss  = status -s
+  sh  = show
+  so  = remote show origin
+
+  ft  = fetch
+  ftp = fetch --prune
+  po  = push origin
+  pof = push -f origin
+  pu  = push -u origin
+
+  ad  = ad
+  c   = commit
+  co  = checkout
+  cb  = checkout -b
+  cm  = checkout main
+  cd  = checkout develop
+
+  br  = branch
+  ba  = branch -a
+  bm  = branch --merged
+  bn  = branch --no-merged
+  bo  = branch -r
+
+  di  = diff
+  dm  = diff main
+  dw  = diff --color-words
+  dc  = diff --cached
+  ds  = diff --staged
+  d1  = diff HEAD~
+  d2  = diff HEAD~~
+  d3  = diff HEAD~~~
+  d4  = diff HEAD~~~~
+  d5  = diff HEAD~~~~~
+
+  oneline = log --pretty=oneline
