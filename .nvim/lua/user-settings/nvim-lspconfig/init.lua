@@ -51,3 +51,34 @@ nvim_lsp.tsserver.setup {
   on_attach = on_attach
 }
 
+require'flutter-tools'.setup {
+  decorations = {
+    statusline = {
+      app_version = true,
+      device = true,
+    }
+  },
+  widget_guides = {
+    enaled = true
+  },
+  debugger = {
+    enabled = true,
+    run_via_dap = true,
+  },
+  dev_tools = {
+    autostart = true,
+  },
+  lsp = {
+    on_attach = on_attach,
+    color = {
+      enabled = true,
+      background = true,
+      virtual_text = true,
+      virtual_text_str = "■",
+    },
+    settings = {
+      showTodos = true,
+      completeFunctionCalls = true
+    }
+  }
+}
