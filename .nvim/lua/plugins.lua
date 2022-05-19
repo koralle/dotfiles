@@ -90,5 +90,10 @@ require'packer'.startup(function(use) use 'wbthomason/packer.nvim'
 
   use 'folke/which-key.nvim'
 
+  use {
+    'akinsho/flutter-tools.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
+
 end)
 
