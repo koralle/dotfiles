@@ -39,7 +39,7 @@ vim.o.autochdir = true
 vim.o.hidden = true
 
 -- フォントの設定
-local font = "FiraCode Nerd Font 13"
+local font = "Ricty Diminished 13"
 vim.o.guifont = font
 vim.o.guifontwide = font
 
