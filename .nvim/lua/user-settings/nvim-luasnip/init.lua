@@ -21,5 +21,28 @@ ls.add_snippets(nil, {
       ls.t({")"}),
       ls.i(0),
     })
+  },
+  typescript = {
+    ls.s({trig = "describe"}, {
+      ls.t({'describe("'}),
+      ls.i(1),
+      ls.t({'", () => {', ''}),
+      ls.i(2),
+      ls.t({'', '})'})
+    }),
+    ls.s({trig = "test"}, {
+      ls.t({'test("'}),
+      ls.i(1),
+      ls.t({'", () => {', ''}),
+      ls.i(2),
+      ls.t({'', '})'})
+    }),
+    ls.s({trig = "it"}, {
+      ls.t({'test("'}),
+      ls.i(1),
+      ls.t({'", () => {', ''}),
+      ls.i(2),
+      ls.t({'', '})'})
+    })
   }
 })
