@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 local color_scheme = "Afterglow"
-local font = "Fira Code Nerd Font"
+local font = "Ricty Diminished"
 
 return {
   font = wezterm.font(font),
