@@ -94,6 +94,8 @@ require'packer'.startup(function(use) use 'wbthomason/packer.nvim'
     'akinsho/flutter-tools.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
+  
+  use 'akinsho/git-conflict.nvim' 
 
 end)
 
