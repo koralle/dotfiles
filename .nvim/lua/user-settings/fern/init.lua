@@ -2,13 +2,13 @@
 vim.cmd("let g:fern#default_hidden = 1")
 
 -- Ctrl+nでファイルツリーの表示/非表示をtoggle切り換えする
-vim.api.nvim_set_keymap('n', '<C-n>', ':Fern . -reveal=* -drawer -toggle -width=40<CR>', { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-n>", ":Fern . -reveal=* -drawer -toggle -width=40<CR>", { noremap = true })
 
 -- fix Performance Bug
-vim.cmd('let g:cursorhold_updatetime = 100')
+vim.cmd("let g:cursorhold_updatetime = 100")
 
 function _G.init_fern()
-  vim.api.nvim_buf_set_keymap(0, 'n', '<Plug>(fern-action-open)', '<Plug>(fern-action-open:select)', {})
+  vim.api.nvim_buf_set_keymap(0, "n", "<Plug>(fern-action-open)", "<Plug>(fern-action-open:select)", {})
 end
 
 vim.cmd([[
@@ -17,4 +17,3 @@ augroup fern-custom
   autocmd FileType fern call v:lua.init_fern()
 augroup END
 ]])
-

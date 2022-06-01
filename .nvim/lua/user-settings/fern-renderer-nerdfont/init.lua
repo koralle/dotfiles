@@ -1,1 +1,1 @@
-vim.cmd('let g:fern#renderer = \"nerdfont\"')
+vim.cmd('let g:fern#renderer = "nerdfont"')
