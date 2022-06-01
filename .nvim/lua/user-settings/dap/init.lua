@@ -1,26 +1,36 @@
-local dap = require('dap')
-local cmd = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/adapter/codelldb'
+local dap = require("dap")
+local cmd = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/adapter/codelldb"
 
-require('telescope').load_extension('dap')
+require("telescope").load_extension("dap")
 
 local options = { silent = true, noremap = true }
-vim.api.nvim_set_keymap('n', '<F5>', ":lua require'dap'.continue()<CR>", options)
-vim.api.nvim_set_keymap('n', '<F10>', ":lua require'dap'.step_over()<CR>", options)
-vim.api.nvim_set_keymap('n', '<F11>', ":lua require'dap'.step_into()<CR>", options)
-vim.api.nvim_set_keymap('n', '<F12>', ":lua require'dap'.step_out()<CR>", options)
-vim.api.nvim_set_keymap('n', '<Leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", options)
-vim.api.nvim_set_keymap('n', '<Leader>B', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", options)
-vim.api.nvim_set_keymap('n', '<Leader>lp', ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message '))<CR>", options)
-vim.api.nvim_set_keymap('n', '<Leader>dr', ":lua require'dap'.repl.open()<CR>", options)
-vim.api.nvim_set_keymap('n', '<Leader>dl', ":lua require'dap'.run_last()<CR>", options)
+vim.api.nvim_set_keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", options)
+vim.api.nvim_set_keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", options)
+vim.api.nvim_set_keymap("n", "<F11>", ":lua require'dap'.step_into()<CR>", options)
+vim.api.nvim_set_keymap("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
+vim.api.nvim_set_keymap("n", "<Leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", options)
+vim.api.nvim_set_keymap(
+  "n",
+  "<Leader>B",
+  ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+  options
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<Leader>lp",
+  ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message '))<CR>",
+  options
+)
+vim.api.nvim_set_keymap("n", "<Leader>dr", ":lua require'dap'.repl.open()<CR>", options)
+vim.api.nvim_set_keymap("n", "<Leader>dl", ":lua require'dap'.run_last()<CR>", options)
 
-vim.fn.sign_define('DapBreakpoint', { text='⛔', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', { text='👉', texthl='', linehl='', numhl=''})
+vim.fn.sign_define("DapBreakpoint", { text = "⛔", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "👉", texthl = "", linehl = "", numhl = "" })
 
 dap.adapters.codelldb = function(on_adapter)
   -- This asks the system for a free port
   local tcp = vim.loop.new_tcp()
-  tcp:bind('127.0.0.1', 0)
+  tcp:bind("127.0.0.1", 0)
   local port = tcp:getsockname().port
   tcp:shutdown()
   tcp:close()
@@ -29,8 +39,8 @@ dap.adapters.codelldb = function(on_adapter)
   local stdout = vim.loop.new_pipe(false)
   local stderr = vim.loop.new_pipe(false)
   local opts = {
-    stdio = {nil, stdout, stderr},
-    args = {'--port', tostring(port)},
+    stdio = { nil, stdout, stderr },
+    args = { "--port", tostring(port) },
   }
   local handle
   local pid_or_err
@@ -48,7 +58,7 @@ dap.adapters.codelldb = function(on_adapter)
     stderr:close()
     return
   end
-  vim.notify('codelldb started. pid=' .. pid_or_err)
+  vim.notify("codelldb started. pid=" .. pid_or_err)
   stderr:read_start(function(err, chunk)
     assert(not err, err)
     if chunk then
@@ -58,14 +68,16 @@ dap.adapters.codelldb = function(on_adapter)
     end
   end)
   local adapter = {
-    type = 'server',
-    host = '127.0.0.1',
-    port = port
+    type = "server",
+    host = "127.0.0.1",
+    port = port,
   }
   -- 💀
   -- Wait for codelldb to get ready and start listening before telling nvim-dap to connect
   -- If you get connect errors, try to increase 500 to a higher value, or check the stderr (Open the REPL)
-  vim.defer_fn(function() on_adapter(adapter) end, 500)
+  vim.defer_fn(function()
+    on_adapter(adapter)
+  end, 500)
 end
 
 dap.configurations.rust = {
@@ -74,9 +86,9 @@ dap.configurations.rust = {
     type = "codelldb",
     request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
     end,
-    cwd = '${workspaceFolder}',
+    cwd = "${workspaceFolder}",
     stopOnEntry = true,
-  }
+  },
 }

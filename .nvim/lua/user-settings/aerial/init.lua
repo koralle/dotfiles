@@ -1,1 +1,1 @@
-require('aerial').setup({})
+require("aerial").setup({})

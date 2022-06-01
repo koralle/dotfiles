@@ -1,6 +1,6 @@
 require("nvim-treesitter.install").prefer_git = true
 
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
   },
@@ -8,10 +8,10 @@ require("nvim-treesitter.configs").setup {
   rainbow = {
     enable = true,
     extended_mode = true,
-    max_file_lines = nil
+    max_file_lines = nil,
   },
   context_commentstring = {
     enable = true,
-    config = {}
-  }
-}
+    config = {},
+  },
+})
