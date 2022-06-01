@@ -6,6 +6,7 @@ vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', op
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
+local capabilities = require"cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local on_attach = function(_, buffer_number)
   vim.api.nvim_buf_set_keymap(buffer_number, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -50,6 +51,26 @@ nvim_lsp.vimls.setup {
 nvim_lsp.tsserver.setup {
   on_attach = on_attach
 }
+
+nvim_lsp.terraformls.setup {
+  on_attach = on_attach,
+  cmd = { "terraform-ls", "serve" },
+  filetypes = { "terraform", "tf" },
+  whitelist = { "terraform" },
+  root_dir = nvim_lsp.util.root_pattern(".terraform"),
+  capabilities = capabilities
+}
+
+nvim_lsp.tflint.setup {
+  on_attach = on_attach,
+  cmd = { "tflint", "--langserver" },
+  filetypes = { "terraform", "tf" },
+  whitelist = { "terraform" },
+  root_dir = nvim_lsp.util.root_pattern(".terraform"),
+  capabilities = capabilities
+}
+
+vim.cmd([[autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()]])
 
 require'flutter-tools'.setup {
   decorations = {
