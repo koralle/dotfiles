@@ -1,7 +1,7 @@
-require 'plugins'
-require 'setup'
+require("plugins")
+require("setup")
 
-vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
+vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 vim.cmd([[set mouse=a]])
 
@@ -44,31 +44,33 @@ vim.o.guifont = font
 vim.o.guifontwide = font
 
 -- ターミナルモード時のkeymap
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
-vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', { noremap = true })
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+vim.api.nvim_set_keymap("t", "<C-[>", "<C-\\><C-n>", { noremap = true })
 
 -- コマンドモードで"T"を入力すると現在のウインドウの下にTerminalを開く
-vim.cmd 'command! -nargs=* T split | wincmd j | resize 20 | terminal <args>'
+vim.cmd("command! -nargs=* T split | wincmd j | resize 20 | terminal <args>")
 -- 常にインサートモードでTerminalを開く
-vim.cmd 'autocmd TermOpen * startinsert'
+vim.cmd("autocmd TermOpen * startinsert")
 
-vim.o.encoding = 'utf-8'
+vim.o.encoding = "utf-8"
 
 vim.o.cmdheight = 2
 
 vim.o.list = true
-vim.o.listchars="tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:_"
+vim.o.listchars = "tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:_"
 
-vim.cmd "let g:vimsyn_embed = '1'"
+vim.cmd("let g:vimsyn_embed = '1'")
 
-vim.cmd 'set autochdir'
+vim.cmd("set autochdir")
 
 -- 画面分割のキーバインド
-vim.api.nvim_set_keymap('n', 'sj', '<C-W>j', { noremap = true })
-vim.api.nvim_set_keymap('n', 'sk', '<C-W>k', { noremap = true })
-vim.api.nvim_set_keymap('n', 'sl', '<C-W>l', { noremap = true })
-vim.api.nvim_set_keymap('n', 'sh', '<C-W>h', { noremap = true })
+vim.api.nvim_set_keymap("n", "sj", "<C-W>j", { noremap = true })
+vim.api.nvim_set_keymap("n", "sk", "<C-W>k", { noremap = true })
+vim.api.nvim_set_keymap("n", "sl", "<C-W>l", { noremap = true })
+vim.api.nvim_set_keymap("n", "sh", "<C-W>h", { noremap = true })
 
-vim.api.nvim_set_keymap('n', 'ss', ':<C-u>sp<CR><C-w>j', { noremap = true })
-vim.api.nvim_set_keymap('n', 'sv', ':<C-u>vs<CR><C-w>l', { noremap = true })
+vim.api.nvim_set_keymap("n", "ss", ":<C-u>sp<CR><C-w>j", { noremap = true })
+vim.api.nvim_set_keymap("n", "sv", ":<C-u>vs<CR><C-w>l", { noremap = true })
 
+vim.api.nvim_set_keymap("n", "+", "<C-a>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "-", "<C-x>", { noremap = true, silent = true })
