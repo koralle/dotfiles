@@ -97,4 +97,8 @@ require("packer").startup(function(use)
   })
 
   use("dhruvasagar/vim-table-mode")
+  use({
+    "junegunn/fzf.vim",
+    requires = { "junegunn/fzf", run = "fzf#install()" },
+  })
 end)
