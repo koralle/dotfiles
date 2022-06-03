@@ -95,4 +95,6 @@ require("packer").startup(function(use)
     "akinsho/flutter-tools.nvim",
     requires = "nvim-lua/plenary.nvim",
   })
+
+  use("dhruvasagar/vim-table-mode")
 end)
