@@ -1,5 +1,5 @@
 -- 編集するBufferを変更する
-vim.api.nvim_set_keymap("n", "<C-j>", ":BufferLineCycleNext<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-j>", ":BufferLineCyclePrev<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-k>", ":BufferLineCycleNext<cr>", { noremap = true, silent = true })
 
 -- Bufferの位置を入れ替える
