@@ -8,11 +8,16 @@ vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<C
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local on_attach = function(_, buffer_number)
+local set_lsp_keymap = function(_, buffer_number)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+end
+
+local disable_formatting = function(client, _)
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
 end
 
 nvim_lsp.sumneko_lua.setup({
@@ -23,11 +28,17 @@ nvim_lsp.sumneko_lua.setup({
       },
     },
   },
-  on_attach = on_attach,
+  on_attach = function(client, buffer_number)
+    disable_formatting(client, buffer_number)
+    set_lsp_keymap(client, buffer_number)
+  end,
 })
 
 nvim_lsp.rust_analyzer.setup({
-  on_attach = on_attach,
+  on_attach = function(client, buffer_number)
+    disable_formatting(client, buffer_number)
+    set_lsp_keymap(client, buffer_number)
+  end,
   settings = {
     ["rust-analyzer"] = {
       assist = {
@@ -49,11 +60,18 @@ nvim_lsp.vimls.setup({
 })
 
 nvim_lsp.tsserver.setup({
-  on_attach = on_attach,
+  on_attach = function(client, buffer_number)
+    disable_formatting(client, buffer_number)
+    set_lsp_keymap(client, buffer_number)
+  end,
+  capabilities = capabilities,
 })
 
 nvim_lsp.terraformls.setup({
-  on_attach = on_attach,
+  on_attach = function(client, buffer_number)
+    disable_formatting(client, buffer_number)
+    set_lsp_keymap(client, buffer_number)
+  end,
   cmd = { "terraform-ls", "serve" },
   filetypes = { "terraform", "tf" },
   whitelist = { "terraform" },
@@ -62,15 +80,15 @@ nvim_lsp.terraformls.setup({
 })
 
 nvim_lsp.tflint.setup({
-  on_attach = on_attach,
+  on_attach = function(_, buffer_number)
+    set_lsp_keymap(_, buffer_number)
+  end,
   cmd = { "tflint", "--langserver" },
   filetypes = { "terraform", "tf" },
   whitelist = { "terraform" },
   root_dir = nvim_lsp.util.root_pattern(".terraform"),
   capabilities = capabilities,
 })
-
-vim.cmd([[autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()]])
 
 require("flutter-tools").setup({
   decorations = {
@@ -90,7 +108,9 @@ require("flutter-tools").setup({
     autostart = true,
   },
   lsp = {
-    on_attach = on_attach,
+    on_attach = function(_, buffer_number)
+      set_lsp_keymap(_, buffer_number)
+    end,
     color = {
       enabled = true,
       background = true,
