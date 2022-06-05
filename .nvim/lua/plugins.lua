@@ -107,4 +107,8 @@ require("packer").startup(function(use)
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make",
   })
+
+  use({
+    "feline-nvim/feline.nvim",
+  })
 end)
