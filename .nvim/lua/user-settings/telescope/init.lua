@@ -1,9 +1,10 @@
-local opts = { noremap = true }
+local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fn", ":Telescope help_tags<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fd", ":lua WrappedTelescope('Telescope fd')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>ff", ":lua WrappedTelescope('Telescope git_files')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fg", ":lua WrappedTelescope('Telescope grep_string')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fb", ":lua WrappedTelescope('Telescope buffers')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fn", ":lua WrappedTelescope('Telescope help_tag')<cr>", opts)
 
 require("telescope").setup({
   defaults = {
@@ -20,10 +21,31 @@ require("telescope").setup({
   },
   pickers = {
     find_files = {
-      find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "-H" },
+      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
     },
   },
 })
 
 require("telescope").load_extension("packer")
 require("telescope").load_extension("flutter")
+
+function WrappedTelescope(command)
+  local handle, err = io.popen("git rev-parse --show-superproject-working-tree --show-toplevel | head -1")
+
+  if handle ~= nil then
+    -- 変数resultにはGitリポジトリのルートディレクトリのパスが格納される
+    local result = handle:read("l")
+    if handle == nil then
+      return
+    end
+    handle:close()
+
+    local cd_command = "cd " .. result
+
+    vim.cmd(cd_command)
+    vim.cmd(command)
+  elseif err ~= nil then
+    print(err)
+    return
+  end
+end
