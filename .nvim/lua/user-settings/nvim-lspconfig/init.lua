@@ -90,6 +90,13 @@ nvim_lsp.tflint.setup({
   capabilities = capabilities,
 })
 
+nvim_lsp.pyright.setup({
+  on_attach = function(_, buffer_number)
+    set_lsp_keymap(_, buffer_number)
+  end,
+  capabilities = capabilities,
+})
+
 require("flutter-tools").setup({
   decorations = {
     statusline = {

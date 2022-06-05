@@ -26,6 +26,33 @@ nls.setup({
   sources = {
     completion.luasnip,
     diagnostics.actionlint,
+    diagnostics.flake8.with({
+      prefer_local = ".venv/bin",
+      extra_args = { "--max-line-length=119" },
+      condition = function(utils)
+        return utils.root_has_file({ ".flake8" })
+      end,
+    }),
+    diagnostics.mypy.with({
+      prefer_local = ".venv/bin",
+      condition = function(utils)
+        return utils.root_has_file({ "pyproject.toml" })
+      end,
+    }),
+    formatting.black.with({
+      prefer_local = ".venv/bin",
+      extra_args = { "--line-length=119" },
+      condition = function(utils)
+        return utils.root_has_file({ "pyproject.toml" })
+      end,
+    }),
+    formatting.isort.with({
+      prefer_local = ".venv/bin",
+      extra_args = { "--profile", "black", "--line-length", "119" },
+      condition = function(utils)
+        return utils.root_has_file({ "pyproject.toml" })
+      end,
+    }),
     formatting.stylua,
     code_actions.eslint.with({
       prefer_local = "node_modules/.bin",
