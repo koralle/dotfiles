@@ -102,4 +102,9 @@ require("packer").startup(function(use)
   })
 
   use("dhruvasagar/vim-table-mode")
+
+  use({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+  })
 end)

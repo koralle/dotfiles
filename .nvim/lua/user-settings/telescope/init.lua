@@ -24,10 +24,19 @@ require("telescope").setup({
       find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
     },
   },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
+  },
 })
 
 require("telescope").load_extension("packer")
 require("telescope").load_extension("flutter")
+require("telescope").load_extension("fzf")
 
 function WrappedTelescope(command)
   local handle, err = io.popen("git rev-parse --show-superproject-working-tree --show-toplevel | head -1")
