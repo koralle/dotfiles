@@ -38,20 +38,10 @@ require("packer").startup(function(use)
     requires = "nvim-telescope/telescope.nvim",
   })
 
-  --use {
-  --  'lambdalisue/fern.vim',
-  --  require = 'antoinemadec/FixCursorHold.nvim'
-  --}
   use({
     "kyazdani42/nvim-tree.lua",
     requires = { "kyazdani42/nvim-web-devicons" },
   })
-
-  --use {
-  --  'yuki-yano/fern-preview',
-  --  'lambdalisue/fern-renderer-nerdfont.vim',
-  --  requires = 'lambdalisue/fern.vim'
-  --}
 
   use({
     "akinsho/bufferline.nvim",

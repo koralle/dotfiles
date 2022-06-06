@@ -1,7 +1,3 @@
---require 'user-settings/fern'
---require 'user-settings/fern-preview'
---require 'user-settings/fern-renderer-nerdfont'
--- require("user-settings/lualine")
 require("user-settings/telescope")
 require("user-settings/bufferline")
 require("user-settings/nvim-treesitter")
