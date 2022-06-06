@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local trouble = require("trouble.providers.telescope")
 
 vim.api.nvim_set_keymap("n", "<leader>fd", ":lua WrappedTelescope('Telescope fd')<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>ff", ":lua WrappedTelescope('Telescope git_files')<cr>", opts)
@@ -18,6 +19,22 @@ require("telescope").setup({
       "--smart-case",
       "--trim",
     },
+    mappings = {
+      i = { ["x"] = trouble.open_with_trouble },
+      n = { ["x"] = trouble.open_with_trouble },
+    },
+    sorting_strategy = "ascending",
+    layout_strategy = "horizontal",
+    layout_config = {
+      mirror = false,
+      prompt_position = "top",
+      width = 0.9,
+      height = 0.8,
+      preview_width = 0.4,
+    },
+    prompt_prefix = "🍣> ",
+    selection_caret = "🍣> ",
+    entry_prefix = "🍗> ",
   },
   pickers = {
     find_files = {
