@@ -1,8 +1,18 @@
 -- Derived from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
 cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol",
+      maxwidth = 50,
+      before = function(_, vim_item)
+        return vim_item
+      end,
+    }),
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
