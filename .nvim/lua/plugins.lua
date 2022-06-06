@@ -11,6 +11,7 @@ require("packer").startup(function(use)
   use("hrsh7th/cmp-buffer")
   use("saadparwaiz1/cmp_luasnip")
   use("L3MON4D3/LuaSnip")
+  use("hrsh7th/cmp-emoji")
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
@@ -110,5 +111,10 @@ require("packer").startup(function(use)
 
   use({
     "feline-nvim/feline.nvim",
+  })
+
+  use({
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
   })
 end)

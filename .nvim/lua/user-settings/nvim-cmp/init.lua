@@ -12,6 +12,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "buffer" },
     { name = "luasnip" },
+    { name = "emoji" },
   }),
   mapping = cmp.mapping.preset.insert({
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
