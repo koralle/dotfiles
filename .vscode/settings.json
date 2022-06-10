@@ -1,0 +1,35 @@
+{
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/.nvim/init.lua",
+    "[rust]": {
+        "editor.formatOnSave": true
+    },
+    "rust-analyzer.cargo.allFeatures": true,
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.checkOnSave.extraArgs": [
+        "--",
+        "-A",
+        "clippy::needless_return"
+    ],
+    "workbench.iconTheme": "vscode-icons",
+    // ミニマップの非表示
+    "editor.minimap.enabled": false,
+    // 制御文字を表示
+    "editor.renderControlCharacters": true,
+    // パンくずリストの表示
+    "breadcrumbs.enabled": true,
+    // フォントサイズ
+    "editor.fontSize": 16,
+    // フォント
+    "editor.fontFamily": "'Fira Code', 'Ricty Diminished'",
+    // 合字の有効化
+    "editor.fontLigatures": true,
+    // 選択行の行番号をハイライト
+    "editor.renderLineHighlight": "all",
+    // 開始と終了の括弧にガイドが表示される
+    "editor.guides.bracketPairs": true,
+    // 開始と終了のブラケットをセットで同じ色にする
+    "editor.bracketPairColorization.enabled": true,
+    // ターミナルをタブで開く
+    "terminal.integrated.defaultLocation": "editor"
+}
