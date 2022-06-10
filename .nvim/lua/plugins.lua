@@ -24,11 +24,6 @@ require("packer").startup(function(use)
   use({ "EdenEast/nightfox.nvim" })
 
   use({
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
-  })
-
-  use({
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   })
@@ -111,11 +106,9 @@ require("packer").startup(function(use)
   })
 
   use({
-    "feline-nvim/feline.nvim",
-  })
-
-  use({
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
   })
+
+  use({ "feline-nvim/feline.nvim", branch = "0.5-compat" })
 end)
