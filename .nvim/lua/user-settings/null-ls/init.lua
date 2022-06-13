@@ -21,6 +21,17 @@ local function sync_formatting_on_save(client, buffer_number)
   end
 end
 
+local eslint_condition = function(utils)
+  utils.root_has_file({
+    ".eslintrc",
+    ".eslintrc.js",
+    ".eslintrc.cjs",
+    ".eslintrc.yaml",
+    ".eslintrc.yml",
+    ".eslintrc.json",
+  })
+end
+
 nls.setup({
   debug = false,
   sources = {
@@ -57,6 +68,10 @@ nls.setup({
     code_actions.eslint.with({
       prefer_local = "node_modules/.bin",
     }),
+    diagnostics.eslint.with({
+      prefer_local = "node_modules/.bin",
+      condition = eslint_condition,
+    }),
 
     -- プロジェクトローカルにprettierがインストールされていればそちらを、
     -- インストールされていなければグローバルのprettierを使用する
@@ -65,6 +80,7 @@ nls.setup({
     }),
 
     formatting.rustfmt,
+    formatting.terraform_fmt,
     code_actions.gitsigns,
   },
   on_attach = function(client, buffer_number)
