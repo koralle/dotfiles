@@ -1,6 +1,8 @@
 local nvim_lsp = require("lspconfig")
 local opts = { noremap = true, silent = true }
 
+vim.lsp.set_log_level("debug")
+
 vim.api.nvim_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
@@ -13,6 +15,10 @@ local set_lsp_keymap = function(_, buffer_number)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(buffer_number, "n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(buffer_number, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(buffer_number, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(buffer_number, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 end
 
 local disable_formatting = function(client, _)
