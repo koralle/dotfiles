@@ -111,4 +111,8 @@ require("packer").startup(function(use)
   })
 
   use({ "feline-nvim/feline.nvim", branch = "0.5-compat" })
+
+  use({
+    "rmagatti/auto-session",
+  })
 end)
