@@ -69,6 +69,7 @@ nls.setup({
       prefer_local = "node_modules/.bin",
     }),
     diagnostics.eslint.with({
+      diagnostics_format = "[#{c}] #{m} (#{s})",
       prefer_local = "node_modules/.bin",
       condition = eslint_condition,
     }),
