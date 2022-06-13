@@ -115,4 +115,8 @@ require("packer").startup(function(use)
   use({
     "rmagatti/auto-session",
   })
+
+  use({
+    "lewis6991/gitsigns.nvim",
+  })
 end)
