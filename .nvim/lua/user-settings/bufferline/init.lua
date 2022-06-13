@@ -23,6 +23,11 @@ require("bufferline").setup({
     left_mouse_command = "buffer %d",
     middle_mouse_command = "nil",
 
+    offsets = {
+      {
+        filetype = "NvimTree",
+      },
+    },
     tab_size = 32,
     diagnostics = "nvim_lsp",
     persist_buffer_sort = true,
