@@ -65,6 +65,7 @@ nls.setup({
     }),
 
     formatting.rustfmt,
+    code_actions.gitsigns,
   },
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)
