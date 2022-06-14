@@ -15,7 +15,7 @@ local function sync_formatting_on_save(client, buffer_number)
       group = augroup,
       buffer = buffer_number,
       callback = function()
-        vim.lsp.buf.formatting_sync()
+        vim.lsp.buf.formatting_sync(nil, 3000)
       end,
     })
   end
@@ -81,8 +81,14 @@ nls.setup({
     }),
 
     formatting.rustfmt,
-    formatting.terraform_fmt,
+    formatting.terraform_fmt.with({
+      timeout = 10000,
+    }),
     code_actions.gitsigns,
+
+    code_actions.shellcheck,
+
+    formatting.shfmt,
   },
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)
