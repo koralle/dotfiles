@@ -65,6 +65,13 @@ nvim_lsp.vimls.setup({
   on_attach = require("aerial").on_attach,
 })
 
+nvim_lsp.bashls.setup({
+  on_attach = function(client, buffer_number)
+    set_lsp_keymap(client, buffer_number)
+  end,
+  capabilities = capabilities,
+})
+
 nvim_lsp.tsserver.setup({
   on_attach = function(client, buffer_number)
     disable_formatting(client, buffer_number)

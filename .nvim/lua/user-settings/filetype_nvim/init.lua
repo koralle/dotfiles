@@ -6,5 +6,8 @@ require("filetype").setup({
       terraform = "terraform",
       tf = "terraform",
     },
+    shebang = {
+      dash = "sh",
+    },
   },
 })
