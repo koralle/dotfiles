@@ -54,6 +54,7 @@ require("telescope").setup({
 require("telescope").load_extension("packer")
 require("telescope").load_extension("flutter")
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("frecency")
 
 function WrappedTelescope(command)
   local handle, err = io.popen("git rev-parse --show-superproject-working-tree --show-toplevel | head -1")
