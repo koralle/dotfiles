@@ -38,6 +38,11 @@ require("packer").startup(function(use)
     requires = "nvim-telescope/telescope.nvim",
   })
 
+  use({
+    "nvim-telescope/telescope-frecency.nvim",
+    requires = { "tami5/sqlite.lua" },
+  })
+
   --use {
   --  'lambdalisue/fern.vim',
   --  require = 'antoinemadec/FixCursorHold.nvim'
