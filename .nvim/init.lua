@@ -27,6 +27,9 @@ vim.bo.softtabstop = 2
 vim.bo.tabstop = 2
 vim.bo.expandtab = true
 
+-- yankした内容をクリップボードと共有できるようにする
+vim.cmd("set clipboard+=unnamedplus")
+
 --カレントディレクトリを自動で移動
 vim.o.autochdir = true
 
