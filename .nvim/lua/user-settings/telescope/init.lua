@@ -6,6 +6,7 @@ vim.api.nvim_set_keymap("n", "<leader>ff", ":lua WrappedTelescope('Telescope git
 vim.api.nvim_set_keymap("n", "<leader>fg", ":lua WrappedTelescope('Telescope grep_string')<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fb", ":lua WrappedTelescope('Telescope buffers')<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>fn", ":lua WrappedTelescope('Telescope help_tag')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>cl", ":Telescope neoclip<cr>", opts)
 
 require("telescope").setup({
   defaults = {
@@ -55,6 +56,7 @@ require("telescope").load_extension("packer")
 require("telescope").load_extension("flutter")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("frecency")
+require("telescope").load_extension("neoclip")
 
 function WrappedTelescope(command)
   local handle, err = io.popen("git rev-parse --show-superproject-working-tree --show-toplevel | head -1")
