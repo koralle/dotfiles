@@ -25,6 +25,7 @@ cmp.setup({
     { name = "emoji" },
     { name = "nvim_lua" },
     { name = "nvim_lsp_signature_help" },
+    { name = "treesitter" },
   }),
   mapping = cmp.mapping.preset.insert({
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
