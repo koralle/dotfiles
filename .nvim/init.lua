@@ -77,3 +77,17 @@ vim.api.nvim_set_keymap("n", "sv", ":<C-u>vs<CR><C-w>l", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "-", "<C-x>", { noremap = true, silent = true })
+
+-- quickfix-windowのデフォルトの表示位置を左端に変更
+vim.cmd("autocmd FileType qf wincmd J")
+
+-- quickfix-windowを開き、modifiableに設定し、windowサイズを調整
+function _G.OpenQuickFixWindow()
+  vim.cmd([[
+    cw
+    set modifiable
+    vertical resize 60
+  ]])
+end
+
+vim.cmd("autocmd QuickfixCmdPost vimgrep call v:lua.OpenQuickFixWindow()")
