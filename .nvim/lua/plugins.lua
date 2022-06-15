@@ -140,4 +140,8 @@ require("packer").startup(function(use)
     cmd = "CodeActionMenu",
   })
   use("j-hui/fidget.nvim")
+  use({
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  })
 end)
