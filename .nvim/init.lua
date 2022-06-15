@@ -42,7 +42,7 @@ vim.o.autochdir = true
 vim.o.hidden = true
 
 -- フォントの設定
-local font = "Ricty Diminished 16"
+local font = "PlemolJP Console NF 16"
 vim.o.guifont = font
 vim.o.guifontwide = font
 
