@@ -15,6 +15,7 @@ require("packer").startup(function(use)
   use("onsails/lspkind.nvim")
   use("hrsh7th/cmp-path")
   use("hrsh7th/cmp-cmdline")
+  use("hrsh7th/cmp-nvim-lua")
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
