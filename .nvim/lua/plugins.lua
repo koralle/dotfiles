@@ -130,4 +130,5 @@ require("packer").startup(function(use)
     "weilbith/nvim-code-action-menu",
     cmd = "CodeActionMenu",
   })
+  use("j-hui/fidget.nvim")
 end)
