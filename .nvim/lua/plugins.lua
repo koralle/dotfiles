@@ -13,6 +13,8 @@ require("packer").startup(function(use)
   use("L3MON4D3/LuaSnip")
   use("hrsh7th/cmp-emoji")
   use("onsails/lspkind.nvim")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-cmdline")
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
