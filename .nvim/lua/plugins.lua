@@ -152,4 +152,17 @@ require("packer").startup(function(use)
       module = "sqlite",
     },
   })
+
+  use({
+    "kevinhwang91/nvim-bqf",
+    tf = "qf",
+    requires = {
+      { "junegunn/fzf", run = "fzf#install()" },
+      { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+    },
+  })
+
+  use({
+    "thinca/vim-qfreplace",
+  })
 end)
