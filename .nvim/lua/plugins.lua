@@ -165,4 +165,6 @@ require("packer").startup(function(use)
   use({
     "thinca/vim-qfreplace",
   })
+
+  use("b0o/schemastore.nvim")
 end)

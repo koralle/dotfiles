@@ -1,4 +1,5 @@
 local nvim_lsp = require("lspconfig")
+local schemastore = require("schemastore")
 local opts = { noremap = true, silent = true }
 
 vim.lsp.set_log_level("debug")
@@ -108,6 +109,21 @@ nvim_lsp.pyright.setup({
     set_lsp_keymap(_, buffer_number)
   end,
   capabilities = capabilities,
+})
+
+nvim_lsp.jsonls.setup({
+  settings = {
+    json = {
+      schemas = schemastore.json.schemas({
+        select = {
+          ".eslintrc",
+          "package.json",
+          "tsconfig.json",
+        },
+      }),
+      validate = { enable = true },
+    },
+  },
 })
 
 require("flutter-tools").setup({
