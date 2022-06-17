@@ -129,13 +129,13 @@ function TelescopeFilePickersOnGitRepositoryRoot(user_command)
 
   if isUnderGitRepository() then
     cdGitRepositoryRoot()
+    vim.cmd(":Telescope " .. user_command)
+    return
   end
 
   if user_command == "git_files" then
     vim.cmd(":Telescope fd")
     return
-  else
-    vim.cmd(":Telescope " .. user_command)
-    return
   end
+  vim.cmd(":Telescope " .. user_command)
 end
