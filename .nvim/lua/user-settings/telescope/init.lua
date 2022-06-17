@@ -1,11 +1,13 @@
 local opts = { noremap = true, silent = true }
 local trouble = require("trouble.providers.telescope")
 
-vim.api.nvim_set_keymap("n", "<leader>fd", ":lua WrappedTelescope('Telescope fd')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>ff", ":lua WrappedTelescope('Telescope git_files')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fg", ":lua WrappedTelescope('Telescope grep_string')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fb", ":lua WrappedTelescope('Telescope buffers')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fn", ":lua WrappedTelescope('Telescope help_tag')<cr>", opts)
+--vim.api.nvim_set_keymap("n", "<leader>fd", ":Telescope fd<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>ff", ":lua TelescopeFilePickersOnGitRepositoryRoot('git_files')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>lg", ":lua TelescopeFilePickersOnGitRepositoryRoot('live_grep')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fd", ":lua TelescopeFilePickersOnGitRepositoryRoot('find_files')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>gs", ":lua TelescopeFilePickersOnGitRepositoryRoot('grep_string')<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>fn", ":Telescope help_tag<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>cl", ":Telescope neoclip<cr>", opts)
 
 require("telescope").setup({
@@ -58,23 +60,82 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("frecency")
 require("telescope").load_extension("neoclip")
 
-function WrappedTelescope(command)
-  local handle, err = io.popen("git rev-parse --show-superproject-working-tree --show-toplevel | head -1")
-
-  if handle ~= nil then
-    -- 変数resultにはGitリポジトリのルートディレクトリのパスが格納される
-    local result = handle:read("l")
-    if handle == nil then
-      return
+local function contains(list, x)
+  for _, v in pairs(list) do
+    if v == x then
+      return true
     end
-    handle:close()
+  end
+  return false
+end
 
-    local cd_command = "cd " .. result
+-- Gitのワーキングツリーの下にいるかどうかを判定する
+local function isUnderGitRepository()
+  local handle, err = io.popen("git rev-parse --is-inside-work-tree 2> /dev/null")
 
-    vim.cmd(cd_command)
-    vim.cmd(command)
-  elseif err ~= nil then
-    print(err)
+  if handle == nil then
+    return false
+  end
+
+  if err ~= nil then
+    return false
+  end
+
+  local result = handle:read("l")
+
+  handle:close()
+
+  if result == nil then
+    return false
+  end
+
+  return true
+end
+
+-- Gitリポジトリ下で、.gitがあるディレクトリまで移動する
+local function cdGitRepositoryRoot()
+  local handle, err = io.popen("git rev-parse --show-superproject-working-tree --show-toplevel | head -1 2> /dev/null")
+
+  if handle == nil then
+    return
+  end
+
+  if err ~= nil then
+    return
+  end
+
+  local result = handle:read("l")
+  handle:close()
+
+  if result == nil then
+    return
+  end
+
+  vim.cmd("cd" .. result)
+end
+
+function TelescopeFilePickersOnGitRepositoryRoot(user_command)
+  local available_file_pickers = {
+    "find_files",
+    "git_files",
+    "grep_string",
+    "live_grep",
+  }
+
+  if contains(available_file_pickers, user_command) == false then
+    vim.notify("Unavailable Telescope File Picker: " .. user_command, "error")
+    return
+  end
+
+  if isUnderGitRepository() then
+    cdGitRepositoryRoot()
+  end
+
+  if user_command == "git_files" then
+    vim.cmd(":Telescope fd")
+    return
+  else
+    vim.cmd(":Telescope " .. user_command)
     return
   end
 end
