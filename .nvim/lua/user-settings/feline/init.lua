@@ -100,26 +100,6 @@ local active_right_components = {
     },
   },
   {
-    provider = "file_type",
-    hl = {
-      fg = "#191726",
-      bg = "#a3be8c",
-    },
-    left_sep = {
-      str = "█",
-      hl = {
-        fg = "#a3be8c",
-        bg = "#569fba",
-      },
-    },
-    right_sep = {
-      str = " ",
-      hl = {
-        bg = "#a3be8c",
-      },
-    },
-  },
-  {
     provider = "position",
     hl = {
       fg = "#e0def4",
@@ -130,7 +110,7 @@ local active_right_components = {
       str = "█",
       hl = {
         fg = "#d84f76",
-        bg = "#a3be8c",
+        bg = "#569fba",
       },
     },
     right_sep = {
