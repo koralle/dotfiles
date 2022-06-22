@@ -28,24 +28,107 @@ local disable_formatting = function(client, _)
   client.resolved_capabilities.document_range_formatting = false
 end
 
+-- Change diagnostic symbols in the sign column (gutter)
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- Go-to definition in a split window
+local function goto_definition(split_cmd)
+  local util = vim.lsp.util
+  local log = require("vim.lsp.log")
+  local api = vim.api
+
+  -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
+  local handler = function(_, result, ctx)
+    if result == nil or vim.tbl_isempty(result) then
+      local _ = log.info() and log.info(ctx.method, "No location found")
+      return nil
+    end
+
+    if split_cmd then
+      vim.cmd(split_cmd)
+    end
+
+    if vim.tbl_islist(result) then
+      util.jump_to_location(result[1])
+
+      if #result > 1 then
+        util.set_qflist(util.locations_to_items(result))
+        api.nvim_command("copen")
+        api.nvim_command("wincmd p")
+      end
+    else
+      util.jump_to_location(result)
+    end
+  end
+
+  return handler
+end
+
+vim.lsp.handlers["textDocument/definition"] = goto_definition("split")
+
+-- Highlight symbol under cursor
+local function highlight_symbol_under_cursor(client, buffer_number)
+  if client.resolved_capabilities.document_highlight then
+    vim.cmd([[
+    hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+    hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+  ]])
+    vim.api.nvim_create_augroup("lsp_document_highlight", {
+      clear = false,
+    })
+    vim.api.nvim_clear_autocmds({
+      buffer = buffer_number,
+      group = "lsp_document_highlight",
+    })
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      group = "lsp_document_highlight",
+      buffer = buffer_number,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+      group = "lsp_document_highlight",
+      buffer = buffer_number,
+      callback = vim.lsp.buf.clear_references,
+    })
+  end
+end
+
+-- sumneko/lua-language-server
 nvim_lsp.sumneko_lua.setup({
   capabilities = capabilities,
   settings = {
     Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
       diagnostics = {
         globals = { "vim" },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
       },
     },
   },
   on_attach = function(client, buffer_number)
+    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
 })
 
+-- rust-lang/rust-analyzer
 nvim_lsp.rust_analyzer.setup({
   capabilities = capabilities,
   on_attach = function(client, buffer_number)
+    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
@@ -65,30 +148,38 @@ nvim_lsp.rust_analyzer.setup({
   },
 })
 
+-- iamcco/vim-language-server
 nvim_lsp.vimls.setup({
   capabilities = capabilities,
   on_attach = function(client, buffer_number)
+    highlight_symbol_under_cursor(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
 })
 
+-- bash-lsp/bash-language-server
 nvim_lsp.bashls.setup({
   on_attach = function(client, buffer_number)
+    highlight_symbol_under_cursor(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
   capabilities = capabilities,
 })
 
+-- typescript-language-server/typescript-language-server
 nvim_lsp.tsserver.setup({
   on_attach = function(client, buffer_number)
+    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
   capabilities = capabilities,
 })
 
+-- hashicorp/terraform-ls
 nvim_lsp.terraformls.setup({
   on_attach = function(client, buffer_number)
+    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
@@ -99,8 +190,10 @@ nvim_lsp.terraformls.setup({
   capabilities = capabilities,
 })
 
+-- terraform-linters/tflint
 nvim_lsp.tflint.setup({
   on_attach = function(_, buffer_number)
+    highlight_symbol_under_cursor(_, buffer_number)
     set_lsp_keymap(_, buffer_number)
   end,
   cmd = { "tflint", "--langserver" },
@@ -110,13 +203,16 @@ nvim_lsp.tflint.setup({
   capabilities = capabilities,
 })
 
+-- microsoft/pyright
 nvim_lsp.pyright.setup({
   on_attach = function(_, buffer_number)
+    highlight_symbol_under_cursor(_, buffer_number)
     set_lsp_keymap(_, buffer_number)
   end,
   capabilities = capabilities,
 })
 
+-- vscode-json-language-server
 nvim_lsp.jsonls.setup({
   settings = {
     json = {
@@ -152,6 +248,7 @@ require("flutter-tools").setup({
   },
   lsp = {
     on_attach = function(_, buffer_number)
+      highlight_symbol_under_cursor(_, buffer_number)
       set_lsp_keymap(_, buffer_number)
     end,
     color = {
