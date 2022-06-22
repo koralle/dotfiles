@@ -9,7 +9,8 @@ vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", op
 vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local set_lsp_keymap = function(_, buffer_number)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -28,6 +29,7 @@ local disable_formatting = function(client, _)
 end
 
 nvim_lsp.sumneko_lua.setup({
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -42,6 +44,7 @@ nvim_lsp.sumneko_lua.setup({
 })
 
 nvim_lsp.rust_analyzer.setup({
+  capabilities = capabilities,
   on_attach = function(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
@@ -63,7 +66,10 @@ nvim_lsp.rust_analyzer.setup({
 })
 
 nvim_lsp.vimls.setup({
-  on_attach = require("aerial").on_attach,
+  capabilities = capabilities,
+  on_attach = function(client, buffer_number)
+    set_lsp_keymap(client, buffer_number)
+  end,
 })
 
 nvim_lsp.bashls.setup({
@@ -127,6 +133,7 @@ nvim_lsp.jsonls.setup({
 })
 
 require("flutter-tools").setup({
+  capabilities = capabilities,
   decorations = {
     statusline = {
       app_version = true,
