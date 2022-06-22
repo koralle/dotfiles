@@ -18,6 +18,11 @@ require("packer").startup(function(use)
   use("hrsh7th/cmp-nvim-lua")
   use("hrsh7th/cmp-nvim-lsp-signature-help")
   use("ray-x/cmp-treesitter")
+  use("hrsh7th/cmp-omni")
+  use({
+    "David-Kunz/cmp-npm",
+    requires = "nvim-lua/plenary.nvim",
+  })
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
