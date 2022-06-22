@@ -1,6 +1,5 @@
 require("plugins")
 require("setup")
-require("tig")
 
 vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
