@@ -180,4 +180,7 @@ require("packer").startup(function(use)
     "akinsho/toggleterm.nvim",
     tag = "v1.*",
   })
+  use({
+    "simrat39/symbols-outline.nvim",
+  })
 end)
