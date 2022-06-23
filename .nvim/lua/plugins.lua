@@ -172,4 +172,8 @@ require("packer").startup(function(use)
   })
 
   use("b0o/schemastore.nvim")
+  use({
+    "iberianpig/tig-explorer.vim",
+    requires = "rbgrouleff/bclose.vim",
+  })
 end)
