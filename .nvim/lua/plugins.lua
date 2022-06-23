@@ -176,4 +176,8 @@ require("packer").startup(function(use)
     "iberianpig/tig-explorer.vim",
     requires = "rbgrouleff/bclose.vim",
   })
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = "v1.*",
+  })
 end)
