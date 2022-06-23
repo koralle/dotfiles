@@ -1,6 +1,4 @@
 vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>", ":NvimTreeFindFile<CR>", { noremap = true })
 
 local list = {
   -- 'simeji/winresizer'のkeybindingsと被るため
@@ -27,4 +25,3 @@ require("nvim-tree").setup({
 })
 
 vim.api.nvim_set_var("nvim_tree_git_hl", 1)
-
