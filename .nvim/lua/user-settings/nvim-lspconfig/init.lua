@@ -1,4 +1,5 @@
 local nvim_lsp = require("lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
 local schemastore = require("schemastore")
 local opts = { noremap = true, silent = true }
 
