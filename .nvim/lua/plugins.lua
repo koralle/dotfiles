@@ -4,7 +4,9 @@ require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
   use({
     "neovim/nvim-lspconfig",
-    "williamboman/nvim-lsp-installer",
+    --"williamboman/nvim-lsp-installer",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
   })
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-nvim-lsp")
