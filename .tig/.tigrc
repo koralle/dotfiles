@@ -1,6 +1,9 @@
 # tig settings
 set git-colors = no
 
+# display commit id on main view
+set main-view = id date author commit-title:graph=yes,refs=yes
+
 # Interactive rebase
 bind main    R    !git rebase -i %(commit)
 bind diff    R    !git rebase -i %(commit)
