@@ -229,6 +229,24 @@ nvim_lsp.jsonls.setup({
   },
 })
 
+-- Volar (Vue Language Server for Vue 3.x)
+nvim_lsp.volar.setup({
+  on_attach = function(_, buffer_number)
+    highlight_symbol_under_cursor(_, buffer_number)
+    set_lsp_keymap(_, buffer_number)
+  end,
+  capabilities = capabilities,
+  -- use Take Over Mode
+  filetypes = {
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+    "json",
+  },
+})
+
 require("flutter-tools").setup({
   capabilities = capabilities,
   decorations = {
