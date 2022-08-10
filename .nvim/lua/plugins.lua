@@ -185,4 +185,8 @@ require("packer").startup(function(use)
   use({
     "simrat39/symbols-outline.nvim",
   })
+
+  use({
+    "dinhhuy258/git.nvim",
+  })
 end)
