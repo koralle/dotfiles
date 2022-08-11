@@ -22,11 +22,11 @@ local opts = { silent = true }
 -- hover doc
 vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<cr>", opts)
 
-vim.keymap.set("n", "<C-j>", function()
+vim.keymap.set("n", "<A-j>", function()
   action.smart_scroll_with_saga(1)
 end, opts)
-
-vim.keymap.set("n", "<C-k>", function()
+--
+vim.keymap.set("n", "<A-k>", function()
   action.smart_scroll_with_saga(-1)
 end, opts)
 
