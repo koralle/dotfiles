@@ -247,6 +247,25 @@ nvim_lsp.volar.setup({
   },
 })
 
+-- gopls
+nvim_lsp.gopls.setup({
+  on_attach = function(_, buffer_number)
+    disable_formatting(_, buffer_number)
+    highlight_symbol_under_cursor(_, buffer_number)
+    set_lsp_keymap(_, buffer_number)
+  end,
+  capabilities = capabilities,
+})
+
+-- golangci-lint
+nvim_lsp.golangci_lint_ls.setup({
+  on_attach = function(_, buffer_number)
+    highlight_symbol_under_cursor(_, buffer_number)
+    set_lsp_keymap(_, buffer_number)
+  end,
+  capabilities = capabilities,
+})
+
 require("flutter-tools").setup({
   capabilities = capabilities,
   decorations = {

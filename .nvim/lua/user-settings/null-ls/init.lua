@@ -89,6 +89,10 @@ nls.setup({
     code_actions.shellcheck,
 
     formatting.shfmt,
+
+    -- Go
+    formatting.gofmt,
+    formatting.goimports,
   },
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)
