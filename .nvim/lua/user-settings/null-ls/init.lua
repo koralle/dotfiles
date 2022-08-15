@@ -78,6 +78,22 @@ nls.setup({
     -- インストールされていなければグローバルのprettierを使用する
     formatting.prettier.with({
       prefer_local = "node_modules/.bin",
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "css",
+        "scss",
+        "less",
+        "html",
+        "json",
+        "jsonc",
+        "markdown",
+        "graphql",
+        "handlebars",
+      },
     }),
 
     formatting.rustfmt,
