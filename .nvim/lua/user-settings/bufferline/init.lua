@@ -14,128 +14,129 @@ vim.opt.termguicolors = true
 
 local palette = {
   background = "#111111",
-  guibg = "#131a24",
-  selected_guibg = "#232136",
-  error_guifg = "#d84f76",
-  warn_guifg = "#f6c177",
-  info_guifg = "#9ccfd8",
+  bg = "#131a24",
+  selected_bg = "#232136",
+  error_fg = "#d84f76",
+  warn_fg = "#f6c177",
+  info_fg = "#9ccfd8",
 }
 
 require("bufferline").setup({
   highlights = {
     fill = {
-      guibg = palette.background,
+      bg = palette.background,
     },
     tab = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     background = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     buffer_visible = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     buffer_selected = {
-      gui = "bold,italic",
+      bold = true,
+      italic = true,
     },
     tab_selected = {
-      guibg = palette.selected_guibg,
+      bg = palette.selected_bg,
     },
     close_button = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     close_button_visible = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     diagnostic = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     diagnostic_visible = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     info = {
-      guifg = palette.info_guifg,
-      guibg = palette.guibg,
+      fg = palette.info_fg,
+      bg = palette.bg,
     },
     info_visible = {
-      guifg = palette.info_guifg,
-      guibg = palette.guibg,
+      fg = palette.info_fg,
+      bg = palette.bg,
     },
     info_diagnostic = {
-      guifg = palette.info_guifg,
-      guibg = palette.guibg,
+      fg = palette.info_fg,
+      bg = palette.bg,
     },
     info_diagnostic_visible = {
-      guifg = palette.info_guifg,
-      guibg = palette.guibg,
+      fg = palette.info_fg,
+      bg = palette.bg,
     },
     info_diagnostic_selected = {
-      guifg = palette.info_guifg,
+      fg = palette.info_fg,
     },
     warning = {
-      guifg = palette.warn_guifg,
-      guibg = palette.guibg,
+      fg = palette.warn_fg,
+      bg = palette.bg,
     },
     warning_selected = {
-      guifg = palette.warn_guifg,
+      fg = palette.warn_fg,
     },
     warning_visible = {
-      guifg = palette.warn_guifg,
-      guibg = palette.guibg,
+      fg = palette.warn_fg,
+      bg = palette.bg,
     },
     warning_diagnostic = {
-      guifg = palette.warn_guifg,
-      guibg = palette.guibg,
+      fg = palette.warn_fg,
+      bg = palette.bg,
     },
     warning_diagnostic_visible = {
-      guifg = palette.warn_guifg,
-      guibg = palette.guibg,
+      fg = palette.warn_fg,
+      bg = palette.bg,
     },
     warning_diagnostic_selected = {
-      guifg = palette.warn_guifg,
+      fg = palette.warn_fg,
     },
     error = {
-      guifg = palette.error_guifg,
-      guibg = palette.guibg,
+      fg = palette.error_fg,
+      bg = palette.bg,
     },
     error_selected = {
-      guifg = palette.error_guifg,
+      fg = palette.error_fg,
     },
     error_visible = {
-      guifg = palette.error_guifg,
-      guibg = palette.guibg,
+      fg = palette.error_fg,
+      bg = palette.bg,
     },
     error_diagnostic = {
-      guifg = palette.error_guifg,
-      guibg = palette.guibg,
+      fg = palette.error_fg,
+      bg = palette.bg,
     },
     error_diagnostic_visible = {
-      guifg = palette.error_guifg,
-      guibg = palette.guibg,
+      fg = palette.error_fg,
+      bg = palette.bg,
     },
     error_diagnostic_selected = {
-      guifg = palette.error_guifg,
+      fg = palette.error_fg,
     },
     duplicate = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     duplicate_visible = {
-      guibg = palette.guibg,
+      bg = palette.bg,
     },
     duplicate_selected = {
-      guibg = palette.selected_guibg,
+      bg = palette.selected_bg,
     },
     separator_visible = {
-      guifg = palette.background,
-      guibg = palette.guibg,
+      fg = palette.background,
+      bg = palette.bg,
     },
     separator = {
-      guifg = palette.background,
-      guibg = palette.guibg,
+      fg = palette.background,
+      bg = palette.bg,
     },
     separator_selected = {
-      guifg = palette.background,
-      guibg = palette.selected_guibg,
+      fg = palette.background,
+      bg = palette.selected_bg,
     },
   },
   options = {
@@ -176,19 +177,19 @@ require("bufferline").setup({
         local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
         if error ~= 0 then
-          table.insert(result, { text = "  " .. error, guifg = "#d84f76" })
+          table.insert(result, { text = "  " .. error, fg = "#d84f76" })
         end
 
         if warning ~= 0 then
-          table.insert(result, { text = "  " .. warning, guifg = "#f6c177" })
+          table.insert(result, { text = "  " .. warning, fg = "#f6c177" })
         end
 
         if hint ~= 0 then
-          table.insert(result, { text = "  " .. hint, guifg = "#569fba" })
+          table.insert(result, { text = "  " .. hint, fg = "#569fba" })
         end
 
         if info ~= 0 then
-          table.insert(result, { text = "  " .. info, guifg = palette.info_guifg })
+          table.insert(result, { text = "  " .. info, fg = palette.info_fg })
         end
         return result
       end,
