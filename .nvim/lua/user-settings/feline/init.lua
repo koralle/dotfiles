@@ -16,6 +16,28 @@ end
 
 local active_left_components = {
   {
+    provider = "git_branch",
+    enabled = function()
+      return require("feline.providers.git").git_info_exists()
+    end,
+    hl = {
+      fg = "#393552",
+      bg = "#a3be8c",
+    },
+    left_sep = {
+      str = "█",
+      hl = {
+        fg = "#a3be8c",
+      },
+    },
+    right_sep = {
+      str = "█",
+      hl = {
+        fg = "#a3be8c",
+      },
+    },
+  },
+  {
     provider = "file_info",
     hl = {
       fg = "#9ccfd8",
@@ -25,20 +47,26 @@ local active_left_components = {
       hl = {},
     },
     right_sep = {
-      str = " ",
+      str = "",
       hl = {},
     },
   },
   {
-    provider = "git_branch",
-    enabled = function()
-      return require("feline.providers.git").git_info_exists()
-    end,
+    provider = "git_diff_added",
     hl = {
       fg = "#a3be8c",
     },
-    right_sep = {
-      str = " ",
+  },
+  {
+    provider = "git_diff_removed",
+    hl = {
+      fg = "#d84f76",
+    },
+  },
+  {
+    provider = "git_diff_changed",
+    hl = {
+      fg = "#f6c177",
     },
   },
 }
