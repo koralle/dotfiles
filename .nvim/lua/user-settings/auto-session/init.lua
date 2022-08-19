@@ -1,5 +1,9 @@
-local session = require("auto-session")
+--local session = require("auto-session")
+local status, session = pcall(require, "auto-session")
 
+if not status then
+  return
+end
 session.setup({
   -- Sets the log level of the plugin
   log_level = "info",
