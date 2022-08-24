@@ -91,3 +91,6 @@ function _G.OpenQuickFixWindow()
 end
 
 vim.cmd("autocmd QuickfixCmdPost vimgrep call v:lua.OpenQuickFixWindow()")
+
+-- skip loading sqlcomplete.vim
+vim.g.loaded_sql_completion = 1
