@@ -3,6 +3,27 @@ local mason_lspconfig = require("mason-lspconfig")
 local schemastore = require("schemastore")
 local opts = { noremap = true, silent = true }
 
+local function getGitRepositoryRootPath()
+  local handle, err = io.popen("git rev-parse --show-superproject-working-tree --show-toplevel | head -1 2> /dev/null")
+
+  if handle == nil then
+    return
+  end
+
+  if err ~= nil then
+    return
+  end
+
+  local result = handle:read("l")
+  handle:close()
+
+  if result == nil then
+    return
+  end
+
+  return result
+end
+
 vim.lsp.set_log_level("debug")
 
 vim.api.nvim_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -264,6 +285,26 @@ nvim_lsp.golangci_lint_ls.setup({
     set_lsp_keymap(_, buffer_number)
   end,
   capabilities = capabilities,
+})
+
+-- lighttiger2505/sqls
+nvim_lsp.sqls.setup({
+  capabilities = capabilities,
+  on_attach = function(client, buffer_number)
+    disable_formatting(client, buffer_number)
+    highlight_symbol_under_cursor(client, buffer_number)
+    set_lsp_keymap(client, buffer_number)
+  end,
+  settings = {
+    sqls = {
+      connections = {},
+    },
+  },
+  cmd = {
+    "sqls",
+    "--config",
+    getGitRepositoryRootPath() .. "/sqls_config.yaml",
+  },
 })
 
 require("flutter-tools").setup({

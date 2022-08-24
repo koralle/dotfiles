@@ -109,6 +109,13 @@ nls.setup({
     -- Go
     formatting.gofmt,
     formatting.goimports,
+
+    -- SQL
+    diagnostics.sqlfluff.with({
+      -- 引数dialectは場合によって変更する
+      extra_args = { "--dialect", "mysql" },
+    }),
+    formatting.sql_formatter,
   },
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)
