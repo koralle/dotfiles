@@ -198,4 +198,8 @@ require("packer").startup(function(use)
   use({
     "dinhhuy258/git.nvim",
   })
+
+  use({
+    "vim-scripts/dbext.vim",
+  })
 end)
