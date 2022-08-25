@@ -14,7 +14,9 @@ if not action_status then
 end
 
 saga.init_lsp_saga({
-  server_filetype_map = {},
+  code_action_lightbulb = {
+    enable = false,
+  },
 })
 
 local opts = { silent = true }
