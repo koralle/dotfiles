@@ -14,7 +14,9 @@ if not action_status then
 end
 
 saga.init_lsp_saga({
-  server_filetype_map = {},
+  code_action_lightbulb = {
+    enable = false,
+  },
 })
 
 local opts = { silent = true }
@@ -64,3 +66,6 @@ end, opts)
 -- or use command
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+
+-- Outline
+vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts)

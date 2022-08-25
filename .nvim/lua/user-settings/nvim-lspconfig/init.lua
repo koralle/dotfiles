@@ -92,34 +92,6 @@ end
 
 vim.lsp.handlers["textDocument/definition"] = goto_definition("split")
 
--- Highlight symbol under cursor
-local function highlight_symbol_under_cursor(client, buffer_number)
-  if client.resolved_capabilities.document_highlight then
-    vim.cmd([[
-    hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-    hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-  ]])
-    vim.api.nvim_create_augroup("lsp_document_highlight", {
-      clear = false,
-    })
-    vim.api.nvim_clear_autocmds({
-      buffer = buffer_number,
-      group = "lsp_document_highlight",
-    })
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-      group = "lsp_document_highlight",
-      buffer = buffer_number,
-      callback = vim.lsp.buf.document_highlight,
-    })
-    vim.api.nvim_create_autocmd("CursorMoved", {
-      group = "lsp_document_highlight",
-      buffer = buffer_number,
-      callback = vim.lsp.buf.clear_references,
-    })
-  end
-end
-
 -- sumneko/lua-language-server
 nvim_lsp.sumneko_lua.setup({
   capabilities = capabilities,
@@ -140,7 +112,6 @@ nvim_lsp.sumneko_lua.setup({
     },
   },
   on_attach = function(client, buffer_number)
-    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
@@ -150,7 +121,6 @@ nvim_lsp.sumneko_lua.setup({
 nvim_lsp.rust_analyzer.setup({
   capabilities = capabilities,
   on_attach = function(client, buffer_number)
-    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
@@ -174,7 +144,6 @@ nvim_lsp.rust_analyzer.setup({
 nvim_lsp.vimls.setup({
   capabilities = capabilities,
   on_attach = function(client, buffer_number)
-    highlight_symbol_under_cursor(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
 })
@@ -182,7 +151,6 @@ nvim_lsp.vimls.setup({
 -- bash-lsp/bash-language-server
 nvim_lsp.bashls.setup({
   on_attach = function(client, buffer_number)
-    highlight_symbol_under_cursor(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
   capabilities = capabilities,
@@ -191,7 +159,6 @@ nvim_lsp.bashls.setup({
 -- typescript-language-server/typescript-language-server
 nvim_lsp.tsserver.setup({
   on_attach = function(client, buffer_number)
-    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
@@ -201,7 +168,6 @@ nvim_lsp.tsserver.setup({
 -- hashicorp/terraform-ls
 nvim_lsp.terraformls.setup({
   on_attach = function(client, buffer_number)
-    highlight_symbol_under_cursor(client, buffer_number)
     disable_formatting(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
@@ -215,7 +181,6 @@ nvim_lsp.terraformls.setup({
 -- terraform-linters/tflint
 nvim_lsp.tflint.setup({
   on_attach = function(_, buffer_number)
-    highlight_symbol_under_cursor(_, buffer_number)
     set_lsp_keymap(_, buffer_number)
   end,
   cmd = { "tflint", "--langserver" },
@@ -228,7 +193,6 @@ nvim_lsp.tflint.setup({
 -- microsoft/pyright
 nvim_lsp.pyright.setup({
   on_attach = function(_, buffer_number)
-    highlight_symbol_under_cursor(_, buffer_number)
     set_lsp_keymap(_, buffer_number)
   end,
   capabilities = capabilities,
@@ -253,7 +217,6 @@ nvim_lsp.jsonls.setup({
 -- Volar (Vue Language Server for Vue 3.x)
 nvim_lsp.volar.setup({
   on_attach = function(_, buffer_number)
-    highlight_symbol_under_cursor(_, buffer_number)
     set_lsp_keymap(_, buffer_number)
   end,
   capabilities = capabilities,
@@ -272,7 +235,6 @@ nvim_lsp.volar.setup({
 nvim_lsp.gopls.setup({
   on_attach = function(_, buffer_number)
     disable_formatting(_, buffer_number)
-    highlight_symbol_under_cursor(_, buffer_number)
     set_lsp_keymap(_, buffer_number)
   end,
   capabilities = capabilities,
@@ -281,7 +243,6 @@ nvim_lsp.gopls.setup({
 -- golangci-lint
 nvim_lsp.golangci_lint_ls.setup({
   on_attach = function(_, buffer_number)
-    highlight_symbol_under_cursor(_, buffer_number)
     set_lsp_keymap(_, buffer_number)
   end,
   capabilities = capabilities,
@@ -292,7 +253,6 @@ nvim_lsp.sqls.setup({
   capabilities = capabilities,
   on_attach = function(client, buffer_number)
     disable_formatting(client, buffer_number)
-    highlight_symbol_under_cursor(client, buffer_number)
     set_lsp_keymap(client, buffer_number)
   end,
   settings = {
@@ -327,7 +287,6 @@ require("flutter-tools").setup({
   },
   lsp = {
     on_attach = function(_, buffer_number)
-      highlight_symbol_under_cursor(_, buffer_number)
       set_lsp_keymap(_, buffer_number)
     end,
     color = {
