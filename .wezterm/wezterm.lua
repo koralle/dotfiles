@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 local color_scheme = "Afterglow"
-local font = "PlemolJP Console NF"
+local font = "Cica"
 
 return {
   font = wezterm.font(font),
