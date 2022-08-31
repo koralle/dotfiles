@@ -2,7 +2,7 @@
 vim.cmd("let g:fern#default_hidden = 1")
 
 -- Ctrl+nでファイルツリーの表示/非表示をtoggle切り換えする
-vim.api.nvim_set_keymap("n", "<C-n>", ":Fern . -reveal=* -drawer -toggle -width=40<CR>", { noremap = true })
+vim.keymap.set("n", "<C-n>", ":Fern . -reveal=* -drawer -toggle -width=40<CR>", { noremap = true })
 
 -- fix Performance Bug
 vim.cmd("let g:cursorhold_updatetime = 100")
