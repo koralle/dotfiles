@@ -12,6 +12,7 @@ vim.keymap.set("n", "<leader>cl", ":Telescope neoclip<cr>", opts)
 
 require("telescope").setup({
   defaults = {
+    borderchars = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
     vimgrep_arguments = {
       "rg",
       "--color=never",
