@@ -240,14 +240,6 @@ nvim_lsp.gopls.setup({
   capabilities = capabilities,
 })
 
--- golangci-lint
-nvim_lsp.golangci_lint_ls.setup({
-  on_attach = function(_, buffer_number)
-    set_lsp_keymap(_, buffer_number)
-  end,
-  capabilities = capabilities,
-})
-
 -- lighttiger2505/sqls
 nvim_lsp.sqls.setup({
   capabilities = capabilities,
