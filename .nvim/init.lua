@@ -34,21 +34,21 @@ vim.cmd("set clipboard+=unnamedplus")
 vim.o.autochdir = true
 
 -- 1つ前のバッファに切り替える
---vim.api.nvim_set_keymap('n', '<C-j>', ':bprev<CR>', { noremap = true, silent = true })
+--vim.keymap.set('n', '<C-j>', ':bprev<CR>', { noremap = true, silent = true })
 -- 1つ後のバッファに切り替える
---vim.api.nvim_set_keymap('n', '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
+--vim.keymap.set('n', '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
 
 -- ファイル編集中にバッファの切り替えが可能
 vim.o.hidden = true
 
 -- フォントの設定
-local font = "Cica 16"
+local font = "Cica 20"
 vim.o.guifont = font
 vim.o.guifontwide = font
 
 -- ターミナルモード時のkeymap
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
-vim.api.nvim_set_keymap("t", "<C-[>", "<C-\\><C-n>", { noremap = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { noremap = true })
 
 -- コマンドモードで"T"を入力すると現在のウインドウの下にTerminalを開く
 vim.cmd("command! -nargs=* T split | wincmd j | resize 20 | terminal <args>")
@@ -67,16 +67,16 @@ vim.cmd("let g:vimsyn_embed = '1'")
 vim.cmd("set autochdir")
 
 -- 画面分割のキーバインド
-vim.api.nvim_set_keymap("n", "sj", "<C-W>j", { noremap = true })
-vim.api.nvim_set_keymap("n", "sk", "<C-W>k", { noremap = true })
-vim.api.nvim_set_keymap("n", "sl", "<C-W>l", { noremap = true })
-vim.api.nvim_set_keymap("n", "sh", "<C-W>h", { noremap = true })
+vim.keymap.set("n", "sj", "<C-W>j", { noremap = true })
+vim.keymap.set("n", "sk", "<C-W>k", { noremap = true })
+vim.keymap.set("n", "sl", "<C-W>l", { noremap = true })
+vim.keymap.set("n", "sh", "<C-W>h", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "ss", ":<C-u>sp<CR><C-w>j", { noremap = true })
-vim.api.nvim_set_keymap("n", "sv", ":<C-u>vs<CR><C-w>l", { noremap = true })
+vim.keymap.set("n", "ss", ":<C-u>sp<CR><C-w>j", { noremap = true })
+vim.keymap.set("n", "sv", ":<C-u>vs<CR><C-w>l", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "+", "<C-a>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "-", "<C-x>", { noremap = true, silent = true })
+vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
+vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- quickfix-windowのデフォルトの表示位置を左端に変更
 vim.cmd("autocmd FileType qf wincmd J")
