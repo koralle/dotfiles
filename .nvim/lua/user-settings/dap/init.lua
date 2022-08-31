@@ -4,25 +4,25 @@ local cmd = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/adapt
 require("telescope").load_extension("dap")
 
 local options = { silent = true, noremap = true }
-vim.api.nvim_set_keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", options)
-vim.api.nvim_set_keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", options)
-vim.api.nvim_set_keymap("n", "<F11>", ":lua require'dap'.step_into()<CR>", options)
-vim.api.nvim_set_keymap("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
-vim.api.nvim_set_keymap("n", "<Leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", options)
-vim.api.nvim_set_keymap(
+vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>", options)
+vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<CR>", options)
+vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<CR>", options)
+vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
+vim.keymap.set("n", "<Leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", options)
+vim.keymap.set(
   "n",
   "<Leader>B",
   ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
   options
 )
-vim.api.nvim_set_keymap(
+vim.keymap.set(
   "n",
   "<Leader>lp",
   ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message '))<CR>",
   options
 )
-vim.api.nvim_set_keymap("n", "<Leader>dr", ":lua require'dap'.repl.open()<CR>", options)
-vim.api.nvim_set_keymap("n", "<Leader>dl", ":lua require'dap'.run_last()<CR>", options)
+vim.keymap.set("n", "<Leader>dr", ":lua require'dap'.repl.open()<CR>", options)
+vim.keymap.set("n", "<Leader>dl", ":lua require'dap'.run_last()<CR>", options)
 
 vim.fn.sign_define("DapBreakpoint", { text = "⛔", texthl = "", linehl = "", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = "👉", texthl = "", linehl = "", numhl = "" })

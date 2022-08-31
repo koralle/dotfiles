@@ -1,14 +1,14 @@
 local opts = { noremap = true, silent = true }
 local trouble = require("trouble.providers.telescope")
 
---vim.api.nvim_set_keymap("n", "<leader>fd", ":Telescope fd<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>ff", ":lua TelescopeFilePickersOnGitRepositoryRoot('git_files')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>lg", ":lua TelescopeFilePickersOnGitRepositoryRoot('live_grep')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fd", ":lua TelescopeFilePickersOnGitRepositoryRoot('find_files')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>gs", ":lua TelescopeFilePickersOnGitRepositoryRoot('grep_string')<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>fn", ":Telescope help_tag<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>cl", ":Telescope neoclip<cr>", opts)
+--vim.keymap.set("n", "<leader>fd", ":Telescope fd<cr>", opts)
+vim.keymap.set("n", "<leader>ff", ":lua TelescopeFilePickersOnGitRepositoryRoot('git_files')<cr>", opts)
+vim.keymap.set("n", "<leader>lg", ":lua TelescopeFilePickersOnGitRepositoryRoot('live_grep')<cr>", opts)
+vim.keymap.set("n", "<leader>fd", ":lua TelescopeFilePickersOnGitRepositoryRoot('find_files')<cr>", opts)
+vim.keymap.set("n", "<leader>gs", ":lua TelescopeFilePickersOnGitRepositoryRoot('grep_string')<cr>", opts)
+vim.keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", opts)
+vim.keymap.set("n", "<leader>fn", ":Telescope help_tag<cr>", opts)
+vim.keymap.set("n", "<leader>cl", ":Telescope neoclip<cr>", opts)
 
 require("telescope").setup({
   defaults = {
