@@ -23,10 +23,7 @@ require("telescope").setup({
       "--smart-case",
       "--trim",
     },
-    mappings = {
-      i = { ["x"] = trouble.open_with_trouble },
-      n = { ["x"] = trouble.open_with_trouble },
-    },
+    mappings = {},
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
     layout_config = {
