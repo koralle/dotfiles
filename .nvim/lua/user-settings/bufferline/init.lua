@@ -1,15 +1,3 @@
--- 編集するBufferを変更する
-vim.keymap.set("n", "<C-j>", ":BufferLineCyclePrev<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", ":BufferLineCycleNext<cr>", { noremap = true, silent = true })
-
--- Bufferの位置を入れ替える
-vim.keymap.set("n", "[b", ":BufferLineMoveNext<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "b]", ":BufferLineMovePrev<cr>", { noremap = true, silent = true })
-
--- Bufferの位置を入れ替える
-vim.keymap.set("n", "be", ":BufferLineSortByExtension<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "b]", ":BufferLineSortByDirectory<cr>", { noremap = true, silent = true })
-
 vim.opt.termguicolors = true
 
 local palette = {
@@ -167,32 +155,5 @@ require("bufferline").setup({
     name_formatter = function(buf)
       return buf.name
     end,
-    custom_areas = {
-      right = function()
-        local result = {}
-        local seve = vim.diagnostic.severity
-        local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
-        local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
-        local info = #vim.diagnostic.get(0, { severity = seve.INFO })
-        local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
-
-        if error ~= 0 then
-          table.insert(result, { text = "  " .. error, fg = "#d84f76" })
-        end
-
-        if warning ~= 0 then
-          table.insert(result, { text = "  " .. warning, fg = "#f6c177" })
-        end
-
-        if hint ~= 0 then
-          table.insert(result, { text = "  " .. hint, fg = "#569fba" })
-        end
-
-        if info ~= 0 then
-          table.insert(result, { text = "  " .. info, fg = palette.info_fg })
-        end
-        return result
-      end,
-    },
   },
 })
