@@ -1,15 +1,3 @@
--- 編集するBufferを変更する
-vim.keymap.set("n", "<C-j>", ":BufferLineCyclePrev<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", ":BufferLineCycleNext<cr>", { noremap = true, silent = true })
-
--- Bufferの位置を入れ替える
-vim.keymap.set("n", "[b", ":BufferLineMoveNext<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "b]", ":BufferLineMovePrev<cr>", { noremap = true, silent = true })
-
--- Bufferの位置を入れ替える
-vim.keymap.set("n", "be", ":BufferLineSortByExtension<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "b]", ":BufferLineSortByDirectory<cr>", { noremap = true, silent = true })
-
 vim.opt.termguicolors = true
 
 local palette = {

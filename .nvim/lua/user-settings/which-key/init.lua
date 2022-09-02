@@ -10,6 +10,63 @@ wk.setup({
 })
 
 wk.register({
+  ["<C-j>"] = {
+    "<Cmd>BufferLineCyclePrev<CR>",
+    "BufferLineCyclePrev",
+    noremap = true,
+    silent = true,
+  },
+})
+
+wk.register({
+  ["<C-k>"] = {
+    "<Cmd>BufferLineCycleNext<CR>",
+    "BufferLineCycleNext",
+    noremap = true,
+    silent = true,
+  },
+})
+
+wk.register({
+  ["["] = {
+    b = {
+      "<Cmd>BufferLineMoveNext<CR>",
+      "BufferLineMoveNext",
+      noremap = true,
+      silent = true,
+    },
+  },
+})
+
+wk.register({
+  b = {
+    ["]"] = {
+      "<Cmd>BufferLineMovePrev<CR>",
+      "BufferLineMovePrev",
+      noremap = true,
+      silent = true,
+    },
+  },
+})
+
+wk.register({
+  b = {
+    e = {
+      "<Cmd>BufferLineSortByExtension<CR>",
+      "BufferLineSortByExtension",
+      noremap = true,
+      silent = true,
+    },
+    ["]"] = {
+      "<Cmd>BufferLineSortByDirectory<CR>",
+      "BufferLineSortByDirectory",
+      noremap = true,
+      silent = true,
+    },
+  },
+})
+
+wk.register({
   ["<C-\\>"] = {
     ":ToggleTerm<CR>",
     "Open Terminal with toggleterm.nvim",
