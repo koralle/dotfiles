@@ -37,10 +37,6 @@ require("packer").startup({
       requires = { "nvim-lua/plenary.nvim" },
     })
 
-    use({
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    })
-
     -- Colorscheme: nightfox
     -- url: https://github.com/ellisonleao/gruvbox.nvim
     use({ "EdenEast/nightfox.nvim" })
