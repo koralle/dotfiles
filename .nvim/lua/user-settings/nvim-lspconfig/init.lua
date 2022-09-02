@@ -1,7 +1,9 @@
-local nvim_lsp = require("lspconfig")
+local status, nvim_lsp = pcall(require, "lspconfig")
+if not status then
+  return
+end
 
 local my_utils_status, my_utils = pcall(require, "user-settings.nvim-lspconfig.utils")
-
 if not my_utils_status then
   return
 end
@@ -32,8 +34,8 @@ for _, language in ipairs(ensure_installed) do
   -- example: user-settings.nvim-lspconfig.servers.typescript
   local language_spacified_lsp_config_path = "user-settings.nvim-lspconfig.servers." .. language
 
-  local status, lsp = pcall(require, language_spacified_lsp_config_path)
-  if not status then
+  local lsp_status, lsp = pcall(require, language_spacified_lsp_config_path)
+  if not lsp_status then
     return
   end
 
