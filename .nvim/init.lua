@@ -66,14 +66,13 @@ vim.cmd("let g:vimsyn_embed = '1'")
 
 vim.cmd("set autochdir")
 
--- 画面分割のキーバインド
+vim.keymap.set("n", "sh", "<C-W>h", { noremap = true })
+vim.keymap.set("n", "sl", "<C-W>l", { noremap = true })
 vim.keymap.set("n", "sj", "<C-W>j", { noremap = true })
 vim.keymap.set("n", "sk", "<C-W>k", { noremap = true })
-vim.keymap.set("n", "sl", "<C-W>l", { noremap = true })
-vim.keymap.set("n", "sh", "<C-W>h", { noremap = true })
 
-vim.keymap.set("n", "ss", ":<C-u>sp<CR><C-w>j", { noremap = true })
-vim.keymap.set("n", "sv", ":<C-u>vs<CR><C-w>l", { noremap = true })
+vim.keymap.set("n", "<space>s", ":<C-u>sp<CR><C-w>j", { noremap = true })
+vim.keymap.set("n", "<space>v", ":<C-u>vs<CR><C-w>l", { noremap = true })
 
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
