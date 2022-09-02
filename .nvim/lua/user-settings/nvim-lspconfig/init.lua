@@ -6,6 +6,13 @@ if not my_utils_status then
   return
 end
 
+local my_lspsaga_status, my_lspsaga = pcall(require, "user-settings.nvim-lspconfig.lspsaga")
+if my_lspsaga_status then
+  my_lspsaga.setup()
+else
+  return
+end
+
 vim.lsp.set_log_level("debug")
 
 -- Change diagnostic symbols in the sign column (gutter)
