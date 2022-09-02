@@ -167,32 +167,5 @@ require("bufferline").setup({
     name_formatter = function(buf)
       return buf.name
     end,
-    custom_areas = {
-      right = function()
-        local result = {}
-        local seve = vim.diagnostic.severity
-        local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
-        local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
-        local info = #vim.diagnostic.get(0, { severity = seve.INFO })
-        local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
-
-        if error ~= 0 then
-          table.insert(result, { text = "  " .. error, fg = "#d84f76" })
-        end
-
-        if warning ~= 0 then
-          table.insert(result, { text = "  " .. warning, fg = "#f6c177" })
-        end
-
-        if hint ~= 0 then
-          table.insert(result, { text = "  " .. hint, fg = "#569fba" })
-        end
-
-        if info ~= 0 then
-          table.insert(result, { text = "  " .. info, fg = palette.info_fg })
-        end
-        return result
-      end,
-    },
   },
 })
