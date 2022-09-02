@@ -1,6 +1,13 @@
 local wk = require("which-key")
 
-wk.setup({})
+wk.setup({
+  window = {
+    border = "double",
+  },
+  layout = {
+    height = { min = 50 },
+  },
+})
 
 wk.register({
   ["<C-\\>"] = {
@@ -10,10 +17,12 @@ wk.register({
 })
 
 wk.register({
-  ["<C-t>"] = {
-    ":ToggleTerm<CR>",
-    "Open Tig",
-    noremap = true,
+  ["<leader>"] = {
+    t = {
+      ":TigOpenProjectRootDir<CR>",
+      "Open Tig",
+      noremap = true,
+    },
   },
 })
 
@@ -21,7 +30,13 @@ wk.register({
   ["<leader>"] = {
     f = {
       f = {
-        ":lua TelescopeFilePickersOnGitRepositoryRoot('git_files')<cr>",
+        function()
+          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          if not status then
+            return
+          end
+          helpers.TelescopeFilePickersOnGitRepositoryRoot("git_files")
+        end,
         "Telescope git_files on Git Repository Root",
         noremap = true,
         silent = true,
@@ -34,7 +49,13 @@ wk.register({
   ["<leader>"] = {
     l = {
       g = {
-        ":lua TelescopeFilePickersOnGitRepositoryRoot('live_grep')<cr>",
+        function()
+          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          if not status then
+            return
+          end
+          helpers.TelescopeFilePickersOnGitRepositoryRoot("live_grep")
+        end,
         "Telescope live_grep on Git Repository Root",
         noremap = true,
         silent = true,
@@ -47,7 +68,13 @@ wk.register({
   ["<leader>"] = {
     f = {
       d = {
-        ":lua TelescopeFilePickersOnGitRepositoryRoot('find_files')<cr>",
+        function()
+          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          if not status then
+            return
+          end
+          helpers.TelescopeFilePickersOnGitRepositoryRoot("find_files")
+        end,
         "Telescope find_files on Git Repository Root",
         noremap = true,
         silent = true,
@@ -60,7 +87,13 @@ wk.register({
   ["<leader>"] = {
     g = {
       s = {
-        ":lua TelescopeFilePickersOnGitRepositoryRoot('grep_string')<cr>",
+        function()
+          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          if not status then
+            return
+          end
+          helpers.TelescopeFilePickersOnGitRepositoryRoot("grep_string")
+        end,
         "Telescope grep_string on Git Repository Root",
         noremap = true,
         silent = true,
@@ -73,7 +106,7 @@ wk.register({
   ["<leader>"] = {
     f = {
       b = {
-        ":Telescope buffers<cr>",
+        "<Cmd>Telescope buffers<CR>",
         "Telescope buffers on current directory",
         noremap = true,
         silent = true,
@@ -86,7 +119,7 @@ wk.register({
   ["<leader>"] = {
     f = {
       n = {
-        ":Telescope help_tag<cr>",
+        "<Cmd>Telescope help_tag<CR>",
         "Telescope help_tag on current directory",
         noremap = true,
         silent = true,
@@ -99,7 +132,7 @@ wk.register({
   ["<leader>"] = {
     c = {
       l = {
-        ":Telescope neoclip<cr>",
+        "<Cmd>Telescope neoclip<CR>",
         "Telescope neoclip on current directory",
         noremap = true,
         silent = true,
@@ -109,9 +142,33 @@ wk.register({
 })
 
 wk.register({
+  ["<leader>"] = {
+    c = {
+      d = {
+        "<Cmd>Lspsaga show_cursor_diagnostics<CR>",
+        "Lspsaga show_cursor_diagnostics",
+        silent = true,
+      },
+    },
+  },
+})
+
+wk.register({
+  ["<leader>"] = {
+    c = {
+      d = {
+        "<Cmd>Lspsaga show_line_diagnostics<CR>",
+        "Lspsaga show_line_diagnostics",
+        silent = true,
+      },
+    },
+  },
+})
+
+wk.register({
   K = {
-    ":lua vim.lsp.buf.hover()<CR>",
-    "vim.lsp.buf.hover()",
+    "<Cmd>Lspsaga hover_doc<CR>",
+    "Lspsaga hover_doc",
     noremap = true,
     silent = true,
   },
@@ -120,7 +177,7 @@ wk.register({
 wk.register({
   g = {
     D = {
-      ":lua vim.lsp.buf.declaration()<CR>",
+      "<Cmd>lua vim.lsp.buf.declaration()<CR>",
       "vim.lsp.buf.declaration()",
       noremap = true,
       silent = true,
@@ -131,8 +188,8 @@ wk.register({
 wk.register({
   g = {
     d = {
-      ":lua vim.lsp.buf.definition()<CR>",
-      "vim.lsp.buf.definition()",
+      "<Cmd>Lspsaga preview_definition<CR>",
+      "Lspsaga preview_definition",
       noremap = true,
       silent = true,
     },
@@ -141,8 +198,18 @@ wk.register({
 
 wk.register({
   g = {
+    h = {
+      "<Cmd>Lspsaga lsp_finder<CR>",
+      "Lspsaga lsp_finder",
+      noremap = true,
+      silent = true,
+    },
+  },
+})
+wk.register({
+  g = {
     i = {
-      ":lua vim.lsp.buf.implementation()<CR>",
+      "<Cmd>lua vim.lsp.buf.implementation()<CR>",
       "vim.lsp.buf.implementation()",
       noremap = true,
       silent = true,
@@ -173,11 +240,11 @@ wk.register({
 })
 
 wk.register({
-  ["<space>"] = {
+  ["<leader>"] = {
     r = {
       n = {
-        "<cmd>lua vim.lsp.buf.rename()<CR>",
-        "lua vim.lsp.buf.rename()",
+        "<Cmd>Lspsaga rename<CR>",
+        "Lspsaga rename",
         noremap = true,
         silent = true,
       },
@@ -186,11 +253,68 @@ wk.register({
 })
 
 wk.register({
-  ["<space>"] = {
+  ["<leader>"] = {
     c = {
       a = {
-        "<cmd>CodeActionMenu<CR>",
-        "CodeActionMenu",
+        mode = "n",
+        "<Cmd>Lspsaga code_action<CR>",
+        "Lspsaga code_action",
+        noremap = true,
+        silent = true,
+      },
+    },
+  },
+})
+
+wk.register({
+  ["<leader>"] = {
+    o = {
+      "<Cmd>Lspsaga LSoutlineToggle<CR>",
+      "Lspsaga LSoutlineToggle",
+      noremap = true,
+      silent = true,
+    },
+  },
+})
+
+wk.register({
+  ["<leader>"] = {
+    x = {
+      x = {
+        "<Cmd>TroubleToggle<CR>",
+        "TroubleToggle",
+        noremap = true,
+        silent = true,
+      },
+      w = {
+        "<Cmd>TroubleToggle workspace_diagnostics<CR>",
+        "TroubleToggle workspace_diagnostics",
+        noremap = true,
+        silent = true,
+      },
+      d = {
+        "<Cmd>TroubleToggle document_diagnostics<CR>",
+        "TroubleToggle document_diagnostics",
+        noremap = true,
+        silent = true,
+      },
+      l = {
+        "<Cmd>TroubleToggle loclist<CR>",
+        "TroubleToggle loclist",
+        noremap = true,
+        silent = true,
+      },
+      q = {
+        "<Cmd>TroubleToggle quickfix<CR>",
+        "TroubleToggle quickfix",
+        noremap = true,
+        silent = true,
+      },
+    },
+    q = {
+      R = {
+        ":TroubleToggle lsp_references<CR>",
+        "TroubleToggle lsp_references",
         noremap = true,
         silent = true,
       },
