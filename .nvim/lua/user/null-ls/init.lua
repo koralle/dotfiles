@@ -116,6 +116,9 @@ nls.setup({
       extra_args = { "--dialect", "mysql" },
     }),
     formatting.sql_formatter,
+
+    -- Dockerfile
+    diagnostics.hadolint,
   },
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)
