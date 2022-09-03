@@ -1,33 +1,47 @@
---require 'user/fern'
---require 'user/fern-preview'
---require 'user/fern-renderer-nerdfont'
-require("user.telescope")
-require("user.bufferline")
-require("user.nvim-treesitter")
-require("user.nvim-colorizer")
-require("user.mason")
-require("user.nvim-lspconfig")
-require("user.nvim-cmp")
-require("user.indent-blankline")
-require("user.nvim-autopairs")
-require("user.nvim-ts-autotag")
-require("user.aerial")
-require("user.dap")
-require("user.nvim-tree_lua")
-require("user.filetype_nvim")
-require("user.nvim-web-devicons")
-require("user.dapui")
-require("user.nvim-dap-virtual-text")
-require("user.which-key")
-require("user.nvim-luasnip")
-require("user.null-ls")
-require("user.trouble")
-require("user.feline")
-require("user.auto-session")
-require("user.gitsigns")
-require("user.notify")
-require("user.fidget")
-require("user.todo-comments")
-require("user.bqf")
-require("user.toggleterm")
-require("user.git-nvim")
+local configs = {
+  "user.telescope",
+  "user.bufferline",
+  "user.nvim-treesitter",
+  "user.nvim-colorizer",
+  "user.mason",
+  "user.nvim-lspconfig",
+  "user.nvim-cmp",
+  "user.indent-blankline",
+  "user.nvim-autopairs",
+  "user.nvim-ts-autotag",
+  "user.aerial",
+  "user.dap",
+  "user.nvim-tree_lua",
+  "user.filetype_nvim",
+  "user.nvim-web-devicons",
+  "user.dapui",
+  "user.nvim-dap-virtual-text",
+  "user.which-key",
+  "user.nvim-luasnip",
+  "user.null-ls",
+  "user.trouble",
+  "user.feline",
+  "user.auto-session",
+  "user.gitsigns",
+  "user.notify",
+  "user.fidget",
+  "user.todo-comments",
+  "user.bqf",
+  "user.toggleterm",
+  "user.git-nvim",
+}
+
+-- Load configs
+---@param config_name string
+---@return nil
+local load_config = function(config_name)
+  local status, config = pcall(require, config_name)
+  if not status then
+    print(config)
+  end
+end
+
+-- Load all user-defined configs
+for _, config_name in ipairs(configs) do
+  load_config(config_name)
+end
