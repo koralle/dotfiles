@@ -42,6 +42,8 @@ local ensure_installed = {
   "vim",
   "vue",
   "yaml",
+  "css",
+  "cssmodules",
 }
 
 for _, language in ipairs(ensure_installed) do
