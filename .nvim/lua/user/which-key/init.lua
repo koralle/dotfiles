@@ -88,7 +88,7 @@ wk.register({
     f = {
       f = {
         function()
-          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          local status, helpers = pcall(require, "user.telescope.helpers")
           if not status then
             return
           end
@@ -107,7 +107,7 @@ wk.register({
     l = {
       g = {
         function()
-          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          local status, helpers = pcall(require, "user.telescope.helpers")
           if not status then
             return
           end
@@ -126,7 +126,7 @@ wk.register({
     f = {
       d = {
         function()
-          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          local status, helpers = pcall(require, "user.telescope.helpers")
           if not status then
             return
           end
@@ -145,7 +145,7 @@ wk.register({
     g = {
       s = {
         function()
-          local status, helpers = pcall(require, "user-settings.telescope.helpers")
+          local status, helpers = pcall(require, "user.telescope.helpers")
           if not status then
             return
           end

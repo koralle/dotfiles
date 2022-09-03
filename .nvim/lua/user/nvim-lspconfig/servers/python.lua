@@ -1,7 +1,7 @@
-local _vim = {}
+local python = {}
 
-_vim.setup = function(nvim_lsp)
-  local my_capabilities_status, my_capabilities = pcall(require, "user-settings.nvim-lspconfig.capabilities")
+python.setup = function(nvim_lsp)
+  local my_capabilities_status, my_capabilities = pcall(require, "user.nvim-lspconfig.capabilities")
   if not my_capabilities_status then
     return
   end
@@ -13,12 +13,12 @@ _vim.setup = function(nvim_lsp)
 
   mason_lspconfig.setup_handlers({
     function()
-      -- iamcco/vim-language-server
-      nvim_lsp.vimls.setup({
+      -- microsoft/pyright
+      nvim_lsp.pyright.setup({
         capabilities = my_capabilities.capabilities,
       })
     end,
   })
 end
 
-return _vim
+return python

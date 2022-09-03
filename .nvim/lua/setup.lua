@@ -1,33 +1,47 @@
---require 'user-settings/fern'
---require 'user-settings/fern-preview'
---require 'user-settings/fern-renderer-nerdfont'
-require("user-settings/telescope")
-require("user-settings/bufferline")
-require("user-settings/nvim-treesitter")
-require("user-settings/nvim-colorizer")
-require("user-settings/mason")
-require("user-settings/nvim-lspconfig")
-require("user-settings/nvim-cmp")
-require("user-settings/indent-blankline")
-require("user-settings/nvim-autopairs")
-require("user-settings/nvim-ts-autotag")
-require("user-settings/aerial")
-require("user-settings/dap")
-require("user-settings/nvim-tree_lua")
-require("user-settings/filetype_nvim")
-require("user-settings/nvim-web-devicons")
-require("user-settings/dapui")
-require("user-settings/nvim-dap-virtual-text")
-require("user-settings/which-key")
-require("user-settings/nvim-luasnip")
-require("user-settings/null-ls")
-require("user-settings/trouble")
-require("user-settings/feline")
-require("user-settings/auto-session")
-require("user-settings/gitsigns")
-require("user-settings/notify")
-require("user-settings/fidget")
-require("user-settings/todo-comments")
-require("user-settings/bqf")
-require("user-settings/toggleterm")
-require("user-settings/git-nvim")
+local configs = {
+  "user.telescope",
+  "user.bufferline",
+  "user.nvim-treesitter",
+  "user.nvim-colorizer",
+  "user.mason",
+  "user.nvim-lspconfig",
+  "user.nvim-cmp",
+  "user.indent-blankline",
+  "user.nvim-autopairs",
+  "user.nvim-ts-autotag",
+  "user.aerial",
+  "user.dap",
+  "user.nvim-tree_lua",
+  "user.filetype_nvim",
+  "user.nvim-web-devicons",
+  "user.dapui",
+  "user.nvim-dap-virtual-text",
+  "user.which-key",
+  "user.nvim-luasnip",
+  "user.null-ls",
+  "user.trouble",
+  "user.feline",
+  "user.auto-session",
+  "user.gitsigns",
+  "user.notify",
+  "user.fidget",
+  "user.todo-comments",
+  "user.bqf",
+  "user.toggleterm",
+  "user.git-nvim",
+}
+
+-- Load configs
+---@param config_name string
+---@return nil
+local load_config = function(config_name)
+  local status, config = pcall(require, config_name)
+  if not status then
+    print(config)
+  end
+end
+
+-- Load all user-defined configs
+for _, config_name in ipairs(configs) do
+  load_config(config_name)
+end

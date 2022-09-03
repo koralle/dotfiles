@@ -1,7 +1,7 @@
 local json = {}
 
 json.setup = function(nvim_lsp)
-  local my_capabilities_status, my_capabilities = pcall(require, "user-settings.nvim-lspconfig.capabilities")
+  local my_capabilities_status, my_capabilities = pcall(require, "user.nvim-lspconfig.capabilities")
   if not my_capabilities_status then
     return
   end
