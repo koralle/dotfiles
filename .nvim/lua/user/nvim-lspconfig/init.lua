@@ -27,8 +27,22 @@ end
 -- Go-to definition in a split window
 vim.lsp.handlers["textDocument/definition"] = my_utils.goto_definition("split")
 
-local ensure_installed =
-  { "lua", "bash", "flutter", "go", "json", "lua", "python", "rust", "sql", "terraform", "typescript", "vim", "vue" }
+local ensure_installed = {
+  "lua",
+  "bash",
+  "flutter",
+  "go",
+  "json",
+  "lua",
+  "python",
+  "rust",
+  "sql",
+  "terraform",
+  "typescript",
+  "vim",
+  "vue",
+  "yaml",
+}
 
 for _, language in ipairs(ensure_installed) do
   -- example: user.nvim-lspconfig.servers.typescript
