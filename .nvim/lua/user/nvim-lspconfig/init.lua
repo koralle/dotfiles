@@ -3,12 +3,12 @@ if not status then
   return
 end
 
-local my_utils_status, my_utils = pcall(require, "user-settings.nvim-lspconfig.utils")
+local my_utils_status, my_utils = pcall(require, "user.nvim-lspconfig.utils")
 if not my_utils_status then
   return
 end
 
-local my_lspsaga_status, my_lspsaga = pcall(require, "user-settings.nvim-lspconfig.lspsaga")
+local my_lspsaga_status, my_lspsaga = pcall(require, "user.nvim-lspconfig.lspsaga")
 if my_lspsaga_status then
   my_lspsaga.setup()
 else
@@ -31,8 +31,8 @@ local ensure_installed =
   { "lua", "bash", "flutter", "go", "json", "lua", "python", "rust", "sql", "terraform", "typescript", "vim", "vue" }
 
 for _, language in ipairs(ensure_installed) do
-  -- example: user-settings.nvim-lspconfig.servers.typescript
-  local language_spacified_lsp_config_path = "user-settings.nvim-lspconfig.servers." .. language
+  -- example: user.nvim-lspconfig.servers.typescript
+  local language_spacified_lsp_config_path = "user.nvim-lspconfig.servers." .. language
 
   local lsp_status, lsp = pcall(require, language_spacified_lsp_config_path)
   if not lsp_status then
