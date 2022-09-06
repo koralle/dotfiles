@@ -234,8 +234,8 @@ wk.register({
 wk.register({
   g = {
     D = {
-      "<Cmd>lua vim.lsp.buf.declaration()<CR>",
-      "vim.lsp.buf.declaration()",
+      "<Cmd>Lspsaga preview_definition<CR>",
+      "Lspsaga preview_definition",
       noremap = true,
       silent = true,
     },
@@ -245,8 +245,8 @@ wk.register({
 wk.register({
   g = {
     d = {
-      "<Cmd>Lspsaga preview_definition<CR>",
-      "Lspsaga preview_definition",
+      "<Cmd>lua vim.lsp.buf.definition()<CR>",
+      "vim.lsp.buf.definition",
       noremap = true,
       silent = true,
     },
@@ -286,8 +286,8 @@ wk.register({
 })
 
 wk.register({
-  ["<leader>"] = {
-    D = {
+  g = {
+    t = {
       ":lua vim.lsp.buf.type_definition()<cr>",
       "vim.lsp.buf.type_definition()",
       noremap = true,
@@ -297,28 +297,24 @@ wk.register({
 })
 
 wk.register({
-  ["<leader>"] = {
-    r = {
-      n = {
-        "<Cmd>Lspsaga rename<CR>",
-        "Lspsaga rename",
-        noremap = true,
-        silent = true,
-      },
+  g = {
+    n = {
+      "<Cmd>Lspsaga rename<CR>",
+      "Lspsaga rename",
+      noremap = true,
+      silent = true,
     },
   },
 })
 
 wk.register({
-  ["<leader>"] = {
-    c = {
-      a = {
-        mode = "n",
-        "<Cmd>Lspsaga code_action<CR>",
-        "Lspsaga code_action",
-        noremap = true,
-        silent = true,
-      },
+  g = {
+    a = {
+      mode = "n",
+      "<Cmd>Lspsaga code_action<CR>",
+      "Lspsaga code_action",
+      noremap = true,
+      silent = true,
     },
   },
 })
