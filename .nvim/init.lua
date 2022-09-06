@@ -110,3 +110,8 @@ vim.cmd([[
     setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
   endfunction
 ]])
+
+-- disable virtual-text on diagnostics
+vim.diagnostic.config({
+  virtual_text = false,
+})
