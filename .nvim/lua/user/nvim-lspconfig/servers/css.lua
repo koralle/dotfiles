@@ -11,6 +11,11 @@ css.setup = function(nvim_lsp)
     return
   end
 
+  local my_highlight_status, my_highlight = pcall(require, "user.nvim-lspconfig.highlight")
+  if not my_highlight_status then
+    return
+  end
+
   local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
   if not mason_lspconfig_status then
     return
@@ -19,8 +24,9 @@ css.setup = function(nvim_lsp)
   mason_lspconfig.setup_handlers({
     function()
       nvim_lsp.cssls.setup({
-        on_attach = function(_, buffer_number)
+        on_attach = function(client, buffer_number)
           my_utils.disable_formatting_via_lspconfig(_, buffer_number)
+          my_highlight.setup(client, buffer_number)
         end,
         capabilities = my_capabilities.capabilities,
       })

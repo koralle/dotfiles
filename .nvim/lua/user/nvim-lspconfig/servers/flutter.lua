@@ -6,6 +6,11 @@ flutter.setup = function(_)
     return
   end
 
+  local my_highlight_status, my_highlight = pcall(require, "user.nvim-lspconfig.highlight")
+  if not my_highlight_status then
+    return
+  end
+
   local flutter_tools_status, flutter_tools = pcall(require, "flutter-tools")
   if not flutter_tools_status then
     return
@@ -13,6 +18,9 @@ flutter.setup = function(_)
 
   flutter_tools.setup({
     capabilities = my_capabilities.capabilities,
+    on_attach = function(client, buffer_number)
+      my_highlight.setup(client, buffer_number)
+    end,
     decorations = {
       statusline = {
         app_version = true,
