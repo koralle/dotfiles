@@ -92,3 +92,11 @@ dap.configurations.rust = {
     stopOnEntry = true,
   },
 }
+
+local go_status, go = pcall(require, "user.dap.go")
+if go_status then
+  go.setup(dap)
+else
+  print(go)
+  return
+end
