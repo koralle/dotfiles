@@ -199,6 +199,7 @@ require("packer").startup({
     use({
       "vim-scripts/dbext.vim",
     })
+    use({ "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" } })
   end,
   config = {
     display = {
