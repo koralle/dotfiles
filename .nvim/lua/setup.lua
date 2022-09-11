@@ -29,6 +29,7 @@ local configs = {
   "user.bqf",
   "user.toggleterm",
   "user.git-nvim",
+  "user.rest",
 }
 
 -- Load configs
