@@ -11,7 +11,16 @@ require("telescope").setup({
       "--smart-case",
       "--trim",
     },
-    mappings = {},
+    mappings = {
+      i = {
+        ["<Tab>"] = require("telescope.actions").move_selection_next,
+        ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
+      },
+      n = {
+        ["<Tab>"] = require("telescope.actions").move_selection_next,
+        ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
+      },
+    },
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
     layout_config = {
