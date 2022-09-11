@@ -86,6 +86,24 @@ wk.register({
 wk.register({
   ["<leader>"] = {
     f = {
+      a = {
+        function()
+          local command = "Telescope fd hidden=true<CR>"
+          local status, util = pcall(require, "util")
+          if not status then
+            return
+          end
+          util.ExecCommandAtTraversedPath(".telescope.workspace", 10, command)
+        end,
+        "Telescope fd at the path where .telescope.workspace located",
+      },
+    },
+  },
+})
+
+wk.register({
+  ["<leader>"] = {
+    f = {
       f = {
         function()
           local status, helpers = pcall(require, "user.telescope.helpers")
