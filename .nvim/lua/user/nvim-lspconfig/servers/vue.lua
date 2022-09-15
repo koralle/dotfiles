@@ -6,6 +6,11 @@ vue.setup = function(nvim_lsp)
     return
   end
 
+  local my_utils_status, my_utils = pcall(require, "user.nvim-lspconfig.utils")
+  if not my_utils_status then
+    return
+  end
+
   local my_highlight_status, my_highlight = pcall(require, "user.nvim-lspconfig.highlight")
   if not my_highlight_status then
     return
@@ -23,14 +28,10 @@ vue.setup = function(nvim_lsp)
         capabilities = my_capabilities.capabilities,
         -- use Take Over Mode
         filetypes = {
-          "typescript",
-          "javascript",
-          "javascriptreact",
-          "typescriptreact",
           "vue",
-          "json",
         },
         on_attach = function(client, buffer_number)
+          my_utils.disable_formatting_via_lspconfig(client, buffer_number)
           my_highlight.setup(client, buffer_number)
         end,
       })

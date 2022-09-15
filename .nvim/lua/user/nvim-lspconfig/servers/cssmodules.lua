@@ -25,7 +25,7 @@ cssmodules.setup = function(nvim_lsp)
     function()
       nvim_lsp.cssmodules_ls.setup({
         on_attach = function(client, buffer_number)
-          my_utils.disable_formatting_via_lspconfig(_, buffer_number)
+          my_utils.disable_formatting_via_lspconfig(client, buffer_number)
           my_highlight.setup(client, buffer_number)
         end,
         capabilities = my_capabilities.capabilities,
