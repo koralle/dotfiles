@@ -1,6 +1,11 @@
 local nls = require("null-ls")
 local lspconfig = require("lspconfig")
 
+local capabilities_status, capabilities = pcall(require, "user.nvim-lspconfig.capabilities")
+if not capabilities_status then
+  return
+end
+
 local completion = nls.builtins.completion
 local diagnostics = nls.builtins.diagnostics
 local formatting = nls.builtins.formatting
@@ -19,17 +24,6 @@ local function sync_formatting_on_save(client, buffer_number)
       end,
     })
   end
-end
-
-local eslint_condition = function(utils)
-  utils.root_has_file({
-    ".eslintrc",
-    ".eslintrc.js",
-    ".eslintrc.cjs",
-    ".eslintrc.yaml",
-    ".eslintrc.yml",
-    ".eslintrc.json",
-  })
 end
 
 nls.setup({
@@ -71,7 +65,6 @@ nls.setup({
     diagnostics.eslint.with({
       diagnostics_format = "[#{c}] #{m} (#{s})",
       prefer_local = "node_modules/.bin",
-      condition = eslint_condition,
     }),
 
     -- プロジェクトローカルにprettierがインストールされていればそちらを、
@@ -123,5 +116,6 @@ nls.setup({
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)
   end,
+  capabilities = capabilities,
   root_dir = lspconfig.util.root_pattern(".git", "Cargo.toml", "package.json", "pyproject.toml"),
 })
