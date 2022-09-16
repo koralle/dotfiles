@@ -1,4 +1,9 @@
 local ls = require("luasnip")
+local go_status, go = pcall(require, "user.nvim-luasnip.go")
+if not go_status then
+  print(go)
+  return
+end
 
 ls.add_snippets(nil, {
   rust = {
@@ -45,4 +50,5 @@ ls.add_snippets(nil, {
       ls.t({ "", "})" }),
     }),
   },
+  go = go,
 })
