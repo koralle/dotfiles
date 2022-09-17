@@ -46,6 +46,7 @@ local ensure_installed = {
   "cssmodules",
   "docker",
   "toml",
+  "graphql",
 }
 
 for _, language in ipairs(ensure_installed) do
