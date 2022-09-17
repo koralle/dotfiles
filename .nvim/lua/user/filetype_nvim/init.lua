@@ -5,6 +5,7 @@ require("filetype").setup({
     extensions = {
       terraform = "terraform",
       tf = "terraform",
+      graphqls = "graphql",
     },
     shebang = {
       dash = "sh",
