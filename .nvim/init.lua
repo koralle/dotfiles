@@ -94,23 +94,6 @@ vim.cmd("autocmd QuickfixCmdPost vimgrep call v:lua.OpenQuickFixWindow()")
 -- skip loading sqlcomplete.vim
 vim.g.loaded_sql_completion = 1
 
-vim.cmd([[
-  " Background colors for active vs inactive windows
-  hi ActiveWindow guibg=#232136
-  hi InactiveWindow guibg=#131a24
-  
-  " Call method on window enter
-  augroup WindowManagement
-    autocmd!
-    autocmd WinEnter * call Handle_Win_Enter()
-  augroup END
-  
-  " Change highlight group of active/inactive windows
-  function! Handle_Win_Enter()
-    setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
-  endfunction
-]])
-
 -- disable virtual-text on diagnostics
 vim.diagnostic.config({
   virtual_text = false,

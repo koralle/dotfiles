@@ -22,6 +22,13 @@ require("nvim-tree").setup({
       list = list,
     },
   },
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
 })
-
-vim.api.nvim_set_var("nvim_tree_git_hl", 1)
