@@ -27,7 +27,7 @@ yaml.setup = function(nvim_lsp)
           yaml = {
             schemas = {
               ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/*",
+              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/docker-compose.yaml",
             },
           },
         },
