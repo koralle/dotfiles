@@ -45,4 +45,5 @@ ls.add_snippets(nil, {
       ls.t({ "", "})" }),
     }),
   },
+  lua = require("user.nvim-luasnip.lua"),
 })
