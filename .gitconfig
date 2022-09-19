@@ -17,9 +17,16 @@
 
 [merge]
   conflictstyle = diff3
+  tool = nvr
+[mergetool "nvr"]
+  cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
 
 [diff]
+  tool = nvr
   colorMoved = default
+
+[difftool "nvr"]
+  cmd = nvr -s -d $LOCAL $REMOTE
 
 [alias]
   s   = status

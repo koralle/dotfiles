@@ -98,3 +98,10 @@ vim.g.loaded_sql_completion = 1
 vim.diagnostic.config({
   virtual_text = false,
 })
+
+-- Config for neovim-remote:
+if vim.fn.has("nvim") then
+  vim.cmd("let $GIT_EDITOR = 'nvr -cc split --remote-wait'")
+end
+
+vim.cmd("autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete")
