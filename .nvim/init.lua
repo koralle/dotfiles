@@ -8,7 +8,7 @@ vim.cmd([[set mouse=a]])
 --カラースキームの変更
 vim.o.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd([[colorscheme duskfox]])
+vim.cmd([[colorscheme nordfox]])
 
 --行番号を表示する
 vim.wo.number = true

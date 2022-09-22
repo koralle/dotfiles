@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local color_scheme = "duskfox"
+local color_scheme = "nordfox"
 local font = "Cica"
 
 return {
