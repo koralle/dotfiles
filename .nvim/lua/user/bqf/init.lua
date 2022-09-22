@@ -1,7 +1,5 @@
-vim.cmd([[
-    hi BqfPreviewBorder guifg=#50a14f ctermfg=71
-    hi link BqfPreviewRange Search
-]])
+vim.highlight.create("BqfPreviewBorder", { ctermfg = 71, guifg = "#d84f76" })
+vim.highlight.link("BqfPreviewRange", "Search")
 
 -- NOTE: Set `quickfixtextfunc` option and write down corresponding function:
 local fn = vim.fn
