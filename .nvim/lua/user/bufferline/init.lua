@@ -6,29 +6,39 @@ end
 
 vim.opt.termguicolors = true
 
-local palette = {
-  bg = "#f6c177",
-  separator = "#232136",
-  fg = "#232136",
-}
+local nordfox_status, nordfox = pcall(require, "nightfox.palette.nordfox")
+if not nordfox_status then
+  print(nordfox)
+  return
+end
 
 bufferline.setup({
   highlights = {
+    buffer_visible = {},
     buffer_selected = {
-      fg = palette.fg,
-      bg = palette.bg,
+      fg = nordfox.palette.bg1,
+      bg = nordfox.palette.yellow.dim,
       bold = true,
+      italic = false,
+    },
+    duplicate = {
+      italic = false,
+    },
+    duplicate_visible = {
+      italic = false,
     },
     duplicate_selected = {
-      fg = palette.fg,
-      bg = palette.bg,
+      fg = nordfox.palette.bg0,
+      bg = nordfox.palette.yellow.dim,
       bold = true,
+      italic = false,
     },
     modified_selected = {
-      bg = palette.bg,
+      bg = nordfox.palette.yellow.dim,
     },
     separator = {
-      fg = palette.separator,
+      fg = nordfox.palette.bg1,
+      bg = nordfox.palette.bg1,
     },
   },
   options = {
