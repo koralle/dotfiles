@@ -1,0 +1,17 @@
+format = """
+$directory$git_branch
+[$character](bold)
+"""
+
+# カレントディレクトリ
+[directory]
+truncation_length = 1
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+# Gitのブランチ
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style)"
+
+# 各種コマンドの実行時間
+[cmd_duration]
+disabled = true
