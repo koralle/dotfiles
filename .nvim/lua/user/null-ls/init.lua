@@ -20,7 +20,7 @@ local function sync_formatting_on_save(client, buffer_number)
       group = augroup,
       buffer = buffer_number,
       callback = function()
-        vim.lsp.buf.formatting_sync(nil, 3000)
+        vim.lsp.buf.format(nil, 3000)
       end,
     })
   end
