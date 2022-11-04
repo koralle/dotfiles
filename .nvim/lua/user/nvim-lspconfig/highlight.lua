@@ -1,7 +1,7 @@
 local highlight = {}
 
 highlight.setup = function(client, bufnr)
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.cmd([[
     hi! LspReferenceRead cterm=bold ctermbg=red guibg=#e5e9f0 guifg=#3b4252
     hi! LspReferenceText cterm=bold ctermbg=red guibg=#e5e9f0 guifg=#3b4252

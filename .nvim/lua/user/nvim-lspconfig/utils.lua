@@ -1,8 +1,8 @@
 local utils = {}
 
 utils.disable_formatting_via_lspconfig = function(client, _)
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
+  client.server_capabilities.document_formatting = false
+  client.server_capabilities.document_range_formatting = false
 end
 
 utils.goto_definition = function(split_cmd)
