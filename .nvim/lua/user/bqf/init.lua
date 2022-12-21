@@ -1,5 +1,5 @@
-vim.api.nvim_set_hl("BqfPreviewBorder", { ctermfg = 71, guifg = "#d84f76" })
-vim.api.nvim_set_hl("BqfPreviewRange", "Search")
+vim.api.nvim_set_hl(0, "BqfPreviewBorder", { ctermfg = 71, fg = "#d84f76" })
+vim.api.nvim_set_hl(0, "BqfPreviewRange", { link = "Search" })
 
 -- NOTE: Set `quickfixtextfunc` option and write down corresponding function:
 local fn = vim.fn
