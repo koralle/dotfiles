@@ -146,8 +146,11 @@ require("packer").startup({
     use({
       "lewis6991/gitsigns.nvim",
     })
-
-    use("rcarriga/nvim-notify")
+    --use("rcarriga/nvim-notify")
+    use({ "folke/noice.nvim", requires = {
+      { "MunifTanjim/nui.nvim" },
+      { "rcarriga/nvim-notify" },
+    } })
     use({
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",

@@ -30,6 +30,7 @@ local configs = {
   "user.toggleterm",
   "user.git-nvim",
   "user.rest",
+  "user.noice",
 }
 
 -- Load configs
