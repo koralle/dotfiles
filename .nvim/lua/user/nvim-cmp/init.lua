@@ -5,66 +5,22 @@ local lspkind = require("lspkind")
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
--- Custom highlight groups
-vim.cmd([[
-  " gray
-  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-  " blue
-  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-  highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-  " light blue
-  highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-  highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-  highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
-  " pink
-  highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-  highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-  " front
-  highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-  highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-  highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+-- highlight
+vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#808080" })
 
-  "highlight! PmenuSel guibg=#282c34 guifg=NONE
-  "highlight! Pmenu guifg=#c5cdd9 guibg=#22252a
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#569CD6" })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#569CD6" })
 
-  "highlight! CmpItemAbbrDeprecated guifg=#7e8294 guibg=NONE gui=strikethrough
-  "highlight! CmpItemAbbrMatch guifg=#82aaff guibg=NONE gui=bold
-  "highlight! CmpItemAbbrMatchFuzzy guifg=#82aaff guibg=NONE gui=bold
-  "highlight! CmpItemMenu guifg=#c792ea guibg=NONE gui=italic
+vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#9CDCFE" })
+vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#9CDCFE" })
+vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = "#9CDCFE" })
 
-  "highlight! CmpItemKindField guifg=#eed8da guibg=#b5585f
-  "highlight! CmpItemKindProperty guifg=#eed8da guibg=#b5585f
-  "highlight! CmpItemKinEvent guifg=#eed8da guibg=#b5585f
+vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#C586C0" })
+vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#C586C0" })
 
-  "highlight! CmpItemKindText guifg=#c3e88d guibg=#9fbd73
-  "highlight! CmpItemKindEnum guifg=#c3e88d guibg=#9fbd73
-  "highlight! CmpItemKindKeyword guifg=#c3e88d guibg=#9fbd73
-
-  "highlight! CmpItemKindConstant guifg=#ffe082 guibg=#d4bb6c
-  "highlight! CmpItemKindConstructor guifg=#ffe082 guibg=#d4bb6c
-  "highlight! CmpItemKindReference guifg=#ffe082 guibg=#d4bb6c
-
-  "highlight! CmpItemKindFunction guifg=#eadff0 guibg=#a377bf
-  "highlight! CmpItemKindStruct guifg=#eadff0 guibg=#a377bf
-  "highlight! CmpItemKindClass guifg=#eadff0 guibg=#a377bf
-  "highlight! CmpItemKindModule guifg=#eadff0 guibg=#a377bf
-  "highlight! CmpItemKindOperator guifg=#eadff0 guibg=#a377bf
-
-  "highlight! CmpItemKindVariable guifg=#c5cdd9 guibg=#7e8294
-  "highlight! CmpItemKindFile guifg=#c5cdd9 guibg=#7e8294
-
-  "highlight! CmpItemKindUnit guifg=#f5ebd9 guibg=#d4a959
-  "highlight! CmpItemKindSnippet guifg=#f5ebd9 guibg=#d4a959
-  "highlight! CmpItemKindFolder guifg=#f5ebd9 guibg=#d4a959
-
-  "highlight! CmpItemKindMethod guifg=#dde5f5 guibg=#6c8ed4
-  "highlight! CmpItemKindValue guifg=#dde5f5 guibg=#6c8ed4
-  "highlight! CmpItemKindEnumMember guifg=#dde5f5 guibg=#6c8ed4
-
-  "highlight! CmpItemKindInterface guifg=#d8eeeb guibg=#58b5ab
-  "highlight! CmpItemKindColor guifg=#d8eeeb guibg=#58b5ab
-  "highlight! CmpItemKindTypeParameter guifg=#d8eeeb guibg=#58b5ab
-]])
+vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = "#D4D4D4" })
+vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = "#D4D4D4" })
+vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = "#D4D4D4" })
 
 local has_words_before = function()
   local line = vim.api.nvim_win_get_cursor(0)[1]

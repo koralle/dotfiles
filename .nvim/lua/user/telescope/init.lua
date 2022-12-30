@@ -15,10 +15,14 @@ require("telescope").setup({
       i = {
         ["<Tab>"] = require("telescope.actions").move_selection_next,
         ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
       },
       n = {
         ["<Tab>"] = require("telescope.actions").move_selection_next,
         ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
       },
     },
     sorting_strategy = "ascending",
@@ -49,8 +53,7 @@ require("telescope").setup({
   },
 })
 
-require("telescope").load_extension("packer")
-require("telescope").load_extension("flutter")
+--require("telescope").load_extension("flutter")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("frecency")
 require("telescope").load_extension("neoclip")

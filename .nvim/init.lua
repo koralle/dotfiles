@@ -1,8 +1,3 @@
-require("plugins")
-require("setup")
-
-vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
-
 vim.cmd([[set mouse=a]])
 
 --カラースキームの変更
@@ -90,11 +85,11 @@ function _G.OpenQuickFixWindow()
 end
 
 vim.cmd("autocmd QuickfixCmdPost vimgrep call v:lua.OpenQuickFixWindow()")
-
--- skip loading sqlcomplete.vim
-vim.g.loaded_sql_completion = 1
-
--- disable virtual-text on diagnostics
+--
+---- skip loading sqlcomplete.vim
+--vim.g.loaded_sql_completion = 1
+--
+---- disable virtual-text on diagnostics
 vim.diagnostic.config({
   virtual_text = false,
 })
@@ -105,3 +100,9 @@ if vim.fn.has("nvim") then
 end
 
 vim.cmd("autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete")
+
+local lazy_nvim_status, lazy = pcall(require, "plugins")
+if not lazy_nvim_status then
+  vim.notify(lazy)
+  -- vim.notify("Please install folke/lazy.nvim. See https://github.com/folke/lazy.nvim")
+end

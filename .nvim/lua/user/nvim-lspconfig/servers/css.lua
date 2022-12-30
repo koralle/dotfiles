@@ -1,11 +1,6 @@
 local css = {}
 
 css.setup = function(nvim_lsp)
-  local my_capabilities_status, my_capabilities = pcall(require, "user.nvim-lspconfig.capabilities")
-  if not my_capabilities_status then
-    return
-  end
-
   local my_utils_status, my_utils = pcall(require, "user.nvim-lspconfig.utils")
   if not my_utils_status then
     return
@@ -28,7 +23,7 @@ css.setup = function(nvim_lsp)
           my_utils.disable_formatting_via_lspconfig(_, buffer_number)
           my_highlight.setup(client, buffer_number)
         end,
-        capabilities = my_capabilities.capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
     end,
   })

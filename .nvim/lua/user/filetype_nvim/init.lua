@@ -6,6 +6,13 @@ require("filetype").setup({
       terraform = "terraform",
       tf = "terraform",
       graphqls = "graphql",
+      -- eslintignore = "gitignore",
+      -- prettierignore = "gitignore",
+    },
+    complex = {
+      [".eslintignore"] = "gitignore",
+      [".prettierignore"] = "gitignore",
+      [".gitignore"] = "gitignore",
     },
     shebang = {
       dash = "sh",

@@ -1,11 +1,6 @@
 local terraform = {}
 
 terraform.setup = function(nvim_lsp)
-  local my_capabilities_status, my_capabilities = pcall(require, "user.nvim-lspconfig.capabilities")
-  if not my_capabilities_status then
-    return
-  end
-
   local my_utils_status, my_utils = pcall(require, "user.nvim-lspconfig.utils")
   if not my_utils_status then
     return
@@ -33,7 +28,7 @@ terraform.setup = function(nvim_lsp)
         filetypes = { "terraform", "tf" },
         whitelist = { "terraform" },
         root_dir = nvim_lsp.util.root_pattern(".terraform"),
-        capabilities = my_capabilities.capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
       -- terraform-linters/tflint
@@ -42,7 +37,7 @@ terraform.setup = function(nvim_lsp)
         filetypes = { "terraform", "tf" },
         whitelist = { "terraform" },
         root_dir = nvim_lsp.util.root_pattern(".terraform"),
-        capabilities = my_capabilities.capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
     end,
   })
