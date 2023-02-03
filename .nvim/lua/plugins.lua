@@ -25,7 +25,14 @@ lazy.setup({
   },
   {
     "EdenEast/nightfox.nvim",
-    lazy = false,
+    branch = "main",
+  },
+  {
+    "folke/tokyonight.nvim",
+    branch = "main",
+    config = function()
+      vim.cmd([[colorscheme tokyonight-moon]])
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
