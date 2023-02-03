@@ -112,6 +112,9 @@ nls.setup({
 
     -- Dockerfile
     diagnostics.hadolint,
+
+    -- Dart
+    formatting.dart_format,
   },
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)

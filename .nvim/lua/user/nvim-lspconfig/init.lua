@@ -1,18 +1,18 @@
 local status, nvim_lsp = pcall(require, "lspconfig")
 if not status then
-  return
+  vim.notify(nvim_lsp)
 end
 
 local my_utils_status, my_utils = pcall(require, "user.nvim-lspconfig.utils")
 if not my_utils_status then
-  return
+  vim.notify(my_utils)
 end
 
 local my_lspsaga_status, my_lspsaga = pcall(require, "user.nvim-lspconfig.lspsaga")
 if my_lspsaga_status then
   my_lspsaga.setup()
 else
-  return
+  vim.notify(my_lspsaga)
 end
 
 vim.lsp.set_log_level("debug")
@@ -30,13 +30,12 @@ vim.lsp.handlers["textDocument/definition"] = my_utils.goto_definition("split")
 local ensure_installed = {
   "lua",
   "bash",
-  "flutter",
   "go",
   "json",
   "lua",
   "python",
   "rust",
-  "sql",
+  --"sql",
   "terraform",
   "typescript",
   "vim",
@@ -47,6 +46,9 @@ local ensure_installed = {
   "docker",
   "toml",
   "graphql",
+  "html",
+  "proto",
+  "tailwindcss",
 }
 
 for _, language in ipairs(ensure_installed) do
@@ -55,7 +57,7 @@ for _, language in ipairs(ensure_installed) do
 
   local lsp_status, lsp = pcall(require, language_spacified_lsp_config_path)
   if not lsp_status then
-    return
+    vim.notify(lsp)
   end
 
   -- Language Server Set Up

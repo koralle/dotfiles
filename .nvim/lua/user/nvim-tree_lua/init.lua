@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true })
-
 local list = {
   -- 'simeji/winresizer'のkeybindingsと被るため
   { key = "s", action = "" },

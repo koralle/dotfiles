@@ -1,11 +1,6 @@
 local _vim = {}
 
 _vim.setup = function(nvim_lsp)
-  local my_capabilities_status, my_capabilities = pcall(require, "user.nvim-lspconfig.capabilities")
-  if not my_capabilities_status then
-    return
-  end
-
   local my_highlight_status, my_highlight = pcall(require, "user.nvim-lspconfig.highlight")
   if not my_highlight_status then
     return
@@ -20,7 +15,7 @@ _vim.setup = function(nvim_lsp)
     function()
       -- iamcco/vim-language-server
       nvim_lsp.vimls.setup({
-        capabilities = my_capabilities.capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
         on_attach = function(client, buffer_number)
           my_highlight.setup(client, buffer_number)
         end,

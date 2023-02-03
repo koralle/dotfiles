@@ -1,6 +1,6 @@
-local graphql = {}
+local html = {}
 
-graphql.setup = function(nvim_lsp)
+html.setup = function(nvim_lsp)
   local my_utils_status, my_utils = pcall(require, "user.nvim-lspconfig.utils")
   if not my_utils_status then
     return
@@ -18,21 +18,15 @@ graphql.setup = function(nvim_lsp)
 
   mason_lspconfig.setup_handlers({
     function()
-      nvim_lsp.graphql.setup({
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      nvim_lsp.html.setup({
         on_attach = function(client, buffer_number)
           my_utils.disable_formatting_via_lspconfig(client, buffer_number)
           my_highlight.setup(client, buffer_number)
         end,
-        filetypes = {
-          "graphqls", -- use on 99designs/gqlgen
-          "graphql",
-          "javascriptreact",
-          "typescriptreact",
-        },
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
     end,
   })
 end
 
-return graphql
+return html
