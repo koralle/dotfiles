@@ -13,6 +13,7 @@ require("filetype").setup({
       [".eslintignore"] = "gitignore",
       [".prettierignore"] = "gitignore",
       [".gitignore"] = "gitignore",
+      [".tigrc"] = "conf",
     },
     shebang = {
       dash = "sh",

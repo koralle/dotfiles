@@ -2,8 +2,8 @@ vim.cmd([[set mouse=a]])
 
 --カラースキームの変更
 vim.o.termguicolors = true
-vim.opt.background = "dark"
-vim.cmd([[colorscheme nordfox]])
+-- vim.opt.background = "dark"
+-- vim.cmd([[colorscheme nordfox]])
 
 --行番号を表示する
 vim.wo.number = true
@@ -52,7 +52,7 @@ vim.cmd("autocmd TermOpen * startinsert")
 
 vim.o.encoding = "utf-8"
 
-vim.o.cmdheight = 2
+vim.o.cmdheight = 0
 
 vim.o.list = true
 vim.o.listchars = "tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:_"
@@ -76,6 +76,7 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 vim.cmd("autocmd FileType qf wincmd J")
 
 -- quickfix-windowを開き、modifiableに設定し、windowサイズを調整
+
 function _G.OpenQuickFixWindow()
   vim.cmd([[
     cw

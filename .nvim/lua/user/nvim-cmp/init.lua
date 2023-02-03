@@ -63,7 +63,7 @@ cmp.setup({
     { name = "nvim_lsp_signature_help" },
     { name = "treesitter" },
     { name = "path" },
-    { name = "omni" },
+    --{ name = "omni" },
     { name = "npm", keyword_length = 4 },
   }, {
     { name = "buffer" },

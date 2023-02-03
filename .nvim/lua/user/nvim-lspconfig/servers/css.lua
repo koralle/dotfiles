@@ -20,7 +20,7 @@ css.setup = function(nvim_lsp)
     function()
       nvim_lsp.cssls.setup({
         on_attach = function(client, buffer_number)
-          my_utils.disable_formatting_via_lspconfig(_, buffer_number)
+          my_utils.disable_formatting_via_lspconfig(client, buffer_number)
           my_highlight.setup(client, buffer_number)
         end,
         capabilities = require("cmp_nvim_lsp").default_capabilities(),

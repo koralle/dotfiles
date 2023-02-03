@@ -46,6 +46,9 @@ local ensure_installed = {
   "docker",
   "toml",
   "graphql",
+  "html",
+  "proto",
+  "tailwindcss",
 }
 
 for _, language in ipairs(ensure_installed) do

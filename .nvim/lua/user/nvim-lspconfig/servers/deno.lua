@@ -1,11 +1,6 @@
 local deno = {}
 
 deno.setup = function(nvim_lsp)
-  local my_capabilities_status, my_capabilities = pcall(require, "user.nvim-lspconfig.capabilities")
-  if not my_capabilities_status then
-    return
-  end
-
   local my_utils_status, my_utils = pcall(require, "user.nvim-lspconfig.utils")
   if not my_utils_status then
     return

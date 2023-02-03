@@ -23,6 +23,9 @@ lua.setup = function(nvim_lsp)
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
         settings = {
           Lua = {
+            completion = {
+              displayContext = 1,
+            },
             runtime = {
               version = "LuaJIT",
             },
@@ -34,6 +37,13 @@ lua.setup = function(nvim_lsp)
             },
             telemetry = {
               enable = false,
+            },
+            format = {
+              enable = false,
+            },
+            hint = {
+              enable = true,
+              setType = true,
             },
           },
         },
