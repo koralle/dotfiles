@@ -269,4 +269,10 @@ require("lazy").setup({
       "MarkdownPreviewToggle",
     },
   },
+  {
+    "dstein64/vim-startuptime",
+    cmd = {
+      "StartupTime",
+    },
+  },
 })
