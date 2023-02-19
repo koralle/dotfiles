@@ -1,0 +1,2 @@
+-- load plugins
+require("plugins")
