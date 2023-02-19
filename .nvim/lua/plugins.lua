@@ -223,4 +223,11 @@ require("lazy").setup({
       require("user.bufferline")
     end,
   },
+  {
+    "feline-nvim/feline.nvim",
+    lazy = false,
+    config = function()
+      require("user.feline")
+    end,
+  },
 })
