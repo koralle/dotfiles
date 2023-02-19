@@ -23,6 +23,7 @@ require("lazy").setup({
       vim.cmd([[colorscheme tokyonight-storm]])
     end
   },
+  { "hrsh7th/nvim-cmp" },
   { "hrsh7th/cmp-nvim-lsp" },
   {
     "nvim-tree/nvim-web-devicons",
