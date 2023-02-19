@@ -22,7 +22,7 @@ require("lazy").setup({
     "folke/tokyonight.nvim",
     branch = "main",
     config = function()
-      vim.cmd([[colorscheme tokyonight-storm]])
+      vim.cmd([[colorscheme tokyonight-night]])
     end,
   },
   {
