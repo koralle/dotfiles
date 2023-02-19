@@ -2,6 +2,8 @@
 -- e.g.) "/Users/koralle/.local/share/nvim"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
+vim.opt.termguicolors = true
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -209,6 +211,16 @@ require("lazy").setup({
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({})
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("user.bufferline")
     end,
   },
 })
