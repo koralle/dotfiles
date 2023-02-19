@@ -37,6 +37,13 @@ require("lazy").setup({
     end,
   },
   {
+    "windwp/nvim-autopairs",
+    lazy = true,
+    config = function()
+      require("user.autopairs")
+    end,
+  },
+  {
     "kyazdani42/nvim-tree.lua",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
