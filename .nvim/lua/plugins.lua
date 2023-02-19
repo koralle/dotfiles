@@ -24,6 +24,30 @@ require("lazy").setup({
     end
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.install").compilers = { "zig" }
+
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "lua", "vim" },
+        highlight = {
+          enable = true,
+        },
+        yati = { enable = true },
+        rainbow = {
+          enable = true,
+          extended_mode = true,
+          max_file_lines = nil,
+        },
+        context_commentstring = {
+          enable = true,
+          config = {},
+        },
+      })
+    end
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
