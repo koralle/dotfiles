@@ -21,7 +21,7 @@ require("lazy").setup({
     branch = "main",
     config = function()
       vim.cmd([[colorscheme tokyonight-storm]])
-    end
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -45,7 +45,7 @@ require("lazy").setup({
           config = {},
         },
       })
-    end
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -67,7 +67,7 @@ require("lazy").setup({
     event = "InsertEnter",
     config = function()
       require("user.cmp")
-    end
+    end,
   },
   {
     "hrsh7th/cmp-nvim-lsp",

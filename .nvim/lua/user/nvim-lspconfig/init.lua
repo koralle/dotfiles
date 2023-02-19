@@ -22,7 +22,7 @@ vim.lsp.handlers["textDocument/definition"] = my_utils.goto_definition("split")
 
 local ensure_installed = {
   "lua",
-  "rust"
+  "rust",
 }
 
 for _, language in ipairs(ensure_installed) do
