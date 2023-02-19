@@ -275,4 +275,8 @@ require("lazy").setup({
       "StartupTime",
     },
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufRead" },
+  },
 })
