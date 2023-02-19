@@ -23,8 +23,72 @@ require("lazy").setup({
       vim.cmd([[colorscheme tokyonight-storm]])
     end
   },
-  { "hrsh7th/nvim-cmp" },
-  { "hrsh7th/cmp-nvim-lsp" },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-omni",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "onsails/lspkind.nvim",
+      "windwp/nvim-autopairs",
+      "David-Kunz/cmp-npm",
+    },
+    event = "InsertEnter",
+    config = function()
+      require("user.cmp")
+    end
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    lazy = true,
+  },
+  {
+    "hrsh7th/cmp-buffer",
+    lazy = true,
+  },
+  {
+    "saadparwaiz1/cmp_luasnip",
+    lazy = true,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = true,
+  },
+  {
+    "hrsh7th/cmp-emoji",
+    lazy = true,
+  },
+  {
+    "onsails/lspkind.nvim",
+    lazy = true,
+  },
+  {
+    "hrsh7th/cmp-path",
+    lazy = true,
+  },
+  {
+    "hrsh7th/cmp-cmdline",
+    lazy = true,
+  },
+  {
+    "hrsh7th/cmp-nvim-lua",
+    lazy = true,
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    lazy = true,
+  },
+  {
+    "hrsh7th/cmp-omni",
+    lazy = true,
+  },
   {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
