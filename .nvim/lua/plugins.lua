@@ -230,4 +230,11 @@ require("lazy").setup({
       require("user.feline")
     end,
   },
+  {
+    "folke/which-key.nvim",
+    lazy = false,
+    config = function()
+      require("user.which-key")
+    end,
+  },
 })
