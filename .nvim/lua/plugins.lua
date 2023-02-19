@@ -279,4 +279,10 @@ require("lazy").setup({
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufRead" },
   },
+  {
+    "nathom/filetype.nvim",
+    config = function()
+      require("user.filetype")
+    end,
+  },
 })
