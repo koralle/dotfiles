@@ -254,4 +254,8 @@ require("lazy").setup({
     "simeji/winresizer",
     keys = { "<C-e>" },
   },
+  {
+    "j-hui/fidget.nvim",
+    config = true,
+  },
 })
