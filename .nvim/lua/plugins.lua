@@ -250,4 +250,8 @@ require("lazy").setup({
       require("nvim-ts-autotag").setup({})
     end,
   },
+  {
+    "simeji/winresizer",
+    keys = { "<C-e>" },
+  },
 })
