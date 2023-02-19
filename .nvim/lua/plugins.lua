@@ -243,4 +243,11 @@ require("lazy").setup({
       require("user.toggleterm")
     end,
   },
+  {
+    "windwp/nvim-ts-autotag",
+    lazy = false,
+    config = function()
+      require("nvim-ts-autotag").setup({})
+    end,
+  },
 })
