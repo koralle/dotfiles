@@ -205,4 +205,10 @@ require("lazy").setup({
       require("user.null-ls")
     end,
   },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({})
+    end,
+  },
 })
