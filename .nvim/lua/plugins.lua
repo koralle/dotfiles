@@ -310,4 +310,15 @@ require("lazy").setup({
       require("trouble").setup({})
     end,
   },
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("flutter-tools").setup({})
+    end,
+  },
 })
