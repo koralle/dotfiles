@@ -285,4 +285,14 @@ require("lazy").setup({
       require("user.filetype")
     end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = { "Telescope" },
+    config = function()
+      require("user.telescope")
+    end,
+  },
 })
