@@ -32,7 +32,7 @@ require("telescope").setup({
       prompt_position = "top",
       width = 0.9,
       height = 0.8,
-      preview_width = 0.4,
+      preview_width = 0.6,
     },
     prompt_prefix = "🍣> ",
     selection_caret = "🍣> ",
