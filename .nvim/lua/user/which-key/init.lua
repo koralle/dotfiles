@@ -69,7 +69,7 @@ wk.register({
 wk.register({
   K = {
     "<Cmd>lua vim.lsp.buf.hover()<CR>",
-    "Lspsaga hover_doc",
+    "vim.lsp.buf.hover()",
     noremap = true,
     silent = true,
   },
@@ -77,20 +77,9 @@ wk.register({
 
 wk.register({
   g = {
-    D = {
-      "<Cmd>Lspsaga preview_definition<CR>",
-      "Lspsaga preview_definition",
-      noremap = true,
-      silent = true,
-    },
-  },
-})
-
-wk.register({
-  g = {
     d = {
       "<Cmd>lua vim.lsp.buf.definition()<CR>",
-      "vim.lsp.buf.definition",
+      "vim.lsp.buf.definition()",
       noremap = true,
       silent = true,
     },
@@ -113,6 +102,17 @@ wk.register({
     r = {
       ":lua vim.lsp.buf.references()<CR>",
       "vim.lsp.buf.references()",
+      noremap = true,
+      silent = true,
+    },
+  },
+})
+
+wk.register({
+  g = {
+    R = {
+      ":lua vim.lsp.buf.rename()<CR>",
+      "vim.lsp.buf.rename()",
       noremap = true,
       silent = true,
     },
