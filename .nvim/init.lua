@@ -61,14 +61,8 @@ vim.o.listchars = "tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:_
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
--- quickfix windowを開く位置を変更
-vim.api.nvim_create_augroup("qf", {})
-vim.api.nvim_create_autocmd("Filetype", {
-  group = "qf",
-  callback = function()
-    vim.api.nvim_command("wincmd J")
-  end,
-})
+-- quickfix-windowのデフォルトの表示位置を左端に変更
+vim.cmd("autocmd FileType qf wincmd J")
 
 -- quickfix-windowを開き、modifiableに設定し、windowサイズを調整
 vim.api.nvim_create_augroup("vimgrep", {})
