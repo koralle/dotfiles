@@ -65,13 +65,12 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 vim.cmd("autocmd FileType qf wincmd J")
 
 -- quickfix-windowを開き、modifiableに設定し、windowサイズを調整
-
-function _G.OpenQuickFixWindow()
-  vim.cmd([[
-    cw
-    set modifiable
-    vertical resize 60
-  ]])
-end
-
-vim.cmd("autocmd QuickfixCmdPost vimgrep call v:lua.OpenQuickFixWindow()")
+vim.api.nvim_create_augroup("vimgrep", {})
+vim.api.nvim_create_autocmd("QuickfixCmdPost", {
+  group = "vimgrep",
+  callback = function()
+    vim.api.nvim_command("cw")
+    vim.api.nvim_command("set modifiable")
+    vim.api.nvim_command("vertical resize 100")
+  end,
+})
