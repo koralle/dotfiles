@@ -29,4 +29,7 @@ require("nvim-tree").setup({
     enable = true,
     show_on_dirs = true,
   },
+  notify = {
+    threshold = vim.log.levels.ERROR,
+  },
 })
