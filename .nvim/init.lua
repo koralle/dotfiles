@@ -62,7 +62,7 @@ vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- quickfix-windowのデフォルトの表示位置を左端に変更
-vim.cmd("autocmd FileType qf wincmd J")
+vim.api.nvim_command("autocmd FileType qf wincmd J")
 
 -- quickfix-windowを開き、modifiableに設定し、windowサイズを調整
 vim.api.nvim_create_augroup("vimgrep", {})
