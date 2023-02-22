@@ -1,20 +1,3 @@
-local isInsideGitWorkingTree = function()
-  return vim.fn.system("git rev-parse --is-inside-working-tree") == "true"
-end
-
-local getGitRepositoryRoot = function()
-  return vim.fn.system("git rev-parse --show-superproject-working-tree --show-toplevel | head -1")
-end
-
-vim.api.nvim_create_user_command("TelescopeOnGitRepositoryRoot", function()
-  if not isInsideGitWorkingTree() then
-    return
-  end
-
-  vim.fn.chdir(getGitRepositoryRoot())
-  vim.api.nvim_command("Telescope fd hidden=true")
-end)
-
 require("telescope").setup({
   defaults = {
     borderchars = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
