@@ -336,7 +336,12 @@ require("lazy").setup({
   },
   {
     "rcarriga/nvim-notify",
-    lazy = true,
+    config = function()
+      local notify = require("notify")
+      vim.api.nvim_create_user_command("DismissNotifications", function()
+        notify.dismiss()
+      end, {})
+    end,
   },
   {
     "folke/noice.nvim",
