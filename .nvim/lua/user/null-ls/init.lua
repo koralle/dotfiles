@@ -35,6 +35,15 @@ nls.setup({
       prefer_local = "node_modules/.bin",
     }),
 
+    -- golang
+    formatting.gofmt,
+    formatting.goimports,
+    formatting.goimports_reviser,
+    code_actions.gomodifytags,
+    diagnostics.golangci_lint,
+    -- diagnostics.goalngci_lint,
+    -- diagnostics.gospel,
+
     -- プロジェクトローカルにprettierがインストールされていればそちらを、
     -- インストールされていなければグローバルのprettierを使用する
     formatting.prettier.with({

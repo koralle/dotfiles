@@ -129,3 +129,30 @@ wk.register({
     },
   },
 })
+
+wk.register({
+  ["<leader>"] = {
+    x = {
+      x = {
+        "<cmd>TroubleToggle<cr>",
+      },
+      w = {
+        "<cmd>TroubleToggle workspace_diagnostics<cr>",
+      },
+      d = {
+        "<cmd>TroubleToggle document_diagnostics<cr>",
+      },
+      q = {
+        "<cmd>TroubleToggle quickfix<cr>",
+      },
+      l = {
+        "<cmd>TroubleToggle loclist<cr>",
+      },
+    },
+    G = {
+      R = {
+        "<cmd>TroubleToggle lsp_references<cr>",
+      },
+    },
+  },
+})

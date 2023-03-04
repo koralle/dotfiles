@@ -24,6 +24,8 @@ local ensure_installed = {
   "lua",
   "rust",
   "typescript",
+  "tailwindcss",
+  "go",
 }
 
 for _, language in ipairs(ensure_installed) do

@@ -74,3 +74,10 @@ vim.api.nvim_create_autocmd("QuickfixCmdPost", {
     vim.api.nvim_command("vertical resize 100")
   end,
 })
+
+-- Config for neovim-remote:
+if vim.fn.has("nvim") then
+  vim.cmd("let $GIT_EDITOR = 'nvr -cc split --remote-wait'")
+end
+
+vim.cmd("autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete")

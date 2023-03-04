@@ -26,10 +26,30 @@ require("lazy").setup({
     end,
   },
   {
+    "IndianBoy42/tree-sitter-just",
+    lazy = true,
+    branch = "main",
+    config = function()
+      require("tree-sitter-just").setup({})
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "IndianBoy42/tree-sitter-just",
+    },
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.install").compilers = { "zig" }
+
+      require("nvim-treesitter.parsers").get_parser_configs().just = {
+        install_info = {
+          url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
+          files = { "src/parser.c", "src/scanner.cc" },
+          branch = "main",
+        },
+        maintainers = { "@IndianBoy42" },
+      }
 
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "lua", "vim" },
@@ -308,6 +328,23 @@ require("lazy").setup({
     },
     config = function()
       require("trouble").setup({})
+
+      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
+      vim.keymap.set(
+        "n",
+        "<leader>xw",
+        "<cmd>TroubleToggle workspace_diagnostics<cr>",
+        { silent = true, noremap = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>xd",
+        "<cmd>TroubleToggle document_diagnostics<cr>",
+        { silent = true, noremap = true }
+      )
+      vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true })
     end,
   },
   {
