@@ -1,6 +1,8 @@
 -- load plugins
 require("plugins")
 
+vim.cmd("set clipboard+=unnamedplus")
+
 vim.o.termguicolors = true
 
 local set_keymap_for_window = function(opts)
