@@ -378,6 +378,8 @@ require("lazy").setup({
       vim.api.nvim_create_user_command("DismissNotifications", function()
         notify.dismiss()
       end, {})
+
+      vim.keymap.set("n", "<leader>dn", "<cmd>DismissNotifications<cr>", { silent = true, noremap = true })
     end,
   },
   {
