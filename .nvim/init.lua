@@ -42,6 +42,8 @@ local font = "Cica 20"
 vim.o.guifont = font
 vim.o.guifontwide = font
 
+vim.o.inccommand = "split"
+
 -- ターミナルモード時のkeymap
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { noremap = true })
