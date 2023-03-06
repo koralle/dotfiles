@@ -85,3 +85,5 @@ if vim.fn.has("nvim") then
 end
 
 vim.cmd("autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete")
+
+vim.cmd("autocmd BufNewFile,BufRead *.tf set filetype=terraform")

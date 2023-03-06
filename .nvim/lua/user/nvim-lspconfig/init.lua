@@ -26,6 +26,7 @@ local ensure_installed = {
   "typescript",
   "tailwindcss",
   "go",
+  "terraform",
 }
 
 for _, language in ipairs(ensure_installed) do

@@ -66,6 +66,10 @@ nls.setup({
       },
     }),
     formatting.rustfmt,
+
+    diagnostics.terraform_validate,
+    diagnostics.tfsec,
+    formatting.terraform_fmt,
   },
   on_attach = function(client, buffer_number)
     sync_formatting_on_save(client, buffer_number)
