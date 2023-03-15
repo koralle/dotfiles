@@ -316,6 +316,10 @@ require("lazy").setup({
     end,
   },
   {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+  },
+  {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup({})
