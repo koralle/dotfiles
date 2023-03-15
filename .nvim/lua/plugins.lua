@@ -442,4 +442,17 @@ require("lazy").setup({
       })
     end,
   },
+  {
+    "rbgrouleff/bclose.vim",
+    lazy = true,
+  },
+  {
+    "iberianpig/tig-explorer.vim",
+    dependencies = {
+      "rbgrouleff/bclose.vim",
+    },
+    config = function()
+      vim.keymap.set("n", "<leader>t", "<cmd>TigOpenProjectRootDir<cr>", { noremap = true })
+    end,
+  },
 })
