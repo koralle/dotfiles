@@ -233,23 +233,23 @@ require("lazy").setup({
       require("colorizer").setup({})
     end,
   },
-  {
-    "akinsho/bufferline.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("user.bufferline")
-    end,
-  },
-  {
-    "feline-nvim/feline.nvim",
-    lazy = false,
-    config = function()
-      require("user.feline")
-    end,
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  --   config = function()
+  --     require("user.bufferline")
+  --   end,
+  -- },
+  -- {
+  --   "feline-nvim/feline.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require("user.feline")
+  --   end,
+  -- },
   {
     "folke/which-key.nvim",
     lazy = false,
@@ -446,6 +446,13 @@ require("lazy").setup({
     },
     config = function()
       vim.keymap.set("n", "<leader>t", "<cmd>TigOpenProjectRootDir<cr>", { noremap = true })
+    end,
+  },
+  {
+    "rebelot/heirline.nvim",
+    event = { "VimEnter" },
+    config = function()
+      require("heirline").setup({})
     end,
   },
 })
