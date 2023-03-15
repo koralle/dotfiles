@@ -12,11 +12,4 @@ _G["ensure"] = function(spec, callback)
   return ok, module
 end
 
---- Lazy.nvimでインストールされるもののパス
----@param name string 対象プラグイン名
----@return string ディレクトリパス
-_G["lazydir"] = function(name)
-  return vim.fs.normalize(vim.fn.stdpath("data") .. "/lazy/" .. name)
-end
-
 vim.cmd([[runtime! lua/koralle/conf/*.lua]])
