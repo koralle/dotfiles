@@ -87,3 +87,4 @@ end
 vim.cmd("autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete")
 
 vim.cmd("autocmd BufNewFile,BufRead *.tf set filetype=terraform")
+vim.cmd("autocmd BufNewFile,BufRead *.graphqls set filetype=graphql")
