@@ -156,3 +156,42 @@ wk.register({
     },
   },
 })
+
+wk.register({
+  ["<leader>"] = {
+    f = {
+      d = {
+        function()
+          local helpers = require("user.telescope.helpers")
+
+          if helpers.isUnderWorkTree() then
+            vim.cmd("Telescope fd find_command=fd hidden=true cwd=" .. helpers.getGitRepositoryRoot())
+          else
+            vim.cmd("Telescope fd find_command=fd hidden=true ")
+          end
+        end,
+        "Telescope fd hidden=true",
+        noremap = true,
+        silent = true,
+      },
+      g = {
+        "<cmd>Telescope live_grep<cr>",
+        "Telescope live_grep",
+        noremap = true,
+        silent = true,
+      },
+      b = {
+        "<cmd>Telescope buffers<cr>",
+        "Telescope buffers",
+        noremap = true,
+        silent = true,
+      },
+      n = {
+        "<cmd>Telescope help_tags<cr>",
+        "Telescope help_tags",
+        noremap = true,
+        silent = true,
+      },
+    },
+  },
+})
