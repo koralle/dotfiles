@@ -2,5 +2,7 @@
   "heirline.nvim": { "branch": "master", "commit": "a7cc90b6ef4b599fef8f0d61a88c389bfd7fdb10" },
   "lazy.nvim": { "branch": "main", "commit": "6b55862d2d264f0b48e0b9e42cc2d14f136bed55" },
   "nvim-web-devicons": { "branch": "master", "commit": "f1b1cee3a561590a6c1637a9326c406f6e4af914" },
+  "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
+  "telescope.nvim": { "branch": "master", "commit": "a3f17d3baf70df58b9d3544ea30abe52a7a832c2" },
   "tokyonight.nvim": { "branch": "main", "commit": "467d889ba82a74e26821c812aa8e70d7dff04c6c" }
 }
