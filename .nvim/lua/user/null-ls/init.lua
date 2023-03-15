@@ -34,6 +34,10 @@ nls.setup({
       diagnostics_format = "[#{c}] #{m} (#{s})",
       prefer_local = "node_modules/.bin",
     }),
+    diagnostics.stylelint.with({
+      diagnostics_format = "[#{c}] #{m} (#{s})",
+      prefer_local = "node_modules/.bin",
+    }),
 
     -- golang
     formatting.gofmt,
