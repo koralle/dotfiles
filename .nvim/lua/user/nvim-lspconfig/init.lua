@@ -28,6 +28,7 @@ local ensure_installed = {
   "go",
   "terraform",
   "css",
+  "graphql",
 }
 
 for _, language in ipairs(ensure_installed) do
