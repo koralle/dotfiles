@@ -1,4 +1,28 @@
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope fd hidden=true<cr>", { noremap = true, silent = true })
+local isUnderWorkTree = function()
+  local system = vim.fn.system
+  local trim = vim.fn.trim
+
+  return trim(system("git rev-parse --is-inside-work-tree")) == "true"
+end
+
+local getGitRepositoryRoot = function()
+  local system = vim.fn.system
+  local trim = vim.fn.trim
+
+  return trim(system("git rev-parse --show-toplevel"))
+end
+
+vim.keymap.set("n", "<leader>ff", function()
+  if isUnderWorkTree() then
+    vim.cmd("Telescope fd find_command=fd hidden=true cwd=" .. getGitRepositoryRoot())
+  else
+    vim.cmd("Telescope fd find_command=fd hidden=true")
+  end
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true })
+
 ---@type LazySpec
 local spec = {
   "nvim-telescope/telescope.nvim",
@@ -39,7 +63,7 @@ local spec = {
         entry_prefix = "🍗> ",
       },
     })
-  end
+  end,
 }
 
 return spec

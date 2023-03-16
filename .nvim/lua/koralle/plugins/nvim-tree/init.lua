@@ -27,6 +27,7 @@ local spec = {
         "gitcommit",
       },
       view = {
+        hide_root_folder = true,
         width = 40,
         side = "right",
         mappings = {
@@ -40,16 +41,16 @@ local spec = {
             { key = "-", action = "" },
             { key = "<bs>", action = "dir_up" },
             { key = "ga", action = "git_add", action_cb = require("koralle.plugins.nvim-tree.helpers").git_add },
-          }
+          },
         },
-      }      
+      },
     })
 
     -- Auto Close
     vim.api.nvim_create_autocmd({ "QuitPre" }, {
       callback = function()
         vim.cmd([[NvimTreeClose]])
-      end
+      end,
     })
 
     -- Automatically open file upon creation
@@ -57,8 +58,7 @@ local spec = {
     api.events.subscribe(api.events.Event.FileCreated, function(file)
       vim.cmd("edit " .. file.fname)
     end)
-
-  end
+  end,
 }
 
 return spec

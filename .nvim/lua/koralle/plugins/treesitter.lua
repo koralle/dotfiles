@@ -1,11 +1,22 @@
 local spec = {
   "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
   config = function()
-    ensure("nvim-treesitter", function(m)
-      if vim.fn.executable("zig") == 1 then
+    vim.o.termguicolors = true
+
+    ensure("nvim-treesitter.install", function(m)
+      if vim.fn.executable("zig") then
         m.compilers = { "zig" }
       end
+    end)
+
+    ensure("nvim-treesitter.configs", function(m)
       m.setup({
+        ensure_installed = {
+          "lua",
+          "vim",
+          "rust",
+        },
         highlight = {
           enable = true,
         },

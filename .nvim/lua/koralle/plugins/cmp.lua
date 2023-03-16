@@ -104,6 +104,8 @@ local setup_cmp = function()
       name = "cmdline",
     }),
   })
+
+  cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done({ map_char = { tex = "" } }))
 end
 
 local spec = {
@@ -166,6 +168,14 @@ local spec = {
   {
     "hrsh7th/cmp-omni",
     lazy = true,
+  },
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      ensure("nvim-autopairs", function(m)
+        m.setup()
+      end)
+    end,
   },
 }
 
