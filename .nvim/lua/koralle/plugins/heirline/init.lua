@@ -1,14 +1,12 @@
-local spec = { {
+local spec = { 
   "rebelot/heirline.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local winbar = {}
-    local statusline = {}
     require("heirline").setup({
-      winbar = winbar,
-      statusline = statusline,
+      statusline = require("koralle.plugins.heirline.statusline"),
     })
   end
-} }
+} 
 
 return spec
