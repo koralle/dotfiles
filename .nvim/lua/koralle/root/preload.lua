@@ -12,4 +12,4 @@ _G["ensure"] = function(spec, callback)
   return ok, module
 end
 
-vim.cmd([[runtime! lua/koralle/conf/*.lua]])
+vim.cmd([[runtime! lua/koralle/config/*.lua]])
