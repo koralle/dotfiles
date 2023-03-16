@@ -1,3 +1,4 @@
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope fd hidden=true<cr>", { noremap = true, silent = true })
 ---@type LazySpec
 local spec = {
   "nvim-telescope/telescope.nvim",
