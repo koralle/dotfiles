@@ -33,6 +33,20 @@ return {
     hl = { fg = utils.get_highlight("Directory").fg },
   },
   {
+    condition = function()
+      return vim.bo.modified
+    end,
+    provider = "[+]",
+    hl = { fg = colors.green },
+  },
+  {
+    condition = function()
+      return not vim.bo.modifiable or vim.bo.readonly
+    end,
+    provider = "",
+    hl = { fg = colors.orange },
+  },
+  {
     provider = " ",
   },
 }

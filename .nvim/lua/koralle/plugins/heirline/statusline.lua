@@ -57,6 +57,7 @@ local statusline = {
       buftype = {
         "nofile",
         "terminal",
+        "quickfix",
       },
     })
   end,
@@ -64,6 +65,10 @@ local statusline = {
   require("koralle.plugins.heirline.file"),
   require("koralle.plugins.heirline.git"),
   ruler,
+  {
+    provider = " ",
+  },
+  require("koralle.plugins.heirline.diagnostics"),
   require("koralle.plugins.heirline.lsp"),
 }
 
