@@ -1,11 +1,16 @@
 ---@type LazySpec
 local spec = {
-  "kevinhwang91/nvim-bqf",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "junegunn/fzf",
+  {
+    "kevinhwang91/nvim-bqf",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "junegunn/fzf",
+    },
+    ft = { "qf" },
   },
-  ft = { "qf" },
+  {
+    "thinca/vim-qfreplace",
+  },
 }
 
 return spec
