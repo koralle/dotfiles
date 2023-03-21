@@ -1,16 +1,21 @@
 vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { silent = true, noremap = true })
 
+local open_nvim_tree = function()
+  require("nvim-tree.api").tree.open()
+end
+
 local spec = {
   "nvim-tree/nvim-tree.lua",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  cmd = {
-    "NvimTreeToggle",
-    "NvimTreeFocus",
-    "NvimTreeFindFile",
-    "NvimTreeCollapse",
-  },
+  event = { "VimEnter" },
+  -- cmd = {
+  --   "NvimTreeToggle",
+  --   "NvimTreeFocus",
+  --   "NvimTreeFindFile",
+  --   "NvimTreeCollapse",
+  -- },
   config = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
@@ -45,6 +50,9 @@ local spec = {
         },
       },
     })
+
+    -- Always Open nvim-tree
+    vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
     -- Auto Close
     vim.api.nvim_create_autocmd({ "QuitPre" }, {

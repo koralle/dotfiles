@@ -128,7 +128,21 @@ local register_lsp_servers = function()
   register_server("cssmodules_ls", {})
   register_server("tailwindcss", {})
   register_server("vimls", {})
-  register_server("yamlls", { schemaStore = { enable = true } })
+  register_server("jsonls", {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas({}),
+        validate = { enable = true },
+      },
+    },
+  })
+  register_server("yamlls", {
+    settings = {
+      yaml = {
+        schemas = require("schemastore").yaml.schemas({}),
+      },
+    },
+  })
   register_server("graphql", {})
 end
 
@@ -231,6 +245,26 @@ local spec = {
       --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" },
     },
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      ensure("lsp_signature", function(m)
+        m.setup({})
+      end)
+    end,
+  },
+  {
+    "b0o/schemastore.nvim",
+  },
+  {
+    "saecki/crates.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("crates").setup({})
+    end,
   },
 }
 
