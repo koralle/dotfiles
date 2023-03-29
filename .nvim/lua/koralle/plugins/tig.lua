@@ -10,7 +10,7 @@ local spec = {
       "rbgrouleff/bclose.vim",
     },
     config = function()
-      vim.keymap.set("n", "<leader>", "<cmd>TigOpenProjectRootDir<cr>", { noremap = true })
+      vim.keymap.set("n", "<leader>t", "<cmd>Tig<cr>", { noremap = true })
 
       if vim.fn.has("nvim") then
         if vim.fn.has("nvr") then
