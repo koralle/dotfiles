@@ -1,0 +1,75 @@
+root: true
+extends:
+  - eslint:recommended
+  - plugin:import/recommended
+  - plugin:promise/recommended
+  - plugin:import/typescript
+  - plugin:@typescript-eslint/recommended
+  - plugin:@typescript-eslint/recommended-requiring-type-checking
+  - plugin:react/recommended
+  - plugin:react/jsx-runtime
+  - plugin:react-hooks/recommended
+  - plugin:storybook/recommended
+  - plugin:jsx-a11y/recommended
+  - plugin:jest/recommended
+  - plugin:jest/style
+  - prettier
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  tsconfigRootDir: .
+  project: ./tsconfig.json
+  sourceType: module
+env:
+  jest/globals: true
+  node: true
+  browser: true
+  es2021: true
+plugins:
+  - import
+  - simple-import-sort
+  - promise
+  - '@typescript-eslint'
+  - react
+  - jest
+  - jsx-a11y
+rules:
+  react/jsx-uses-react: off
+  react/jsx-in-jsx-scope: off
+  react/jsx-boolean-value: error
+  react/jsx-curly-brace-presence: error
+  react/self-closing-comp:
+    - error
+    - component: true
+      html: true
+  jest/require-top-level-describe:
+    - error
+  jest/consistent-test-it:
+    - error
+    - fn: it
+  '@typescript-eslint/await-thenable': error
+  '@typescript-eslint/no-misused-promises':
+    - error
+    - checksVoidReturn: false
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - argsIgnorePattern: ^_
+      varsIgnorePattern: ^_
+  simple-import-sort/imports: error
+  simple-import-sort/exports: error
+settings:
+  react:
+    createClass: createReactClass
+    pragma: React
+    fragment: Fragment
+    version: detect
+    flowVersion: 0.53
+  import/resolver:
+    typescript: []
+overrides:
+  - files: 
+      - src/*
+    rules:
+      import/no-default-export: off
+      import/prefer-default-export: error
