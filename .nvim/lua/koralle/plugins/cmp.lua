@@ -2,8 +2,12 @@ local setup_cmp = function()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
   local lspkind = require("lspkind")
+  vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
   local has_words_before = function()
+    if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+      return false
+    end
     local line = vim.api.nvim_win_get_cursor(0)[1]
     local col = vim.api.nvim_win_get_cursor(0)[2]
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -12,10 +16,16 @@ local setup_cmp = function()
   cmp.setup({
     enabled = true,
     preselect = cmp.PreselectMode.Item,
+    formatters = {
+      insert_text = require("copilot_cmp.format").remove_existing,
+    },
     formatting = {
       fields = { "kind", "abbr", "menu" },
       format = function(entry, vim_item)
-        local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 100 })(entry, vim_item)
+        local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 100, symbol_map = { Copilot = "" } })(
+          entry,
+          vim_item
+        )
         local strings = vim.split(kind.kind, "%s", { trimempty = true })
         kind.kind = " " .. strings[1] .. " "
         kind.menu = "    [" .. strings[2] .. "]"
@@ -42,6 +52,7 @@ local setup_cmp = function()
       end,
     },
     sources = cmp.config.sources({
+      { name = "copilot", group_index = 2 },
       { name = "nvim_lsp" },
       { name = "luasnip" },
       { name = "emoji" },
@@ -60,11 +71,12 @@ local setup_cmp = function()
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-l>"] = cmp.mapping.complete(),
       ["<CR>"] = cmp.mapping.confirm({
-        select = true,
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
       }),
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
+        if cmp.visible() and has_words_before() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         elseif has_words_before() then
@@ -175,6 +187,15 @@ local spec = {
     config = function()
       ensure("nvim-autopairs", function(m)
         m.setup()
+      end)
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      ensure("copilot_cmp", function(m)
+        m.setup({})
       end)
     end,
   },
