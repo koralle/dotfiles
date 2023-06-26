@@ -1,57 +1,41 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local color_scheme = "tokyonight_storm"
-local font = "Cica"
+local key_mappings = require("key-mappings")
 
-wezterm.on("update-right-status", function(window, pane)
-  window:set_right_status(window:active_workspace())
-end)
+local config = wezterm.config_builder()
 
-return {
-  tab_bar_at_bottom = true,
-  front_end = "WebGpu",
-  webgpu_power_preference = "HighPerformance",
-  default_workspace = "koralle",
-  native_macos_full_screen = true,
-  launch_menu = {
-    {
-      label = "zsh",
-      args = { "zsh", "-l" },
-    },
-  },
-  font = wezterm.font(font),
-  font_size = 20.0,
-  use_ime = true,
-  color_scheme = color_scheme,
-  colors = {},
-  window_background_opacity = 0.85,
-  keys = {
-    {
-      key = "l",
-      mods = "ALT",
-      action = wezterm.action.ShowLauncherArgs({
-        flags = "FUZZY|WORKSPACES|TABS",
-      }),
-    },
-    {
-      -- タブを選択するナビゲーションを表示する
-      key = "t",
-      mods = "ALT",
-      action = act.ShowTabNavigator,
-    },
-    {
-      key = "w",
-      mods = "ALT",
-      action = act.ShowLauncherArgs({
-        flags = "FUZZY|WORKSPACES",
-      }),
-    },
-    {
-      key = ",",
-      mods = "ALT",
-      action = act.ToggleFullScreen,
-    },
-    { key = ";", mods = "ALT", action = wezterm.action.QuickSelect },
-  },
-}
+-- default workspace
+config.default_workspace = "koralle"
+
+-- Tab Bar
+config.tab_bar_at_bottom = true
+config.hide_tab_bar_if_only_one_tab = true
+
+-- Font
+config.font = wezterm.font("Cica")
+config.font_size = 14.0
+config.use_ime = true
+
+-- Color Scheme
+config.color_scheme = "tokyonight_storm"
+
+-- Leader Key
+config.leader = { key = "\\", mods = "CTRL" }
+
+-- Key Mapping
+config.keys = key_mappings
+
+-- Adjust WIndow Size when changing font size
+config.adjust_window_size_when_changing_font_size = false
+
+-- Window Backgroud Opacity
+config.window_background_opacity = 0.8
+
+-- Using Web GPU
+config.webgpu_power_preference = "HighPerformance"
+
+-- Native MacOS Full Screen
+-- config.native_macos_full_screen = true
+
+return config
