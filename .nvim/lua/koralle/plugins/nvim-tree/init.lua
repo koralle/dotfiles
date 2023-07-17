@@ -27,12 +27,7 @@ local spec = {
       filters = {
         custom = { "^.git$" },
       },
-      -- Don't Open nvim-tree When Creating Git Commit Message
-      ignore_ft_on_setup = {
-        "gitcommit",
-      },
       view = {
-        hide_root_folder = true,
         width = 40,
         side = "right",
         mappings = {
