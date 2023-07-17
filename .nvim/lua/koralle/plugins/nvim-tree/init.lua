@@ -28,7 +28,6 @@ local spec = {
         custom = { "^.git$" },
       },
       view = {
-        hide_root_folder = true,
         width = 40,
         side = "right",
         mappings = {
