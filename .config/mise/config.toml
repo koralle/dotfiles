@@ -1,0 +1,15 @@
+[tools]
+bun = 'latest'
+deno = 'latest'
+go = 'latest'
+node = ['lts', '22']
+python = '3.12'
+rust = 'nightly'
+
+[alias.node]
+'20.x' = '20'
+
+[plugins]
+deno = 'https://github.com/asdf-community/asdf-deno'
+go = 'https://github.com/asdf-community/asdf-golang'
+python = 'https://github.com/asdf-community/asdf-python'
