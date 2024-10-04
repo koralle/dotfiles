@@ -1,6 +1,13 @@
-{ config, inputs, pkgs, ... }: let
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+let
   username = "koralle";
-in {
+in
+{
   programs.home-manager.enable = true;
 
   home = {
@@ -69,9 +76,9 @@ in {
     };
 
     aliases = {
-      c  = "commit";
+      c = "commit";
       co = "checkout";
-      s  = "status";
+      s = "status";
     };
   };
 

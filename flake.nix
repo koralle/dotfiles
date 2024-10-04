@@ -24,12 +24,20 @@
     };
   };
 
-  outputs = { nixpkgs, flake-utils, home-manager, nur, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      flake-utils,
+      home-manager,
+      nur,
+      ...
+    }@inputs:
     let
       system = "aarch64-darwin";
       overlays = [ nur.overlay ];
       pkgs = import nixpkgs { inherit system overlays; };
-    in {
+    in
+    {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
 
       homeConfigurations = {
