@@ -13,41 +13,6 @@ in {
       recursive = true;
     };
 
-    # file.".config/nvim" = {
-    #   source = ../nvim;
-    #   recursive = true;
-    # };
-
-    # file.".config/vscode" = {
-    #   source = ../vscode;
-    #   recursive = true;
-    # };
-
-    # file.".config/wezterm" = {
-    #   source = ../wezterm;
-    #   recursive = true;
-    # };
-
-    # file.".config/zellij" = {
-    #   source = ../zellij;
-    #   recursive = true;
-    # };
-
-    # file.".config/mise" = {
-    #   source = ../mise;
-    #   recursive = true;
-    # };
-
-    # file.".config/tig" = {
-    #   source = ../tig;
-    #   recursive = true;
-    # };
-
-    # file.".config/fish" = {
-    #   source = ../fish;
-    #   recursive = true;
-    # };
-
     packages = with pkgs; [
       # nix-search
       nix-index
