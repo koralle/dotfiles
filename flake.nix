@@ -30,6 +30,8 @@
       overlays = [ nur.overlay ];
       pkgs = import nixpkgs { inherit system overlays; };
     in {
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+
       homeConfigurations = {
         koralle = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
