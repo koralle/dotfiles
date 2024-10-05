@@ -64,24 +64,6 @@ in
     enableFishIntegration = true;
   };
 
-  programs.git = {
-    enable = true;
-
-    userName = "koralle";
-
-    extraConfig = {
-      core = {
-        editor = "nvim";
-      };
-    };
-
-    aliases = {
-      c = "commit";
-      co = "checkout";
-      s = "status";
-    };
-  };
-
   programs.mise = {
     enable = true;
   };

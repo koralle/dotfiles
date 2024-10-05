@@ -1,0 +1,15 @@
+[alias]
+    c = "commit"
+    co = "checkout"
+    s = "status"
+    st = "status"
+    b = "branch"
+
+[core]
+    editor = "nvim"
+
+[user]
+    name = "koralle"
+
+[init]
+    defaultBranch = "main"
