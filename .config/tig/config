@@ -1,3 +1,6 @@
+# Show commit id at the left side
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
 # Catppuccin Mocha theme for tig
 #
 # Main colors
