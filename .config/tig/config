@@ -1,0 +1,47 @@
+# Catppuccin Mocha theme for tig
+#
+# Main colors
+color default                   "#cdd6f4" "#1e1e2e" # Text on Base
+color cursor                    "#1e1e2e" "#cdd6f4" # Inverted Text/Base
+color status                    "#cdd6f4" "#1e1e2e" # Text on Base
+color title-focus              "#cdd6f4" "#45475a" # Text on Surface 1
+color title-blur               "#a6adc8" "#45475a" # Subtext 0 on Surface 1
+
+# Diff colors
+color diff-header              "#89b4fa" "#1e1e2e" # Blue on Base
+color diff-index               "#89b4fa" "#1e1e2e" # Blue on Base
+color diff-chunk               "#f9e2af" "#1e1e2e" # Yellow on Base
+color diff-add                 "#a6e3a1" "#1e1e2e" # Green on Base
+color diff-del                 "#f38ba8" "#1e1e2e" # Red on Base
+color diff-oldmode             "#fab387" "#1e1e2e" # Peach on Base
+color diff-newmode             "#fab387" "#1e1e2e" # Peach on Base
+color diff-similarity          "#cba6f7" "#1e1e2e" # Mauve on Base
+color diff-copy                "#94e2d5" "#1e1e2e" # Teal on Base
+
+# Status colors
+color stat-staged              "#a6e3a1" "#1e1e2e" # Green on Base
+color stat-unstaged            "#f38ba8" "#1e1e2e" # Red on Base
+color stat-untracked           "#fab387" "#1e1e2e" # Peach on Base
+
+# Tree colors
+color tree.header              "#89b4fa" "#1e1e2e" # Blue on Base
+color tree.directory           "#89dceb" "#1e1e2e" # Sky on Base
+color tree.file                "#cdd6f4" "#1e1e2e" # Text on Base
+
+# Line number colors
+color line-number              "#7f849c" "#1e1e2e" # Overlay 1 on Base
+color cursor-line             "#1e1e2e" "#45475a" # Base on Surface 1
+
+# Reference colors
+color main-remote              "#f5c2e7" "#1e1e2e" # Pink on Base
+color main-tracked             "#a6e3a1" "#1e1e2e" # Green on Base
+color main-tag                 "#f9e2af" "#1e1e2e" # Yellow on Base
+color main-local-tag          "#f9e2af" "#1e1e2e" # Yellow on Base
+color main-head               "#cba6f7" "#1e1e2e" # Mauve on Base
+
+# Date and author colors
+color date                     "#89b4fa" "#1e1e2e" # Blue on Base
+color author                   "#94e2d5" "#1e1e2e" # Teal on Base
+
+# Graph colors
+color graph-commit             "#89b4fa" "#1e1e2e" # Blue on Base
