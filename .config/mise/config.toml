@@ -9,7 +9,7 @@ rust = 'nightly'
 [alias.node.versions]
 '20.x' = '20'
 
-[plugins]
+[alias]
 deno = 'https://github.com/asdf-community/asdf-deno'
 go = 'https://github.com/asdf-community/asdf-golang'
 python = 'https://github.com/asdf-community/asdf-python'
