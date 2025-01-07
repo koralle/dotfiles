@@ -3,3 +3,6 @@ bind main ! ?git revert %(commit)
 
 # Create PR in Status View
 bind status <Ctrl-r> ?gh pr create --assignee "koralle"
+
+# Rebase
+bind main R ?git rebase -i %(commit)
