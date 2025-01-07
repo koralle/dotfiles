@@ -11,3 +11,6 @@ bind main R ?git rebase -i %(commit)
 bind stash S ?git stash push "%(prompt Enter stash comment: )"
 bind stash U ?git stash push -u "%(prompt Enter stash comment: )"
 bind stash P ?git stash pop %(stash)
+
+# Switch branch
+bind main B ?git switch -c "%(prompt Enter new branch name: )"
