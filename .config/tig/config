@@ -6,3 +6,8 @@ bind status <Ctrl-r> ?gh pr create --assignee "koralle"
 
 # Rebase
 bind main R ?git rebase -i %(commit)
+
+# Stash
+bind stash S ?git stash push "%(prompt Enter stash comment: )"
+bind stash U ?git stash push -u "%(prompt Enter stash comment: )"
+bind stash P ?git stash pop %(stash)
