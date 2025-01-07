@@ -1,2 +1,5 @@
 # Revert selected commit
 bind main ! ?git revert %(commit)
+
+# Create PR in Status View
+bind status <Ctrl-r> ?gh pr create --assignee "koralle"
