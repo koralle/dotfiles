@@ -14,3 +14,6 @@ bind stash P ?git stash pop %(stash)
 
 # Switch branch
 bind main B ?git switch -c "%(prompt Enter new branch name: )"
+
+# Preferences
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
