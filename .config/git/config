@@ -1,9 +1,18 @@
 [alias]
-    c = "commit"
-    co = "checkout"
-    s = "status"
-    st = "status"
-    b = "branch"
+    c = commit
+    co = checkout
+    s = status
+    st = status
+    b = branch
+    df = diff
+    ds = diff --staged
+    dn = diff --name-only
+    llog = log --graph --decorate --oneline --all
+    line = log --oneline
+    gr = log --oneline --graph
+    b = blame
+    bi = bisect
+    amend = commit --amend
 
 [core]
     editor = "nvim"
@@ -54,3 +63,4 @@
 
 [rebase]
     autostash = true
+    autosquash = true
