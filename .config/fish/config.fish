@@ -24,5 +24,14 @@ end
 # Initialize fzf
 # https://github.com/jethrokuan/fzf
 if command -q fzf
-  fzf --fish | FZF_ALT_C_COMMAND = source
+  fzf --fish | source
+
+  set -Ux FZF_DEFAULT_COMMAND "fd --type f"
+  set -Ux FZF_CTRL_T_COMMAND "fd --type f"
+  set -Ux FZF_ALT_C_COMMAND "fd --type d"
+end
+
+# Initialize bat
+if command -q bat
+  bat --completion fish | source
 end
