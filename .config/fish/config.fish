@@ -20,3 +20,9 @@ if status is-interactive
 else
   mise activate fish --shims | source
 end
+
+# Initialize fzf
+# https://github.com/jethrokuan/fzf
+if command -q fzf
+  fzf --fish | FZF_ALT_C_COMMAND = source
+end
