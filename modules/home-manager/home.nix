@@ -33,6 +33,8 @@ in
       # Shell
       fish
 
+      fzf
+
       # Utility commands written in Rust
       bat
       broot
@@ -46,7 +48,6 @@ in
       ripgrep-all
       selene
       silicon
-      skim
       starship
       stylua
       xh
@@ -55,21 +56,11 @@ in
     ];
   };
 
-  programs.fish = {
-    enable = true;
-  };
-
   programs.fzf = {
-    enable = true;
     enableFishIntegration = true;
   };
 
-  programs.mise = {
-    enable = true;
-  };
-
   programs.nix-index = {
-    enable = true;
     enableFishIntegration = true;
   };
 
@@ -83,22 +74,7 @@ in
     defaultEditor = true;
   };
 
-  programs.skim = {
-    enable = true;
-    enableFishIntegration = true;
-    fileWidgetCommand = "fd --type f";
-    changeDirWidgetCommand = "fd --type d";
-  };
-
   programs.starship = {
-    enable = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-  };
-
-  programs.zellij = {
-    enable = true;
+    enableFishIntegration = true;
   };
 }
