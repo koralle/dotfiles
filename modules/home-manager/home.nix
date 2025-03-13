@@ -13,7 +13,7 @@ in
   home = {
     username = username;
     homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
-    stateVersion = "24.11";
+    stateVersion = "25.05";
 
     file.${config.xdg.configHome} = {
       source = ../../.config;
