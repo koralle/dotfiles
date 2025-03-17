@@ -35,7 +35,7 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        overlays = [ nur.overlay ];
+        overlays = [ nur.overlays.default ];
         pkgs = import nixpkgs { inherit system overlays; };
       in
       {
