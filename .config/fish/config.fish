@@ -29,9 +29,15 @@ if command -q fzf
   set -Ux FZF_DEFAULT_COMMAND "fd --type f"
   set -Ux FZF_CTRL_T_COMMAND "fd --type f"
   set -Ux FZF_ALT_C_COMMAND "fd --type d"
+
+  abbr -a fzc "fzf --layout reverse --preview \"bat --color=always --style=plain {}\" | xargs cursor"
 end
 
 # Initialize bat
 if command -q bat
   bat --completion fish | source
+end
+
+if command -q tig
+  abbr -a t tig
 end
