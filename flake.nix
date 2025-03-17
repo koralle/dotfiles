@@ -32,26 +32,30 @@
       nur,
       ...
     }@inputs:
-    let
-      system = "aarch64-darwin";
-      overlays = [ nur.overlay ];
-      pkgs = import nixpkgs { inherit system overlays; };
-    in
-    {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        overlays = [ nur.overlay ];
+        pkgs = import nixpkgs { inherit system overlays; };
+      in
+      {
+        formatter = pkgs.nixfmt-rfc-style;
 
-      homeConfigurations = {
-        koralle = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+        packages = {
+          homeConfigurations = {
+            koralle = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
 
-          extraSpecialArgs = {
-            inherit inputs;
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+
+              modules = [
+                ./modules/home-manager/home.nix
+              ];
+            };
           };
-
-          modules = [
-            ./modules/home-manager/home.nix
-          ];
         };
-      };
-    };
+      }
+    );
 }
