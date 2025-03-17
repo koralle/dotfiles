@@ -51,7 +51,47 @@
               };
 
               modules = [
-                ./modules/home-manager/home.nix
+                ({config, pkgs, ...}: let
+                  username = "koralle";
+                in {
+                  nix.package = pkgs.nix;
+                  home = {
+                    username = username;
+                    homeDirectory = "/Users/${username}";
+                    stateVersion = "25.05";
+                    file.${config.xdg.configHome} = {
+                      source = ./.config;
+                      recursive = true;
+                    };
+                  };
+                  imports = [./system/macos/home.nix];
+                })
+              ];
+            };
+
+            ubuntu = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+
+              modules = [
+                ({config, pkgs, ...}: let
+                  username = "ubuntu";
+                in {
+                  nix.package = pkgs.nix;
+                  home = {
+                    username = username;
+                    homeDirectory = "/home/${username}";
+                    stateVersion = "25.05";
+                    file.${config.xdg.configHome} = {
+                      source = ./.config;
+                      recursive = true;
+                    };
+                  };
+                  imports = [./system/wsl2/home.nix];
+                })
               ];
             };
           };
