@@ -16,7 +16,7 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 14.0
 config.use_ime = true
 
-config.window_background_opacity = 1.0
+config.window_background_opacity = 0.8
 
 config.adjust_window_size_when_changing_font_size = false
 
@@ -29,7 +29,7 @@ config.keys = require('key-mappings')
 config.background = {
   {
     source = {
-      File = os.getenv('HOME') .. '/' .. '.config/wezterm/images/tamazarashi.jpg'
+      File = os.getenv('HOME') .. '/' .. '.config/wezterm/images/sleeping-mugicha.png'
     },
     hsb = {
       brightness = 0.015
