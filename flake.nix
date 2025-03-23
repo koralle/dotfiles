@@ -36,7 +36,10 @@
       system:
       let
         overlays = [ nur.overlays.default ];
-        pkgs = import nixpkgs { inherit system overlays; config.allowUnfree = true; };
+        pkgs = import nixpkgs {
+          inherit system overlays;
+          config.allowUnfree = true;
+        };
       in
       {
         formatter = pkgs.nixfmt-rfc-style;
@@ -51,21 +54,25 @@
               };
 
               modules = [
-                ({config, pkgs, ...}: let
-                  username = "koralle";
-                in {
-                  nix.package = pkgs.nix;
-                  home = {
-                    username = username;
-                    homeDirectory = "/Users/${username}";
-                    stateVersion = "25.05";
-                    file.${config.xdg.configHome} = {
-                      source = ./.config;
-                      recursive = true;
+                (
+                  { config, pkgs, ... }:
+                  let
+                    username = "koralle";
+                  in
+                  {
+                    nix.package = pkgs.nix;
+                    home = {
+                      username = username;
+                      homeDirectory = "/Users/${username}";
+                      stateVersion = "25.05";
+                      file.${config.xdg.configHome} = {
+                        source = ./.config;
+                        recursive = true;
+                      };
                     };
-                  };
-                  imports = [./system/macos/home.nix];
-                })
+                    imports = [ ./system/macos/home.nix ];
+                  }
+                )
               ];
             };
 
@@ -77,21 +84,25 @@
               };
 
               modules = [
-                ({config, pkgs, ...}: let
-                  username = "ubuntu";
-                in {
-                  nix.package = pkgs.nix;
-                  home = {
-                    username = username;
-                    homeDirectory = "/home/${username}";
-                    stateVersion = "25.05";
-                    file.${config.xdg.configHome} = {
-                      source = ./.config;
-                      recursive = true;
+                (
+                  { config, pkgs, ... }:
+                  let
+                    username = "ubuntu";
+                  in
+                  {
+                    nix.package = pkgs.nix;
+                    home = {
+                      username = username;
+                      homeDirectory = "/home/${username}";
+                      stateVersion = "25.05";
+                      file.${config.xdg.configHome} = {
+                        source = ./.config;
+                        recursive = true;
+                      };
                     };
-                  };
-                  imports = [./system/wsl2/home.nix];
-                })
+                    imports = [ ./system/wsl2/home.nix ];
+                  }
+                )
               ];
             };
           };
