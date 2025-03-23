@@ -50,8 +50,10 @@
     zellij
     zoxide
 
-    # Unfree packages
     firefox
+    google-chrome
+    discord
+    podman
   ];
 
   programs.nix-index = {
