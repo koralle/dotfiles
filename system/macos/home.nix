@@ -49,6 +49,9 @@
     xh
     zellij
     zoxide
+
+    # Unfree packages
+    firefox
   ];
 
   programs.nix-index = {
