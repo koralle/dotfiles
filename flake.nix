@@ -36,7 +36,7 @@
       system:
       let
         overlays = [ nur.overlays.default ];
-        pkgs = import nixpkgs { inherit system overlays; };
+        pkgs = import nixpkgs { inherit system overlays; config.allowUnfree = true; };
       in
       {
         formatter = pkgs.nixfmt-rfc-style;
