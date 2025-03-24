@@ -1,13 +1,13 @@
 [tools]
+'npm:npm' = 'latest'
+'npm:pnpm' = 'latest'
+
 bun = 'latest'
 deno = 'latest'
 go = 'latest'
 node = ['lts', '23', '20.x']
 python = 'latest'
 rust = 'nightly'
-
-'npm:npm' = 'latest'
-'npm:pnpm' = 'latest'
 
 [alias.node.versions]
 '20.x' = '20'
