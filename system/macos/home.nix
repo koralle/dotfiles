@@ -54,6 +54,10 @@
     google-chrome
     discord
     podman
+
+    # Dependabot CLI
+    # Ref: https://github.com/dependabot/cli
+    dependabot-cli
   ];
 
   programs.nix-index = {
