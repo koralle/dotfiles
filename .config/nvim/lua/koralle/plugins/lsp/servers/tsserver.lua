@@ -1,3 +1,0 @@
-local server = {}
-
-return server
