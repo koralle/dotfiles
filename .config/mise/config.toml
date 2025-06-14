@@ -2,6 +2,11 @@
 'npm:npm' = 'latest'
 'npm:pnpm' = 'latest'
 
+# Claude Code
+# Ref: https://docs.anthropic.com/ja/docs/claude-code/overview
+# Ref: https://spiess.dev/blog/how-i-use-claude-code
+'npm:@anthropic-ai/claude-code' = 'latest'
+
 # Bun
 bun = 'latest'
 
