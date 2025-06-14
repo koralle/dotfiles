@@ -2,10 +2,19 @@
 'npm:npm' = 'latest'
 'npm:pnpm' = 'latest'
 
+# Bun
 bun = 'latest'
+
+# Deno
 deno = 'latest'
+
+# Golang
 go = 'latest'
+
+# Node.js
 node = ['lts', '23']
+
+# Python
 python = 'latest'
 
 # Rust
