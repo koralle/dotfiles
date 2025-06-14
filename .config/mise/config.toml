@@ -6,7 +6,7 @@
 bun = 'latest'
 
 # Deno
-deno = 'latest'
+deno = '2.3.4'
 
 # Golang
 go = 'latest'
