@@ -19,3 +19,6 @@ python = 'latest'
 
 # Rust
 rust = 'nightly'
+
+[settings.npm]
+bun = true
