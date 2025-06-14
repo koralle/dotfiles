@@ -5,9 +5,6 @@
 bun = 'latest'
 deno = 'latest'
 go = 'latest'
-node = ['lts', '23', '20.x']
+node = ['lts', '23']
 python = 'latest'
 rust = 'nightly'
-
-[alias.node.versions]
-'20.x' = '20'
