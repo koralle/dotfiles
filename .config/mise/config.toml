@@ -7,4 +7,7 @@ deno = 'latest'
 go = 'latest'
 node = ['lts', '23']
 python = 'latest'
+
+# Rust
 rust = 'nightly'
+'cargo:stylua' = 'latest'
