@@ -18,6 +18,7 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.cmdheight = 0
 vim.opt.showtabline = 2
 vim.opt.sessionoptions = "curdir,folds,globals,help,tabpages,terminal,winsize"
+vim.opt.clipboard = "unnamedplus"
 
 -- local to window
 vim.opt.number = true
