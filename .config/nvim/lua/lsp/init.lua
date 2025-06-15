@@ -3,7 +3,7 @@ local servers = {
   'lua_ls',
 
   -- TypeScript (Node.js)
-  'tsserver',
+  'ts_ls',
 
   -- TypeScript (Deno)
   'denols'
