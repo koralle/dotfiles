@@ -4,6 +4,7 @@ return {
     name = "ddc",
     dependencies = {
       "denops",
+      "denops-signature_help",
     },
     import = "plugins.ddc",
     init = function()
@@ -45,6 +46,7 @@ return {
       helpers.patch_global({
         ui = "pum",
         sources = {
+          "lsp",
           "rg",
         },
         sourceOptions = {
@@ -64,6 +66,7 @@ return {
       helpers.patch_filetype("lua", {
         sources = {
           "rg",
+          "lsp",
         },
         sourceOptions = {
           _ = {
@@ -80,6 +83,7 @@ return {
       })
 
       vim.fn["ddc#enable"]()
+      vim.fn["signature_help#enable"]()
     end,
   },
   {
@@ -115,6 +119,19 @@ return {
     dependencies = {
       "ddc",
     },
+  },
+  {
+    "matsui54/denops-signature_help",
+    name = "denops-signature_help",
+    dependencies = {
+      "denops",
+    },
+    config = function()
+      vim.g["signature_help_config"] = {
+        contentStyle = "remainingLabels",
+        viewStyle = "virtual",
+      }
+    end,
   },
   {
     "tani/ddc-fuzzy",

@@ -1,13 +1,16 @@
 local servers = {
   -- Lua
-  'lua_ls',
+  "lua_ls",
 
   -- TypeScript (Node.js)
-  'ts_ls',
+  "ts_ls",
 
   -- TypeScript (Deno)
-  'denols'
+  "denols",
 }
 
-vim.lsp.enable(servers)
+vim.lsp.config("*", {
+  capabilities = require("ddc_source_lsp").make_client_capabilities(),
+})
 
+vim.lsp.enable(servers)
