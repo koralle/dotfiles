@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 -- global
 vim.opt.termguicolors = true
 vim.opt.hidden = true
-vim.opt.backup = true
+vim.opt.backup = false
 vim.opt.ambiwidth = "single"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
