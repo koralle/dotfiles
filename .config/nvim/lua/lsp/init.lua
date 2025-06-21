@@ -53,6 +53,9 @@ local servers = {
 
   -- Vue
   "vue_ls",
+
+  -- Astro
+  "astro",
 }
 
 vim.lsp.config("*", {
