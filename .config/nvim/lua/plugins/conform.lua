@@ -7,6 +7,8 @@ local spec = {
       typescript = { "prettier", stop_after_first = true },
       javascriptreact = { "prettier", stop_after_first = true },
       typescriptreact = { "prettier", stop_after_first = true },
+      astro = { "prettier", stop_after_first = true },
+      vue = { "prettier", stop_after_first = true },
     },
     format_on_save = {
       timeout_ms = 500,

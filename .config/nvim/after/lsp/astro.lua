@@ -1,2 +1,6 @@
 ---@type vim.lsp.Config
-return {}
+return {
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+  end,
+}

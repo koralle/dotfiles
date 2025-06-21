@@ -27,6 +27,9 @@ vim.lsp.config("vtsls", {
     "typescript.tsx",
     "vue",
   },
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+  end,
 })
 
 vim.lsp.config("vue_ls", {
@@ -39,6 +42,9 @@ vim.lsp.config("vue_ls", {
       hybridMode = false,
     },
   },
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+  end,
 })
 
 local servers = {
