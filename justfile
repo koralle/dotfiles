@@ -1,0 +1,3 @@
+switch:
+  home-manager switch
+
