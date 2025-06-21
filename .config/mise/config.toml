@@ -7,6 +7,24 @@
 # Ref: https://spiess.dev/blog/how-i-use-claude-code
 'npm:@anthropic-ai/claude-code' = 'latest'
 
+# vtsls
+# https://github.com/yioneko/vtsls
+'npm:@vtsls/language-server' = 'latest'
+
+# @vue/typescript-plugin
+# https://www.npmjs.com/package/@vue/typescript-plugin
+'npm:@vue/typescript-plugin' = 'latest'
+
+# @vue/language-server
+# https://www.npmjs.com/package/@vue/language-server
+'npm:@vue/language-server' = 'latest'
+
+# @astrojs/language-server
+# https://github.com/withastro/language-tools
+'npm:@astrojs/language-server' = 'latest'
+
+'npm:typescript' = 'latest'
+
 # Bun
 bun = 'latest'
 
