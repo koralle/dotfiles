@@ -56,6 +56,9 @@ local servers = {
 
   -- Astro
   "astro",
+
+  -- Just
+  "just",
 }
 
 vim.lsp.config("*", {

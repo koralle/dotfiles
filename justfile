@@ -2,7 +2,7 @@ alias s := switch
 alias fn := format-neovim
 
 switch:
-  home-manager switch --flake .#koralle
+    home-manager switch --flake .#koralle
 
 format-neovim:
-   stylua .config/nvim
+    stylua .config/nvim

@@ -42,6 +42,7 @@ python = 'latest'
 
 # Rust
 rust = 'nightly'
+'cargo:just-lsp' = 'latest'
 
 [settings.npm]
 bun = true
