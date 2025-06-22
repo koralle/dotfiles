@@ -62,10 +62,6 @@
     # Aider
     # Ref: https://github.com/Aider-AI/aider
     aider-chat
-
-    # VSCode
-    # Ref: https://github.com/microsoft/vscode
-    vscode
   ];
 
   programs.nix-index = {
