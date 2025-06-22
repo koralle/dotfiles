@@ -29,14 +29,10 @@ return {
         end
       end, opts)
 
-      keymap.set("i", "<C-y>", function()
-        vim.fn["pum#map#confirm"]()
-      end, {
+      keymap.set("i", "<C-y>", function() vim.fn["pum#map#confirm"]() end, {
         noremap = true,
       })
-      keymap.set("i", "<C-e>", function()
-        vim.fn["pum#map#cancel"]()
-      end, {
+      keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end, {
         noremap = true,
       })
     end,

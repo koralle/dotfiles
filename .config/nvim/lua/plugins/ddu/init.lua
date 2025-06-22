@@ -12,8 +12,8 @@ local spec = {
     dependencies = {
       "ddu.vim",
     },
-    config = function ()
-      local helpers = require('helpers.ddu')
+    config = function()
+      local helpers = require("helpers.ddu")
 
       helpers.patch_global({
         kindOptions = {
@@ -50,8 +50,8 @@ local spec = {
       vim.api.nvim_create_autocmd("VimResized", {
         callback = resize,
       })
-    end
-  }
+    end,
+  },
 }
 
 return spec

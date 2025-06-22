@@ -45,7 +45,6 @@
     selene
     silicon
     starship
-    stylua
     xh
     zellij
     zoxide

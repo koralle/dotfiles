@@ -1,7 +1,7 @@
 ---@type vim.lsp.Config
 return {
   root_markers = {
-    'package.json'
+    "package.json",
   },
-  workspace_required = true
+  workspace_required = true,
 }

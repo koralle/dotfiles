@@ -8,9 +8,7 @@ M.patch_local = vim.fn["ddu#custom#patch_local"]
 ---@param ... unknown
 local function safe_call(fn, ...)
   fn = type(fn) == "string" and vim.fn[fn] or fn --[[@as function?]]
-  if fn then
-    fn(...)
-  end
+  if fn then fn(...) end
 end
 
 ---@param name string
@@ -25,7 +23,9 @@ function M.action(name, params, stopinsert, callback)
       vim.fn["ddu#ui#do_action"](name, params or vim.empty_dict())
       safe_call(callback)
     end)
-    return ("<Esc><Cmd>lua require('rc.helper.ddu').callback[%d]()<CR>"):format(id)
+    return ("<Esc><Cmd>lua require('rc.helper.ddu').callback[%d]()<CR>"):format(
+      id
+    )
   else
     return function()
       vim.fn["ddu#ui#do_action"](name, params or vim.empty_dict())
@@ -40,12 +40,19 @@ function M.ff_map(name, callback)
   name = name or "default"
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "ddu-ff",
-    group = vim.api.nvim_create_augroup("ddu-ui-ff-map-" .. name, { clear = false }),
+    group = vim.api.nvim_create_augroup(
+      "ddu-ui-ff-map-" .. name,
+      { clear = false }
+    ),
     callback = function()
       -- Enable `file` map also for `file:foo`
       if name == "default" or string.find(vim.b.ddu_ui_name, name) then
         callback(function(lhs, rhs, opts)
-          opts = vim.tbl_extend("keep", opts or {}, { nowait = true, buffer = true, silent = true })
+          opts = vim.tbl_extend(
+            "keep",
+            opts or {},
+            { nowait = true, buffer = true, silent = true }
+          )
           vim.keymap.set("n", lhs, rhs, opts)
         end)
       end

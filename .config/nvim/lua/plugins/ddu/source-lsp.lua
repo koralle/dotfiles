@@ -6,99 +6,159 @@ local spec = {
     "ddu.vim",
   },
   init = function()
-    vim.keymap.set("n", "gr", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:references",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "gr",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:references",
+        })
+      end
+    )
 
-    vim.keymap.set({ "n", "x" }, "<space>a", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:code_action",
-      })
-    end)
+    vim.keymap.set(
+      { "n", "x" },
+      "<space>a",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:code_action",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>db", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:document_symbol",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>db",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:document_symbol",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>fd", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:diagnostic",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>fd",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:diagnostic",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>fD", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:diagnostic_all",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>fD",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:diagnostic_all",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>gda", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:definition_all",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gda",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:definition_all",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>gd", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:definition",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gd",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:definition",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>gD", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:declaration",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gD",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:declaration",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>gt", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:type_definition",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gt",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:type_definition",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>gi", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:implementation",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gi",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:implementation",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>fi", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:finder",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>fi",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:finder",
+        })
+      end
+    )
     -- ["lsp:incoming_call"] = "callHierarchy/incomingCalls",
     -- ["lsp:outgoing_call"] = "callHierarchy/outgoingCalls",
     -- ["lsp:super_type"] = "typeHierarchy/supertypes",
     -- ["lsp:sub_type"] = "typeHierarchy/subtypes",
     --
-    vim.keymap.set("n", "<space>gic", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:incoming_call",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gic",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:incoming_call",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>goc", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:outgoing_call",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>goc",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:outgoing_call",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>gst", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:super_type",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gst",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:super_type",
+        })
+      end
+    )
 
-    vim.keymap.set("n", "<space>gsT", function()
-      vim.fn["ddu#start"]({
-        name = "lsp:sub_type",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>gsT",
+      function()
+        vim.fn["ddu#start"]({
+          name = "lsp:sub_type",
+        })
+      end
+    )
 
     vim.g.ddu_source_lsp_clientName = "nvim-lsp"
   end,
@@ -260,13 +320,25 @@ local spec = {
     helpers.patch_local("lsp:definition_all", {
       sources = {
         separator(">>Definition<<", "#fc514e"),
-        { name = "lsp_definition", params = { method = "textDocument/definition" } },
+        {
+          name = "lsp_definition",
+          params = { method = "textDocument/definition" },
+        },
         separator(">>Type definition<<", "#ffcb8b"),
-        { name = "lsp_definition", params = { method = "textDocument/typeDefinition" } },
+        {
+          name = "lsp_definition",
+          params = { method = "textDocument/typeDefinition" },
+        },
         separator(">>Declaration<<", "#21c7a8"),
-        { name = "lsp_definition", params = { method = "textDocument/declaration" } },
+        {
+          name = "lsp_definition",
+          params = { method = "textDocument/declaration" },
+        },
         separator(">>Implementation<<", "#5e97ec"),
-        { name = "lsp_definition", params = { method = "textDocument/implementation" } },
+        {
+          name = "lsp_definition",
+          params = { method = "textDocument/implementation" },
+        },
       },
     })
 

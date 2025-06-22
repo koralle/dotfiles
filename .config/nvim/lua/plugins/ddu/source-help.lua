@@ -6,12 +6,16 @@ local spec = {
     "ddu.vim",
   },
   init = function()
-    vim.keymap.set("n", "<space>hl", function()
-      vim.fn["ddu#start"]({
-        name = "help",
-        ui = "ff",
-      })
-    end)
+    vim.keymap.set(
+      "n",
+      "<space>hl",
+      function()
+        vim.fn["ddu#start"]({
+          name = "help",
+          ui = "ff",
+        })
+      end
+    )
   end,
   config = function()
     local helpers = require("helpers.ddu")
