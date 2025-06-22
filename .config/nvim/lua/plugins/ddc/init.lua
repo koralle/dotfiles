@@ -44,6 +44,7 @@ return {
         sources = {
           "lsp",
           "rg",
+          "file",
         },
         sourceOptions = {
           _ = {
@@ -167,6 +168,25 @@ return {
           rg = {
             mark = "[RG]",
             minAutoCompleteLength = 4,
+          },
+        },
+      })
+    end,
+  },
+  {
+    "LumaKernel/ddc-source-file",
+    name = "ddc-source-file",
+    dependencies = {
+      "ddc",
+    },
+    config = function()
+      local helpers = require("helpers.ddc")
+      helpers.patch_global({
+        sourceOptions = {
+          file = {
+            mark = "[FILE]",
+            isVolatile = true,
+            forceCompletionPattern = "\\S/\\S*",
           },
         },
       })
