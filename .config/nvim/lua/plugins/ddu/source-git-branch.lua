@@ -8,7 +8,7 @@ return {
   init = function()
     vim.keymap.set(
       "n",
-      "<space>fb",
+      "<space>ll",
       function()
         vim.fn["ddu#start"]({
           name = "ff:git_branch",
