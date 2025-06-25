@@ -24,8 +24,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-vim.opt.winblend = 20
-vim.opt.pumblend = 20
 vim.opt.wrap = false
 
 -- local to buffer
