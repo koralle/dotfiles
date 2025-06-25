@@ -7,6 +7,10 @@
 # Ref: https://spiess.dev/blog/how-i-use-claude-code
 'npm:@anthropic-ai/claude-code' = 'latest'
 
+# Gemini CLI
+# https://github.com/google-gemini/gemini-cli
+'npm:@google/gemini-cli' = 'latest'
+
 # vtsls
 # https://github.com/yioneko/vtsls
 'npm:@vtsls/language-server' = 'latest'
