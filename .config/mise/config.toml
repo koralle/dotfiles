@@ -49,5 +49,9 @@ rust = 'nightly'
 'cargo:just-lsp' = 'latest'
 'cargo:stylua' = 'latest'
 
+# Taplo - TOML Toolkit
+# https://github.com/tamasfe/taplo
+'cargo:taplo-cli' = { version = 'latest', features = "lsp" }
+
 [settings.npm]
 bun = true
