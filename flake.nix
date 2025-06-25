@@ -55,27 +55,7 @@
                 inherit inputs;
               };
 
-              modules = [
-                (
-                  { config, pkgs, ... }:
-                  let
-                    username = "koralle";
-                  in
-                  {
-                    nix.package = pkgs.nix;
-                    home = {
-                      username = username;
-                      homeDirectory = "/Users/${username}";
-                      stateVersion = "25.05";
-                      file.${config.xdg.configHome} = {
-                        source = ./.config;
-                        recursive = true;
-                      };
-                    };
-                    imports = [ ./system/macos/home.nix ];
-                  }
-                )
-              ];
+              modules = [ ./system/macos/home.nix ];
             };
           };
         };

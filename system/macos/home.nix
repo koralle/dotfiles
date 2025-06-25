@@ -4,8 +4,21 @@
   inputs,
   ...
 }:
+let
+  username = "koralle";
+in
 {
+  nix.package = pkgs.nix;
+
   programs.home-manager.enable = true;
+
+  home.username = username;
+  home.homeDirectory = "/Users/${username}";
+  home.stateVersion = "25.05";
+  home.file.${config.xdg.configHome} = {
+      source = ../../.config;
+      recursive = true;
+    };
 
   home.sessionVariables = {
     EDITOR = "nvim";
