@@ -19,6 +19,9 @@ local servers = {
 
   -- TOML
   "taplo",
+
+  -- YAML
+  "yamlls",
 }
 
 vim.lsp.config("*", {
