@@ -5,19 +5,6 @@ local spec = {
   dependencies = {
     "ddu.vim",
   },
-  init = function()
-    vim.keymap.set(
-      "n",
-      "<space>ff",
-      function()
-        vim.fn["ddu#start"]({
-          name = "ff:file",
-          ui = "ff",
-        })
-      end,
-      { silent = true }
-    )
-  end,
   config = function()
     local helpers = require("helpers.ddu")
     helpers.patch_local("ff:file", {

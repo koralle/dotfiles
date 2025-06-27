@@ -48,33 +48,6 @@ local spec = {
           )
         end,
       })
-
-      local lines = vim.opt.lines:get()
-      local height, row = math.floor(lines * 0.8), math.floor(lines * 0.1)
-      local columns = vim.opt.columns:get()
-      local width, col = math.floor(columns * 0.8), math.floor(columns * 0.1)
-
-      vim.keymap.set(
-        "n",
-        "<space>fl",
-        function()
-          vim.fn["ddu#start"]({
-            name = "filer",
-            ui = "filer",
-            uiParams = {
-              filer = {
-                split = "floating",
-                winHeight = height,
-                winRow = row,
-                winWidth = width,
-                winCol = col,
-                floatingBorder = "single",
-              },
-            },
-          })
-        end,
-        { silent = true }
-      )
     end,
     config = function()
       local helpers = require("helpers.ddu")

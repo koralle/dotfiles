@@ -5,21 +5,6 @@ return {
   dependencies = {
     "ddu.vim",
   },
-  init = function()
-    vim.keymap.set(
-      "n",
-      "<space>fb",
-      function()
-        vim.fn["ddu#start"]({
-          name = "ff:buffer",
-          ui = "ff",
-        })
-      end,
-      {
-        silent = true,
-      }
-    )
-  end,
   config = function()
     local helpers = require("helpers.ddu")
 
