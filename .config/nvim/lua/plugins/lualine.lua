@@ -7,6 +7,8 @@ return {
     options = {
       -- Ref: https://github.com/catppuccin/nvim?tab=readme-ov-file#integrations
       theme = "catppuccin",
+
+      globalstatus = true,
     },
   },
 }
