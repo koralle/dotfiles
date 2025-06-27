@@ -19,6 +19,9 @@ vim.opt.cmdheight = 0
 vim.opt.showtabline = 2
 vim.opt.sessionoptions = "curdir,folds,globals,help,tabpages,terminal,winsize"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.helplang = "ja"
+vim.opt.autochdir = true
+vim.opt.ignorecase = true
 
 -- local to window
 vim.opt.number = true
