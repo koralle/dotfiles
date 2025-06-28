@@ -20,6 +20,7 @@ return {
           converters = {
             "converter_kind_labels",
           },
+          maxItems = 15,
         },
       },
       sourceParams = {

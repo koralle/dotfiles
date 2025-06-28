@@ -49,31 +49,19 @@ return {
         sourceOptions = {
           _ = {
             matchers = {
-              "matcher_head",
+              "matcher_fuzzy",
             },
             sorters = {
-              "sorter_rank",
+              "sorter_fuzzy",
             },
-            converters = {},
+            converters = {
+              "converter_fuzzy",
+            },
           },
         },
-        backspaceCompletion = true,
-      })
-
-      helpers.patch_filetype("lua", {
-        sources = {
-          "rg",
-          "lsp",
-        },
-        sourceOptions = {
-          _ = {
-            matchers = {
-              "matcher_head",
-            },
-            sorters = {
-              "sorter_rank",
-            },
-            converters = {},
+        filterParams = {
+          ["converter_fuzzy"] = {
+            hlGroup = "CurSearch",
           },
         },
         backspaceCompletion = true,
@@ -93,26 +81,13 @@ return {
       vim.fn["pum#set_option"]({
         padding = true,
         preview = true,
+        border = "rounded",
       })
     end,
   },
   {
     "Shougo/ddc-ui-pum",
     name = "ddc-ui-pum",
-    dependencies = {
-      "ddc",
-    },
-  },
-  {
-    "Shougo/ddc-filter-matcher_head",
-    name = "ddc-filter-matcher_head",
-    dependencies = {
-      "ddc",
-    },
-  },
-  {
-    "Shougo/ddc-filter-sorter_rank",
-    name = "ddc-filter-sorter_rank",
     dependencies = {
       "ddc",
     },
@@ -136,24 +111,6 @@ return {
     dependencies = {
       "ddc",
     },
-    config = function()
-      local helpers = require("helpers.ddc")
-      helpers.patch_global({
-        sourceOptions = {
-          _ = {
-            matchers = {
-              "matcher_fuzzy",
-            },
-            sorters = {
-              "sorter_fuzzy",
-            },
-            converters = {
-              "converter_fuzzy",
-            },
-          },
-        },
-      })
-    end,
   },
   {
     "Shougo/ddc-source-rg",
@@ -168,6 +125,7 @@ return {
           rg = {
             mark = "[RG]",
             minAutoCompleteLength = 4,
+            maxItems = 10,
           },
         },
       })
@@ -187,6 +145,7 @@ return {
             mark = "[FILE]",
             isVolatile = true,
             forceCompletionPattern = "\\S/\\S*",
+            maxItems = 10,
           },
         },
       })
