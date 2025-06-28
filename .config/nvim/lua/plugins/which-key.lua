@@ -2,12 +2,18 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  config = function()
-    local wk = require("which-key")
-
-    wk.add({
+  keys = {
+    {
+      "?",
+      function() require("which-key").show({ global = false }) end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
+  opts = {
+    preset = "helix",
+    spec = {
       {
-        mode = "n",
+        mode = { "n", "v" },
         {
           "<space>a",
           function()
@@ -229,6 +235,10 @@ return {
           end,
         },
         {
+          "<space>m",
+          "<cmd>message<CR>",
+        },
+        {
           "<space>qt",
           function() require("quicker").toggle() end,
           desc = "Toggle Quickfix",
@@ -238,6 +248,6 @@ return {
           function() require("quicker").toggle({ loclist = true }) end,
         },
       },
-    })
-  end,
+    },
+  },
 }
