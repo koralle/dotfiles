@@ -228,6 +228,15 @@ return {
             })
           end,
         },
+        {
+          "<space>qt",
+          function() require("quicker").toggle() end,
+          desc = "Toggle Quickfix",
+        },
+        {
+          "<space>ql",
+          function() require("quicker").toggle({ loclist = true }) end,
+        },
       },
     })
   end,
