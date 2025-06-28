@@ -219,6 +219,15 @@ return {
           },
           desc = "[ddu.vim] ff:git_branch",
         },
+        {
+          "<space>ls",
+          function()
+            vim.fn["ddu#start"]({
+              name = "ff:git_status",
+              ui = "ff",
+            })
+          end,
+        },
       },
     })
   end,
