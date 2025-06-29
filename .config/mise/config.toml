@@ -35,6 +35,10 @@
 # https://github.com/yamadashy/repomix
 'npm:repomix' = 'latest'
 
+# oxlint
+# https://github.com/oxc-project/oxc
+'npm:oxlint' = 'latest'
+
 'npm:typescript' = 'latest'
 
 # Bun

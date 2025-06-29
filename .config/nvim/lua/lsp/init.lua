@@ -8,6 +8,9 @@ local servers = {
   -- TypeScript (Deno)
   "denols",
 
+  -- Oxlint
+  "oxlint",
+
   -- Vue
   "vue_ls",
 
