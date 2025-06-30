@@ -65,5 +65,9 @@ rust = 'nightly'
 # https://github.com/tamasfe/taplo
 'cargo:taplo-cli' = { version = 'latest', features = "lsp" }
 
+# hyperfine
+# https://github.com/sharkdp/hyperfine
+'cargo:hyperfine' = 'latest'
+
 [settings.npm]
 bun = true
