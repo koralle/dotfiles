@@ -60,6 +60,9 @@ node = ['lts', '23']
 # Python
 python = 'latest'
 
+# uv
+uv = 'latest'
+
 # Rust
 rust = 'nightly'
 'cargo:just-lsp' = 'latest'
