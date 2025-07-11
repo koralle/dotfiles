@@ -57,6 +57,9 @@ go = 'latest'
 # Node.js
 node = ['lts', '23']
 
+# neovim-remote
+'pipx:neovim-remote' = 'latest'
+
 # Python
 python = 'latest'
 

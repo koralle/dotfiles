@@ -1,4 +1,5 @@
 set -Ux XDG_CONFIG_HOME $HOME/.config
+set -Ux GIT_EDITOR "nvr --remote-wait"
 
 # Initialize zoxide
 # https://github.com/ajeetdsouza/zoxide
