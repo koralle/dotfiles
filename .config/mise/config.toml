@@ -67,7 +67,7 @@ python = 'latest'
 uv = 'latest'
 
 # Rust
-rust = 'nightly'
+rust = { version = 'nightly', components = "clippy,rust-analyzer,rust-docs,rust-src,rustfmt" }
 'cargo:just-lsp' = 'latest'
 'cargo:stylua' = 'latest'
 

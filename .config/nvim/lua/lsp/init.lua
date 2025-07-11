@@ -25,6 +25,9 @@ local servers = {
 
   -- YAML
   "yamlls",
+
+  -- Rust
+  "rust_analyzer",
 }
 
 vim.lsp.config("*", {
