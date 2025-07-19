@@ -43,6 +43,10 @@
 # https://github.com/antfu-collective/ni
 'npm:@antfu/ni' = 'latest'
 
+# difit
+# https://github.com/yoshiko-pg/difit
+'npm:difit' = 'latest'
+
 'npm:typescript' = 'latest'
 
 # Bun
