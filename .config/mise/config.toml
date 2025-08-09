@@ -47,6 +47,14 @@
 # https://github.com/yoshiko-pg/difit
 'npm:difit' = 'latest'
 
+# @mizchi/lsmcp
+# https://github.com/mizchi/lsmcp
+'npm:@mizchi/lsmcp' = 'latest'
+
+# @typescript/native-preview
+# https://github.com/microsoft/typescript-go
+'npm:@typescript/native-preview' = 'latest'
+
 'npm:typescript' = 'latest'
 
 # Bun
