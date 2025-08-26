@@ -70,10 +70,6 @@ in
     # Dependabot CLI
     # Ref: https://github.com/dependabot/cli
     dependabot-cli
-
-    # Aider
-    # Ref: https://github.com/Aider-AI/aider
-    aider-chat
   ];
 
   programs.nix-index = {
