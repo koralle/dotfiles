@@ -70,6 +70,10 @@ in
     # Dependabot CLI
     # Ref: https://github.com/dependabot/cli
     dependabot-cli
+
+    # AeroSpace
+    # https://github.com/nikitabobko/AeroSpace
+    aerospace
   ];
 
   programs.nix-index = {
