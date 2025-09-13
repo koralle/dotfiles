@@ -26,17 +26,17 @@ config.keys = require("key-mappings")
 -- Default prog
 --config.default_prog = { os.getenv('HOME') .. '/' .. '.nix-profile/bin/fish' }
 
-config.background = {
-  {
-    source = {
-      File = os.getenv("HOME") .. "/" .. ".config/wezterm/images/sleeping-mugicha.png",
-    },
-    hsb = {
-      brightness = 0.015,
-    },
-    vertical_align = "Middle",
-    horizontal_align = "Center",
-  },
-}
+-- config.background = {
+--   {
+--     source = {
+--       File = os.getenv("HOME") .. "/" .. ".config/wezterm/images/sleeping-mugicha.png",
+--     },
+--     hsb = {
+--       brightness = 0.015,
+--     },
+--     vertical_align = "Middle",
+--     horizontal_align = "Center",
+--   },
+-- }
 
 return config
