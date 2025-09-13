@@ -10,7 +10,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.color_scheme = "Catppuccin Frappe"
 
 config.font = wezterm.font_with_fallback({
-  "Moralerspace Neon",
+  "Intel One Mono",
 })
 
 config.font_size = 14.0
