@@ -2,10 +2,89 @@ start-at-login = true
 
 default-root-container-layout = 'tiles'
 
+[key-mapping]
+preset = 'qwerty'
+
 [gaps]
-inner.horizontal = 20
-inner.vertical = 20
-outer.left = 20
-outer.bottom = 20
-outer.top = 20
-outer.right = 20
+inner.horizontal = 8
+inner.vertical = 8
+outer.bottom = 5
+outer.top = [{ monitor.main = 10 }, 10]
+outer.right = 5
+outer.left = 5
+
+[mode.main.binding]
+alt-e = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+alt-f = 'fullscreen'
+
+# 特定のワークスペースに移動する
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-a = 'workspace A'
+alt-b = 'workspace B'
+alt-c = 'workspace C'
+alt-t = 'workspace T'
+alt-l = 'workspace L'
+alt-w = 'workspace W'
+
+# ウィンドウを特定のワークスペースに移動する
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-a = 'move-node-to-workspace A'
+alt-shift-b = 'move-node-to-workspace B'
+alt-shift-c = 'move-node-to-workspace C'
+alt-shift-l = 'move-node-to-workspace L'
+alt-shift-t = 'move-node-to-workspace T'
+alt-shift-w = 'move-node-to-workspace W'
+
+# 現在フォーカスされているワークスペースと直前にフォーカスされていたワークスペースを切り替える
+alt-tab = 'workspace-back-and-forth'
+
+# 現在フォーカスされているワークスペースを次のモニターへ移動させる
+# ただし、最後のモニターに到達した場合は最初のモニターに戻る
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+
+# ワークスペース内の特定のウィンドウにフォーカスする
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Google Chromeを起動した時にそのウィンドウをワークスペースCに移動させる
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace C'
+
+# WezTermを起動した時にそのウィンドウをワークスペースWに移動させる
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace W'
+
+# Linearを起動した時にそのウィンドウをワークスペースLに移動させる
+[[on-window-detected]]
+if.app-id = 'com.linear'
+run = 'move-node-to-workspace L'
