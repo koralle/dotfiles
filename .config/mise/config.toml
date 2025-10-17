@@ -91,5 +91,8 @@ rust = { version = 'nightly', components = "clippy,rust-analyzer,rust-docs,rust-
 # https://github.com/sharkdp/hyperfine
 'cargo:hyperfine' = 'latest'
 
+[settings]
+idiomatic_version_file_enable_tools = ['node']
+
 [settings.npm]
 bun = true
