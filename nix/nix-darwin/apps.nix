@@ -1,0 +1,81 @@
+{ pkgs, ... }:
+{
+  # Homebrew
+  homebrew = {
+    enable = true;
+
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+    };
+
+    brews = [
+      # GitHub CLI
+      # https://cli.github.com/
+      "gh"
+
+      # Gemini CLI
+      # https://github.com/google-gemini/gemini-cli
+      "gemini-cli"
+
+      # Lua
+      # https://github.com/LuaLS/lua-language-server
+      "lua-language-server"
+    ];
+
+    casks = [
+      {
+        # Visual Studio Code
+        # https://github.com/microsoft/vscode
+        name = "visual-studio-code";
+      }
+
+      {
+        # Ghostty
+        # https://github.com/ghostty-org/ghostty
+        name = "ghostty";
+      }
+
+      {
+        # Firefox
+        # https://github.com/mozilla-firefox/firefox
+        name = "firefox";
+      }
+
+      {
+        # Raycast
+        # https://www.raycast.com/
+        name = "raycast";
+      }
+
+      {
+        # Zed
+        # https://github.com/zed-industries/zed
+        name = "zed";
+      }
+
+      {
+        # Google Chrome
+        # https://github.com/googlechrome
+        name = "google-chrome";
+      }
+
+      {
+        # Aerospace
+        # https://github.com/nikitabobko/AeroSpace
+        name = "aerospace";
+      }
+
+      {
+        # Discord
+        name = "discord";
+      }
+
+      {
+        # Claude Code
+        # https://github.com/anthropics/claude-code
+        name = "claude-code";
+      }
+    ];
+  };
+}
