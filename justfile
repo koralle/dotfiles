@@ -1,8 +1,17 @@
-alias s := switch
-alias fn := format-neovim
+alias u := update
+alias hm := update-home-manager
+alias dw := update-darwin
+alias f := format
 
-switch:
-    home-manager switch --flake .#koralle
+update:
+  nix run .#update
 
-format-neovim:
-    stylua .config/nvim
+update-darwin:
+  sudo nix run nix-darwin -- switch --flake .#koralle-darwin
+
+update-home-manager:
+  nix run nixpkgs#home-manager -- switch --flake .#koralleHomeConfig
+
+format:
+  fd --glob "*.nix" | xargs nixfmt
+  fd --glob "*.lua" | xargs stylua

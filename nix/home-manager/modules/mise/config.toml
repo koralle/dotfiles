@@ -1,0 +1,64 @@
+[tools]
+'npm:npm' = 'latest'
+'npm:pnpm' = 'latest'
+
+# ni
+# https://github.com/antfu-collective/ni
+'npm:@antfu/ni' = 'latest'
+
+# difit
+# https://github.com/yoshiko-pg/difit
+'npm:difit' = 'latest'
+
+# @typescript/native-preview
+# https://github.com/microsoft/typescript-go
+'npm:@typescript/native-preview' = 'latest'
+
+# @astrojs/language-server
+# https://github.com/withastro/language-tools
+'npm:@astrojs/language-server' = 'latest'
+
+# yaml-language-server
+# https://github.com/redhat-developer/yaml-language-server
+'npm:yaml-language-server' = 'latest'
+
+# repomix
+# https://github.com/yamadashy/repomix
+'npm:repomix' = 'latest'
+
+# oxlint
+# https://github.com/oxc-project/oxc
+'npm:oxlint' = 'latest'
+
+# typescript
+# https://github.com/microsoft/TypeScript
+'npm:typescript' = 'latest'
+
+# Bun
+bun = 'latest'
+
+# Deno
+deno = 'latest'
+
+# Golang
+go = 'latest'
+
+# Node.js
+node = ['lts', '23', '24']
+
+# Python
+python = 'latest'
+
+# uv
+uv = 'latest'
+
+# Rust
+rust = { version = 'nightly', components = "clippy,rust-analyzer,rust-docs,rust-src,rustfmt" }
+'cargo:just-lsp' = 'latest'
+'cargo:stylua' = 'latest'
+
+[settings]
+idiomatic_version_file_enable_tools = ['node']
+
+[settings.npm]
+bun = true
