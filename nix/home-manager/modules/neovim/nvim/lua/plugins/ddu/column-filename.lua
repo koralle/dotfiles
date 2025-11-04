@@ -1,0 +1,21 @@
+---@type LazySpec
+return {
+  "Shougo/ddu-column-filename",
+  name = "ddu-column-filename",
+  dependencies = {
+    "ddu.vim",
+  },
+  config = function()
+    local helpers = require("helpers.ddu")
+
+    helpers.patch_local("filer", {
+      sourceOptions = {
+        _ = {
+          columns = {
+            "filename",
+          },
+        },
+      },
+    })
+  end,
+}
