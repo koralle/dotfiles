@@ -21,6 +21,10 @@
       # Lua
       # https://github.com/LuaLS/lua-language-server
       "lua-language-server"
+
+      # Podman
+      # https://github.com/containers/podman
+      "podman"
     ];
 
     casks = [
