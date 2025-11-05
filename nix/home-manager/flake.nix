@@ -64,6 +64,10 @@
     # bat
     # https://github.com/sharkdp/bat
     bat
+
+    # act
+    # https://github.com/nektos/act
+    act
   ];
 
   # neovim
