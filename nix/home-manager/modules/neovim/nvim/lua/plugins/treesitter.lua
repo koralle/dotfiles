@@ -53,4 +53,25 @@ return {
       },
     },
   },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    dependencies = {
+      "nvim-treesitter",
+    },
+    opts = {},
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    dependencies = {
+      "nvim-treesitter",
+    },
+    opts = {},
+  },
+  {
+    "andersevenrud/nvim_context_vt",
+    dependencies = {
+      "nvim-treesitter",
+    },
+    opts = {},
+  },
 }

@@ -34,6 +34,9 @@
 # https://github.com/microsoft/TypeScript
 'npm:typescript' = 'latest'
 
+# @upstash/context7-mcp
+'npm:@upstash/context7-mcp' = 'latest'
+
 # Bun
 bun = 'latest'
 

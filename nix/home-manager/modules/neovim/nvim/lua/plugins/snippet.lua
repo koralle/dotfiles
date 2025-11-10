@@ -1,4 +1,9 @@
 ---@type LazySpec
 return {
-  "hrsh7th/vim-vsnip",
+  {
+    "uga-rosa/denippet.vim",
+  },
+  {
+    "hrsh7th/vim-vsnip",
+  },
 }

@@ -25,6 +25,10 @@
       # Podman
       # https://github.com/containers/podman
       "podman"
+
+      # Turso
+      # https://turso.tech/
+      "tursodatabase/tap/turso"
     ];
 
     casks = [
@@ -84,6 +88,16 @@
       {
         # Docker
         name = "docker";
+      }
+
+      {
+        # DBeaver
+        name = "dbeaver-community";
+      }
+
+      {
+        # Obsidian
+        name = "obsidian";
       }
     ];
   };
