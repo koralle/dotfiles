@@ -80,6 +80,11 @@
         # https://github.com/anthropics/claude-code
         name = "claude-code";
       }
+
+      {
+        # Docker
+        name = "docker";
+      }
     ];
   };
 }
