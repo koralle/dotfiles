@@ -12,18 +12,12 @@ in
     vim
     git
 
-    # nixfmt
     # https://github.com/NixOS/nixfmt
     nixfmt-rfc-style
-
-    # fish
-    # https://github.com/fish-shell/fish-shell
-    fish
   ];
 
   environment.variables = {
     EDITOR = "nvim";
-    SHELL = "${pkgs.fish}/bin/fish";
     COLORTERM = "truecolor";
   };
 
@@ -40,39 +34,10 @@ in
   };
 
   programs = {
-    fish.enable = true;
-    fish.interactiveShellInit = ''
-      set -Ux XDG_CONFIG_HOME $HOME/.config
-
-      # vi mode
-      fish_vi_key_bindings
-
-      # Initialize zoxide
-      # https://github.com/ajeetdsouza/zoxide
-      zoxide init fish | source
-
-      # Initialize Starship
-      # https://starship.rs/ja-JP/guide/
-      starship init fish | source
-
-      # Initialize mise
-      # https://mise.jdx.dev/getting-started.html#_2a-activate-mise
-      if status is-interactive
-        mise activate fish | source
-      else
-        mise activate fish --shims | source
-      end
-
-      # Initialize bat
-      if command -q bat
-        bat --completion fish | source
-      end
-    '';
   };
 
   users.users."${username}" = with pkgs; {
     home = "/Users/${username}";
-    shell = "${fish}/bin/fish";
   };
 
   time.timeZone = "Asia/Tokyo";

@@ -15,7 +15,6 @@ return {
         "astro",
         "css",
         "editorconfig",
-        "fish",
         "git_config",
         "git_rebase",
         "gitattributes",
