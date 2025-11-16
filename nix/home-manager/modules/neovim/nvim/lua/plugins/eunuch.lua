@@ -1,4 +1,4 @@
 ---@type LazySpec
 return {
-  "tpope/vim-eunuch"
+  "tpope/vim-eunuch",
 }
