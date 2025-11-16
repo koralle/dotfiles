@@ -12,8 +12,13 @@ in
     vim
     git
 
+    # nixfmt
     # https://github.com/NixOS/nixfmt
     nixfmt-rfc-style
+
+    # stylua
+    # https://github.com/JohnnyMorganz/StyLua
+    stylua
   ];
 
   environment.variables = {
