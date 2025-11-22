@@ -42,64 +42,11 @@
     }:
     let
       username = "koralle";
-      system = "aarch64-darwin";
       overlays = [ nur.overlays.default ];
-      pkgs = import nixpkgs {
-        inherit system overlays;
-        config.allowUnfree = true;
-      };
     in
     {
-      apps.${system} = {
-        update = {
-          type = "app";
-          program = toString (
-            pkgs.writeShellScript "update-script" ''
-              set -e
-              echo "Updating flake..."
-              nix flake update
-              echo "Updating home-manager..."
-              nix run nixpkgs#home-manager -- switch --flake .#koralleHomeConfig
-              echo "Updating nix-darwin..."
-              sudo nix run nix-darwin -- switch --flake .#koralle-darwin
-              echo "Update complete!"
-            ''
-          );
-        };
-      };
-
-      update-home = {
-        type = "app";
-        program = toString (
-          pkgs.writeShellScript "update-script" ''
-            set -e
-            echo "Updating flake..."
-            nix flake update
-            echo "Updating home-manager..."
-            nix run nixpkgs#home-manager -- switch --flake .#koralleHomeConfig
-            echo "Update complete!"
-          ''
-        );
-      };
-
-      update-darwin = {
-        type = "app";
-        program = toString (
-          pkgs.writeShellScript "update-script" ''
-            set -e
-            echo "Updating flake..."
-            nix flake update
-            echo "Updating nix-darwin..."
-            sudo nix run nix-darwin -- switch --flake .#koralle-darwin
-            echo "Update complete!"
-          ''
-        );
-      };
-
       nixosConfigurations = {
         koralleNipogi = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
           specialArgs = {
             inherit inputs username;
           };
@@ -111,7 +58,7 @@
       };
 
       darwinConfigurations.koralle-darwin = nix-darwin.lib.darwinSystem {
-        inherit system;
+        system = "aarch64-darwin";
 
         modules = [
           ./nix/nix-darwin/flake.nix
@@ -119,8 +66,26 @@
       };
 
       homeConfigurations = {
-        koralleHomeConfig = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+        "koralle@m1mac" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            inherit overlays;
+            config.allowUnfree = true;
+          };
+
+          extraSpecialArgs = {
+            inherit inputs username;
+          };
+
+          modules = [ ./nix/home-manager/flake.nix ];
+        };
+
+        "koralle@nipogi" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            inherit overlays;
+            config.allowUnfree = true;
+          };
 
           extraSpecialArgs = {
             inherit inputs username;

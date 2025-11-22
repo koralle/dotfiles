@@ -1,16 +1,13 @@
-alias u := update
-alias hm := update-home-manager
-alias dw := update-darwin
+alias u := update-koralleM1Mac
 alias f := format
 
-update:
-  nix run .#update
-
-update-darwin:
+update-koralleM1Mac:
   sudo nix run nix-darwin -- switch --flake .#koralle-darwin
+  nix run nixpkgs#home-manager -- switch --flake .#koralle@m1mac
 
-update-home-manager:
-  nix run nixpkgs#home-manager -- switch --flake .#koralleHomeConfig
+update-koralleNipogi:
+  sudo nixos-rebuild switch --flake .#koralleNipogi
+  nix run nixpkgs#home-manager -- switch --flake .#koralle@nipogi
 
 format:
   fd --glob "*.nix" | xargs nixfmt
