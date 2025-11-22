@@ -5,6 +5,9 @@ local servers = {
   -- TypeScript (Deno)
   "denols",
 
+  -- Biome
+  "biome",
+
   -- Astro
   "astro",
 
