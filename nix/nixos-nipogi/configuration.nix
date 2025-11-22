@@ -9,9 +9,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./apps.nix
-    ./fonts.nix
-    ./i18n.nix
-    ./networking.nix
+    ./modules/fonts.nix
+    ./modules/i18n.nix
+    ./modules/networking.nix
+    ./modules/browser.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -70,9 +71,6 @@
 
   # Install nix-ld
   programs.nix-ld.enable = true;
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   programs.fish = {
     enable = true;

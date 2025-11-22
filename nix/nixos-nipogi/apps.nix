@@ -7,8 +7,5 @@
 
     # Ghostty
     ghostty
-
-    # Google Chrome
-    google-chrome
   ];
 }
