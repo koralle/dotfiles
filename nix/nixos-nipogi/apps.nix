@@ -18,5 +18,8 @@
     # Visual Studio Code
     # https://github.com/microsoft/vscode
     vscode
+
+    # Chromium
+    chromium
   ];
 }
