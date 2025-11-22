@@ -8,6 +8,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./apps.nix
+    ./fonts.nix
+    ./i18n.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -16,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-nipogi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -28,21 +31,6 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "ja_JP.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -87,14 +75,45 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      #  thunderbird
-      git
-    ];
   };
+
+  # Install nix-ld
+  programs.nix-ld.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -Ux XDG_CONFIG_HOME $HOME/.config
+      set -Ux MISE_ALL_COMPILE false
+
+      # vi mode
+      fish_vi_key_bindings
+
+      # Initialize zoxide
+      # https://github.com/ajeetdsouza/zoxide
+      zoxide init fish | source
+
+      # Initialize Starship
+      # https://starship.rs/ja-JP/guide/
+      starship init fish | source
+
+      # Initialize mise
+      # https://mise.jdx.dev/getting-started.html#_2a-activate-mise
+      if status is-interactive
+        mise activate fish | source
+      else
+        mise activate fish --shims | source
+      end
+
+      # Initialize bat
+      if command -q bat
+        bat --completion fish | source
+      end
+    '';
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -129,6 +148,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
