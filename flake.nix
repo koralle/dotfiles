@@ -96,12 +96,16 @@
         );
       };
 
-      nixosConfigurations = nixpkgs.lib.nixosSystem {
-        koralleNipogi = {
+      nixosConfigurations = {
+        koralleNipogi = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+
+          specialArgs = {
+            inherit inputs username;
+          };
+
           modules = [
             ./nix/nixos-nipogi/configuration.nix
-            ./nix/nixos-nipogi/hardware-configuration.nix
           ];
         };
       };
