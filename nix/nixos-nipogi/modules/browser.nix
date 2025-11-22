@@ -5,5 +5,7 @@
 
   users.users.koralle.packages = with pkgs; [
     google-chrome
+
+    chromium
   ];
 }
