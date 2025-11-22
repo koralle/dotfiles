@@ -96,6 +96,16 @@
         );
       };
 
+      nixosConfigurations = nixpkgs.lib.nixosSystem {
+        koralleNipogi = {
+          system = "x86_64-linux";
+          modules = [
+            ./nix/nixos-nipogi/configuration.nix
+            ./nix/nixos-nipogi/hardware-configuration.nix
+          ];
+        };
+      };
+
       darwinConfigurations.koralle-darwin = nix-darwin.lib.darwinSystem {
         inherit system;
 
