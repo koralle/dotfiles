@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   networking.hostName = "nixos-nipogi"; # Define your hostname.
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -19,6 +20,6 @@
     enable = true;
 
     trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [config.services.tailscale.port];
+    allowedUDPPorts = [ config.services.tailscale.port ];
   };
 }

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
@@ -18,7 +19,7 @@
         button-layout='close,minimize,maximize:'
       '';
 
-      extraGSettingsOverridePackages = [];
+      extraGSettingsOverridePackages = [ ];
     };
 
     # Configure keymap in X11

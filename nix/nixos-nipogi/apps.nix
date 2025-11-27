@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   users.users.koralle.packages = with pkgs; [
     git
     python3

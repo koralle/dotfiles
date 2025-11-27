@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   fonts = {
     enableDefaultPackages = true;
@@ -15,9 +16,18 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "Noto Serif" "Noto Serif CJK JP" ];
-        sansSerif = [ "Noto Sans" "Noto Sans CJK JP" ];
-        monospace = [ "Noto Sans Mono" "Noto Sans Mono CJK JP" ];
+        serif = [
+          "Noto Serif"
+          "Noto Serif CJK JP"
+        ];
+        sansSerif = [
+          "Noto Sans"
+          "Noto Sans CJK JP"
+        ];
+        monospace = [
+          "Noto Sans Mono"
+          "Noto Sans Mono CJK JP"
+        ];
       };
     };
   };
