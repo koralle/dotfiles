@@ -99,6 +99,11 @@
         # Obsidian
         name = "obsidian";
       }
+
+      {
+        # Httpie
+        name = "httpie";
+      }
     ];
   };
 }

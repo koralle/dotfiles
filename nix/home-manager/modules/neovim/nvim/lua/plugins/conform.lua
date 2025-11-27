@@ -25,6 +25,8 @@ return {
             "--stdin-file-path",
             "$FILENAME",
             "--fix",
+            "--indent-style=space",
+            "--indent-width=2",
           },
         },
       },
