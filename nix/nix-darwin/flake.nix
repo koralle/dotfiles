@@ -71,6 +71,9 @@ in
       if command -q bat
         bat --completion fish | source
       end
+
+      # Initialize Homebrew
+      eval $(/opt/homebrew/bin/brew shellenv)
     '';
   };
 
