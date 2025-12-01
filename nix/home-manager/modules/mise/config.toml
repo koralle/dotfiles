@@ -40,6 +40,9 @@
 # biome
 'npm:@biomejs/biome' = 'latest'
 
+# @typespec/compiler
+'npm:@typespec/compiler' = 'latest'
+
 # Bun
 bun = 'latest'
 
