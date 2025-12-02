@@ -74,7 +74,40 @@ in
 
       # Initialize Homebrew
       eval $(/opt/homebrew/bin/brew shellenv)
+
+      # === Claude Code ===
+      # IDE関連機能を完全に無効化
+      set -Ux CLAUDE_CODE_AUTO_CONNECT_IDE=0
+      set -Ux CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL=1
+      set -Ux CLAUDE_CODE_IDE_SKIP_VALID_CHECK=1
+
+      # 自動更新の無効化
+      set -Ux DISABLE_AUTOUPDATER=1
+
+      # テレメトリの無効化
+      set -Ux CLAUDE_CODE_ENABLE_TELEMETRY=0
+      set -UX DISABLE_TELEMETRY=1
+
+      # 非必須トラフィックの無効化
+      set -Ux CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+
+      # エラーレポートの無効化
+      set -Ux DISABLE_ERROR_REPORTING=1
+
+      # 拡張試行モードの有効化
+      set -Ux MAX_THINKING_TOKENS=31999
+
+      # パフォーマンスログの有効化
+      set -Ux CLAUDE_CODE_PERFORMANCE_LOGGING=1
+      set -Ux CLAUDE_CODE_LOG_LEVEL=debug
+
+      # メモリ制限の設定
+      set -Ux NODE_OPTIONS="--max-old-space-size=4096"
+
+      # ガベージコレクションの最適化
+      set -Ux NODE_OPTIONS="--max-old-space-size=4096 --expose-gc"
     '';
+
   };
 
   users.users."${username}" = with pkgs; {
