@@ -13,6 +13,7 @@ return {
       height = function() return math.floor(vim.o.lines * 0.95) end,
     },
     close_on_exit = true,
+    shell = "fish",
     on_open = function()
       vim.keymap.set("n", "q", "<cmd>close<cr>", {
         noremap = true,

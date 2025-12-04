@@ -509,6 +509,7 @@ theme "catppucin-macciato"
 //
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
 
+default_shell "fish"
 
 web_client {
     font "monospace"

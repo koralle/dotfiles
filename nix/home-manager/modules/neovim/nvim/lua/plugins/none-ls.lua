@@ -17,6 +17,12 @@ return {
             return utils.root_has_file({ "stylua.toml", ".stylua.toml" })
           end,
         }),
+        formatting.biome.with({
+          condition = function(utils)
+            return utils.root_has_file({ "biome.jsonc" })
+          end,
+          prefer_local = "node_modules/.bin",
+        })
       },
     })
   end,

@@ -43,6 +43,9 @@
 # @typespec/compiler
 'npm:@typespec/compiler' = 'latest'
 
+# @vtsls/language-server
+'npm:@vtsls/language-server' = 'latest'
+
 # Bun
 bun = 'latest'
 
