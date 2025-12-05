@@ -18,7 +18,7 @@ local servers = {
   "yamlls",
 
   -- TypeSpec
-  "tsp_server"
+  "tsp_server",
 }
 
 vim.lsp.config("*", {

@@ -22,7 +22,7 @@ return {
             return utils.root_has_file({ "biome.jsonc" })
           end,
           prefer_local = "node_modules/.bin",
-        })
+        }),
       },
     })
   end,
