@@ -227,7 +227,7 @@ plugins {
     compact-bar location="zellij:compact-bar"
     session-manager location="zellij:session-manager"
     welcome-screen location="zellij:session-manager" {
-        welcome_screen true
+        welcome_screen false
     }
     filepicker location="zellij:strider" {
         cwd "/"
@@ -323,7 +323,7 @@ load_plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "catppucin-macciato"
+theme "nord"
 
 // The name of the default layout to load on startup
 // Default: "default"
@@ -510,6 +510,12 @@ theme "catppucin-macciato"
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
 
 default_shell "fish"
+
+// Paneの枠を消す
+pane_frames false
+
+// Zellij起動時にTipsを自動で表示する機能を無効化する
+show_startup_tips false
 
 web_client {
     font "monospace"
