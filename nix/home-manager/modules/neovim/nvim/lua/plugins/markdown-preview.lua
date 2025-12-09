@@ -1,14 +1,10 @@
 ---@type LazySpec
 return {
-  "MeanderingProgrammer/render-markdown.nvim",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
-  opts = {
-    completions = {
-      lsp = {
-        enable = true,
-      },
-    },
-  },
+  {
+    "yousefhadder/markdown-plus.nvim",
+    ft = "markdown",
+    config = function ()
+      require("markdown-plus").setup({})
+    end
+  }
 }

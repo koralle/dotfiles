@@ -1,22 +1,7 @@
 [alias]
-    c = commit
-    co = checkout
-    s = status
-    st = status
-    b = branch
-    df = diff
-    ds = diff --staged
-    dn = diff --name-only
-    llog = log --graph --decorate --oneline --all
-    line = log --oneline
-    gr = log --oneline --graph
-    b = blame
-    bi = bisect
-    amend = commit --amend
 
 [core]
-    editor = "nvim"
-    pager = "delta"
+    editor = "vim"
 
 [user]
     name = "koralle"
@@ -28,15 +13,9 @@
     enabled = true
     autoupdate = true
 
-[delta]
-    navigate = true
-    dark = true
-
 [interactive]
-    diffFilter = "delta --color-only"
 
 [merge]
-    conflictstyle = "zdiff3"
 
 [column]
     ui = auto
