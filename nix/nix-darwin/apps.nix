@@ -16,7 +16,7 @@
 
       # Gemini CLI
       # https://github.com/google-gemini/gemini-cli
-      "gemini-cli"
+      # "gemini-cli"
 
       # Lua
       # https://github.com/LuaLS/lua-language-server
