@@ -10,5 +10,6 @@
     ./tig/flake.nix
     ./zed/flake.nix
     ./zellij/flake.nix
+    ./fish/flake.nix
   ];
 }

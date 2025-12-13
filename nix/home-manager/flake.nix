@@ -68,6 +68,9 @@
     # act
     # https://github.com/nektos/act
     act
+
+    # fish
+    fish
   ];
 
   # neovim
