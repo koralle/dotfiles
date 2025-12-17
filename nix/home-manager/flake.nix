@@ -71,6 +71,13 @@
 
     # fish
     fish
+
+    # fzf
+    # https://github.com/junegunn/fzf
+    fzf
+
+    # gnupg
+    gnupg
   ];
 
   # neovim
