@@ -46,6 +46,9 @@
 # @vtsls/language-server
 'npm:@vtsls/language-server' = 'latest'
 
+# tree-sitter-cli
+'npm:tree-sitter-cli'= 'latest'
+
 # Bun
 bun = 'latest'
 
