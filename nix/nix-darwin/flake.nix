@@ -11,6 +11,7 @@ in
   environment.systemPackages = with pkgs; [
     vim
     git
+    wget
 
     # nixfmt
     # https://github.com/NixOS/nixfmt

@@ -28,6 +28,7 @@ end
 eval $(/opt/homebrew/bin/brew shellenv)
 
 # === Claude Code ===
+set -Ux PATH $HOME/.local/bin:$PATH
 # IDE関連機能を完全に無効化
 set -Ux CLAUDE_CODE_AUTO_CONNECT_IDE 0
 set -Ux CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL 1
