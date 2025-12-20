@@ -27,6 +27,9 @@ end
 # Initialize Homebrew
 eval $(/opt/homebrew/bin/brew shellenv)
 
+# Initialize fzf
+fzf --fish | source
+
 # === Claude Code ===
 set -Ux PATH $HOME/.local/bin:$PATH
 # IDE関連機能を完全に無効化
@@ -59,3 +62,5 @@ set -Ux NODE_OPTIONS "--max-old-space-size=4096"
 
 # ガベージコレクションの最適化
 set -Ux NODE_OPTIONS "--max-old-space-size=4096 --expose-gc"
+
+set -Ux GHQ_ROOT "$HOME/workspaces"
