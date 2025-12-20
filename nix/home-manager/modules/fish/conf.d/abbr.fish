@@ -2,6 +2,8 @@ abbr --add ls "eza --icons"
 abbr --add ll "eza --icons -lhag --time-style long-iso"
 abbr --add lt "eza --icons --tree"
 
+abbr --add zj zellij
+
 # Git
 # git branch
 abbr --command git br branch
