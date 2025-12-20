@@ -29,6 +29,12 @@
       # Turso
       # https://turso.tech/
       # "tursodatabase/tap/turso"
+
+      # peco
+      "peco"
+
+      # ghq
+      "ghq"
     ];
 
     casks = [

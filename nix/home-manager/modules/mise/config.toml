@@ -49,6 +49,12 @@
 # tree-sitter-cli
 'npm:tree-sitter-cli'= 'latest'
 
+# commitizen
+'npm:commitizen' = 'latest'
+
+# git-cz
+'npm:git-cz' = 'latest'
+
 # Bun
 bun = 'latest'
 
