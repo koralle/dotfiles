@@ -1,5 +1,5 @@
 abbr --add ls "eza --icons"
-abbr --add ll "eza --icons -lhag --time-style long-iso"
+abbr --add ll "eza --icons -lhag --time-style long-iso --git"
 abbr --add lt "eza --icons --tree"
 
 abbr --add zj zellij
