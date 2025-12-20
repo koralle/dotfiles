@@ -28,7 +28,7 @@
 
       # Turso
       # https://turso.tech/
-      "tursodatabase/tap/turso"
+      # "tursodatabase/tap/turso"
     ];
 
     casks = [
