@@ -71,7 +71,7 @@
       {
         # Aerospace
         # https://github.com/nikitabobko/AeroSpace
-        name = "aerospace";
+        name = "nikitabobko/tap/aerospace";
       }
 
       {
