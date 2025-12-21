@@ -60,6 +60,21 @@
             ./nix/nixos-nipogi/configuration.nix
           ];
         };
+
+        koralleDesktop = nixpkgs.lib.nixosSystem {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+
+          specialArgs = {
+            inherit inputs username;
+          };
+
+          modules = [
+            ./nix/nixos-desktop/configuration.nix
+          ];
+        };
       };
 
       darwinConfigurations.koralle-darwin = nix-darwin.lib.darwinSystem {
@@ -86,6 +101,20 @@
         };
 
         "koralle@nipogi" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            inherit overlays;
+            config.allowUnfree = true;
+          };
+
+          extraSpecialArgs = {
+            inherit inputs username;
+          };
+
+          modules = [ ./nix/home-manager/flake.nix ];
+        };
+
+        "koralle@desktop" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             inherit overlays;
