@@ -25,7 +25,9 @@ if command -q bat
 end
 
 # Initialize Homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
+if test (uname -s) = "Darwin"
+  eval $(/opt/homebrew/bin/brew shellenv)
+end
 
 # Initialize fzf
 fzf --fish | source
