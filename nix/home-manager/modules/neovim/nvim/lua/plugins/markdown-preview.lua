@@ -3,8 +3,6 @@ return {
   {
     "yousefhadder/markdown-plus.nvim",
     ft = "markdown",
-    config = function ()
-      require("markdown-plus").setup({})
-    end
-  }
+    config = function() require("markdown-plus").setup({}) end,
+  },
 }

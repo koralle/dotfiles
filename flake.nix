@@ -86,7 +86,7 @@
       };
 
       homeConfigurations = {
-        "koralle@m1mac" = home-manager.lib.homeManagerConfiguration {
+        "koralle@macbook-air" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "aarch64-darwin";
             inherit overlays;
