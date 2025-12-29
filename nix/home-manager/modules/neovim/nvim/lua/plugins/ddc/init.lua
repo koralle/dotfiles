@@ -21,6 +21,7 @@ return {
       -- filters
       "ddc-filter-matcher_head",
       "ddc-filter-converter_color",
+      "ddc-filter-converter_remove_overlap",
 
       -- UI
       "pum.vim",
@@ -178,6 +179,7 @@ return {
             },
             converters = {
               "converter_fuzzy",
+              "converter_remove_overlap",
             },
           },
         },
@@ -204,6 +206,7 @@ return {
             },
             converters = {
               "converter_fuzzy",
+              "converter_remove_overlap",
             },
           },
         },
@@ -226,6 +229,7 @@ return {
             converters = {
               "converter_color",
               "converter_fuzzy",
+              "converter_remove_overlap",
             },
           },
         },
@@ -256,6 +260,7 @@ return {
             },
             converters = {
               "converter_fuzzy",
+              "converter_remove_overlap",
             },
           },
         },
@@ -275,6 +280,7 @@ return {
             },
             converters = {
               "converter_fuzzy",
+              "converter_remove_overlap",
             },
           },
         },
@@ -294,6 +300,7 @@ return {
             },
             converters = {
               "converter_fuzzy",
+              "converter_remove_overlap",
             },
           },
         },
@@ -314,6 +321,7 @@ return {
             },
             converters = {
               "converter_fuzzy",
+              "converter_remove_overlap",
             },
           },
         },
@@ -338,6 +346,10 @@ return {
   {
     "haxibami/ddc-filter-converter_color",
     name = "ddc-filter-converter_color",
+  },
+  {
+    "Shougo/ddc-filter-converter_remove_overlap",
+    name = "ddc-filter-converter_remove_overlap"
   },
   {
     "Shougo/ddc-source-rg",
