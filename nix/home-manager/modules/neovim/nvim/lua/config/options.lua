@@ -28,6 +28,10 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.wrap = false
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldtext = ""
 
 -- local to buffer
 vim.opt.shiftwidth = 2
@@ -36,5 +40,3 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.swapfile = false
-
--- Load other config
