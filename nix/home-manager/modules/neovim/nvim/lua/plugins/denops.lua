@@ -6,7 +6,4 @@ return {
     lazy = false,
     priority = 1000,
   },
-  {
-    "matsui54/denops-signature_help",
-  },
 }
