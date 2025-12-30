@@ -32,6 +32,9 @@ end
 # Initialize fzf
 fzf --fish | source
 
+# eza theme
+set -Ux EZA_CONFIG_DIR $XDG_CONFIG_HOME/eza
+
 # === Claude Code ===
 set -Ux PATH $HOME/.local/bin:$PATH
 # IDE関連機能を完全に無効化

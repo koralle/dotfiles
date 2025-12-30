@@ -2,6 +2,7 @@
 {
   imports = [
     ./aerospace/flake.nix
+    ./eza/flake.nix
     ./ghostty/flake.nix
     ./git/flake.nix
     ./mise/flake.nix
