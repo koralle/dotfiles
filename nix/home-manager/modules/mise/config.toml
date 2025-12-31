@@ -55,6 +55,9 @@
 # git-cz
 'npm:git-cz' = 'latest'
 
+# cc-sdd
+'npm:cc-sdd' = 'latest'
+
 # Bun
 bun = 'latest'
 
