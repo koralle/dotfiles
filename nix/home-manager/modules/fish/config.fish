@@ -32,6 +32,9 @@ end
 # Initialize fzf
 fzf --fish | source
 
+# Setup direnv
+direnv hook fish | source
+
 # eza theme
 set -Ux EZA_CONFIG_DIR $XDG_CONFIG_HOME/eza
 

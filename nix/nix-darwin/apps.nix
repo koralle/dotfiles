@@ -39,6 +39,10 @@
       # Gemini CLI
       # https://github.com/google-gemini/gemini-cli
       "gemini-cli"
+
+      # direnv
+      # https://github.com/nix-community/nix-direnv
+      "direnv"
     ];
 
     casks = [
