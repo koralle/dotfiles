@@ -118,6 +118,11 @@
         # Httpie
         name = "httpie";
       }
+
+      {
+        # Antigravity
+        name = "antigravity";
+      }
     ];
   };
 }
