@@ -24,9 +24,20 @@ if command -q bat
   bat --completion fish | source
 end
 
-# Initialize Homebrew
 if test (uname -s) = "Darwin"
+  # Initialize Homebrew
   eval $(/opt/homebrew/bin/brew shellenv)
+
+  # VSCode settings
+  rm $HOME/Library/Application\ Support/Code/User/settings.json
+  ln -s $XDG_CONFIG_HOME/vscode/user/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+
+  # Antigravity settings
+  rm $HOME/Library/Application\ Support/Antigravity/User/settings.json
+  ln -s $XDG_CONFIG_HOME/antigravity/user/settings.json $HOME/Library/Application\ Support/Antigravity/User/settings.json
+
+  rm $HOME/Library/Application\ Support/Antigravity/User/keybindings.json
+  ln -s $XDG_CONFIG_HOME/antigravity/user/keybindings.json $HOME/Library/Application\ Support/Antigravity/User/keybindings.json
 end
 
 # Initialize fzf

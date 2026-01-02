@@ -1,0 +1,101 @@
+{
+  /* ===== editor ===== */
+  "editor.fontSize": 16,
+
+  // タブサイズの変更
+  "editor.tabSize": 2,
+
+  // アクセシビリティ機能を無効化
+  "editor.accessibilitySupport": "off",
+
+  // カーソルがある行全体をハイライトする
+  "editor.renderLineHighlight": "all",
+
+  // 折りたたみコントロールを常に表示する
+  "editor.showFoldingControls": "always",
+
+  // 空白の可視化する
+  "editor.renderWhitespace": "all",
+
+  // 括弧の対応を色分けして表示する
+  "editor.bracketPairColorization.enabled": true,
+
+  // 括弧の対応をガイドで表示する
+  "editor.guides.bracketPairs": true,
+
+  // カーソルのアニメーション方式を変更する
+  "editor.cursorBlinking": "expand",
+
+  // カーソル移動時のアニメーションを滑らかにする
+  "editor.cursorSmoothCaretAnimation": "on",
+
+  // スクロール時のアニメーションを滑らかにする
+  "editor.smoothScrolling": true,
+
+  // 単語の分割を行うロケールを日本語にする
+  "editor.wordSegmenterLocales": ["ja"],
+
+  // 折り返し行のインデントが元の行のインデント+1になる
+  "editor.wrappingIndent": "indent",
+
+  // ミニマップの無効化
+  "editor.minimap.enabled": false,
+
+  /* ===== search ===== */
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.tanstack": true
+  },
+
+  /* ===== files ===== */
+  // パフォーマンス最適化
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.vscode/**": true,
+    "**/coverage/**": true,
+    "**/__generated__/**": true,
+    "**/tmp/**": true,
+    "**/.cache/**": true,
+    "**/.tanstack/**": true
+  },
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.tanstack": true
+  },
+
+  // ファイル末尾への自動改行挿入
+  "files.insertFinalNewline": true,
+
+  /* ===== terminal ===== */
+  // ターミナル上のカーソルを点滅させる
+  "terminal.integrated.cursorBlinking": true,
+
+  // ターミナル上のカーソルの形状を変更する
+  "terminal.integrated.cursorStyle": "line",
+
+  /* ===== git ===== */
+  "git.enabled": true,
+  "git.autorefresh": false,
+  "git.autofetch": false,
+  "git.decorations.enabled": false,
+
+  /* ===== workbench ===== */
+  // カラーテーマの変更
+  "workbench.colorTheme": "Catppuccin Frappé"
+}
