@@ -5,4 +5,3 @@
     source = ./theme.yaml;
   };
 }
-

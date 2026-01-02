@@ -349,7 +349,7 @@ return {
   },
   {
     "Shougo/ddc-filter-converter_remove_overlap",
-    name = "ddc-filter-converter_remove_overlap"
+    name = "ddc-filter-converter_remove_overlap",
   },
   {
     "Shougo/ddc-source-rg",

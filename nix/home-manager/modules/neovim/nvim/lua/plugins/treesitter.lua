@@ -9,20 +9,31 @@ return {
     dependencies = {
       "nvim-treesitter",
     },
-    init = function ()
+    init = function()
       local opts = { silent = true }
 
-      vim.keymap.set("n", "[c", function()
-        require("treesitter-context").go_to_context(vim.v.count1)
-      end, opts)
+      vim.keymap.set(
+        "n",
+        "[c",
+        function() require("treesitter-context").go_to_context(vim.v.count1) end,
+        opts
+      )
     end,
-    config = function ()
-      require('treesitter-context').setup({})
+    config = function()
+      require("treesitter-context").setup({})
 
       -- コンテキストウィンドウの最終行の部分、ウインドウ全体に広がるように下線を引く
-      vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline = true, sp = 'Grey' })
-      vim.api.nvim_set_hl(0, 'TreesitterContextLineNumberBottom', { underline = true, sp = 'Grey' })
-    end
+      vim.api.nvim_set_hl(
+        0,
+        "TreesitterContextBottom",
+        { underline = true, sp = "Grey" }
+      )
+      vim.api.nvim_set_hl(
+        0,
+        "TreesitterContextLineNumberBottom",
+        { underline = true, sp = "Grey" }
+      )
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -77,7 +88,7 @@ return {
     },
     opts = {
       -- Normalモードで`gcc`を入力するとcommentstring機能が動く
-      enable_autocmd = true
+      enable_autocmd = true,
     },
   },
   {

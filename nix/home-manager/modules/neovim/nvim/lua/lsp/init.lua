@@ -21,7 +21,7 @@ local servers = {
   "tsp_server",
 
   -- Rust
-  "rust_analyer"
+  "rust_analyer",
 }
 
 vim.lsp.config("*", {

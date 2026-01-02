@@ -2,10 +2,10 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    name = "lspconfig"
+    name = "lspconfig",
   },
   {
     "j-hui/fidget.nvim",
-    opts = {}
-  }
+    opts = {},
+  },
 }
