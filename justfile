@@ -1,5 +1,9 @@
 alias u := update-koralleM1Mac
 alias f := format
+alias ul := update-lockfile
+
+update-lockfile:
+  nix flake update
 
 update-koralleM1Mac:
   sudo nix run nix-darwin -- switch --flake .#koralle-darwin
