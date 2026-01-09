@@ -58,6 +58,11 @@
 # cc-sdd
 'npm:cc-sdd' = 'latest'
 
+# Gemini CLI
+# https://github.com/google-gemini/gemini-cli
+'npm:@google/gemini-cli' = '0.24.0-preview.0'
+
+
 # Bun
 bun = 'latest'
 

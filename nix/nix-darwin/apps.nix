@@ -14,10 +14,6 @@
       # https://cli.github.com/
       "gh"
 
-      # Gemini CLI
-      # https://github.com/google-gemini/gemini-cli
-      # "gemini-cli"
-
       # Lua
       # https://github.com/LuaLS/lua-language-server
       "lua-language-server"
@@ -35,10 +31,6 @@
 
       # ghq
       "ghq"
-
-      # Gemini CLI
-      # https://github.com/google-gemini/gemini-cli
-      "gemini-cli"
 
       # direnv
       # https://github.com/nix-community/nix-direnv

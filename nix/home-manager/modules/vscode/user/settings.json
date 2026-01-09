@@ -1,6 +1,9 @@
 {
   /* ===== editor ===== */
   "editor.fontSize": 16,
+  
+  // フォント
+  "editor.fontFamily": "'Moralerspace Neon'",
 
   // アクセシビリティ機能を無効化
   "editor.accessibilitySupport": "off",
@@ -59,8 +62,16 @@
 
   // ターミナル上のカーソルの形状を変更する
   "terminal.integrated.cursorStyle": "line",
+  
+  // ターミナルで使用するFont Family
+  "terminal.integrated.fontFamily": "'Moralerspace Neon'",
+  
+  // ターミナルで使用するFont Size
+  "terminal.integrated.fontSize": 16,
 
   /* ===== workbench ===== */
   // カラーテーマの変更
-  "workbench.colorTheme": "Catppuccin Frappé"
+  "workbench.colorTheme": "Catppuccin Frappé",
+
+  "http.systemCertificatesNode": true
 }

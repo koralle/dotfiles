@@ -2,7 +2,7 @@
   "terminal": {
     "blinking": "on",
     "font_size": 14,
-    "font_family": "Moralerspace Xenon NF",
+    "font_family": "Moralerspace Neon",
     "shell": "system",
     "cursor_shape": "bar"
   },
