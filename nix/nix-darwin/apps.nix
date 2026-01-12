@@ -115,6 +115,11 @@
         # Antigravity
         name = "antigravity";
       }
+
+      {
+        # Tailscale
+        name = "tailscale";
+      }
     ];
   };
 }

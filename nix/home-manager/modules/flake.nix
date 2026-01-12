@@ -8,6 +8,7 @@
     ./git/flake.nix
     ./mise/flake.nix
     ./neovim/flake.nix
+    ./opencode/flake.nix
     ./starship/flake.nix
     ./tig/flake.nix
     ./vscode/flake.nix

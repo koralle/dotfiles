@@ -78,6 +78,10 @@
 
     # gnupg
     gnupg
+
+    # OpenCode
+    # https://opencode.ai/
+    opencode
   ];
 
   # neovim
