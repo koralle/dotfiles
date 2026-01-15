@@ -62,6 +62,8 @@
 # https://github.com/google-gemini/gemini-cli
 'npm:@google/gemini-cli' = '0.24.0-preview.0'
 
+# ccmanager
+'npm:ccmanager' = 'latest'
 
 # Bun
 bun = 'latest'
