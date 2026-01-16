@@ -1,22 +1,21 @@
-alias u := update-koralleM1Mac
 alias f := format
-alias ul := update-lockfile
 
-update-lockfile:
-  nix flake update
-
-update-koralleM1Mac:
-  sudo nix run nix-darwin -- switch --flake .#koralle-darwin
-  nix run nixpkgs#home-manager -- switch --flake .#koralle@macbook-air
-
-update-koralleNipogi:
-  sudo nixos-rebuild switch --flake .#koralleNipogi
-  nix run nixpkgs#home-manager -- switch --flake .#koralle@nipogi
-
-update-koralleDesktop:
-  sudo nixos-rebuild switch --flake .#koralleDesktop
-  nix run nixpkgs#home-manager -- switch --flake .#koralle@desktop
+default: switch-macbookair
 
 format:
-  fd --glob "*.nix" | xargs nixfmt
-  fd --glob "*.lua" | xargs stylua
+  @echo "Formatting \"**/*.lua\" files with Stylua..."
+  @stylua .
+  @echo "Formatting \"**/*.nix\" files with nixfmt..."
+  @nixfmt **/*.nix
+
+switch-macbookair: format
+  @echo "Running \"darwin-rebuild switch\"..."
+  @sudo darwin-rebuild switch --flake .#koralle-macbookair
+
+switch-macbookair-sub: format
+  @echo "Running \"darwin-rebuild switch\"..."
+  @sudo darwin-rebuild switch --flake .#koralle-macbookair-sub
+
+switch-nipogi: format
+  @echo "Running \"darwin-rebuild switch\"..."
+  @sudo nixos-rebuild switch --flake .#koralle-nixos-nipogi
