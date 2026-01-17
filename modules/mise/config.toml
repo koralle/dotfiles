@@ -1,0 +1,50 @@
+[tools]
+'npm:npm' = 'latest'
+'pnpm' = 'latest'
+
+# ni
+# https://github.com/antfu-collective/ni
+'npm:@antfu/ni' = 'latest'
+
+# Gemini CLI
+# https://github.com/google-gemini/gemini-cli
+'npm:@google/gemini-cli' = 'latest'
+
+# tree-sitter-cli
+'npm:tree-sitter-cli'= 'latest'
+
+# difit
+# https://github.com/yoshiko-pg/difit
+'npm:difit' = 'latest'
+
+# ccmanager
+'npm:ccmanager' = 'latest'
+
+# agent-browser
+# https://github.com/vercel-labs/agent-browser
+'npm:agent-browser' = { version = 'latest', postinstall = 'agent-browser install' }
+
+# OpenCode
+# https://opencode.ai/
+'npm:opencode-ai' = "latest"
+
+# css-variables-language-server
+'npm:css-variables-language-server' = 'latest'
+
+# fish-lsp
+'npm:fish-lsp' = 'latest'
+
+# yaml-language-server
+'npm:yaml-language-server' = 'latest'
+
+'npm:uipro-cli' = 'latest'
+
+# uv
+# https://github.com/astral-sh/uv
+uv = 'latest'
+
+[settings]
+idiomatic_version_file_enable_tools = ['node']
+
+[settings.npm]
+bun = true
