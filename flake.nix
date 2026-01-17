@@ -11,15 +11,17 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # home-manager
-    # https://github.com/nix-community/home-manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     # nur
     # https://github.com/nix-community/NUR
     nur = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # home-manager
+    # https://github.com/nix-community/home-manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -29,6 +31,22 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # nix-homebrew
+    # https://github.com/zhaofengli/nix-homebrew
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
   outputs =
@@ -36,8 +54,11 @@
       self,
       nix-darwin,
       nixpkgs,
-      home-manager,
       nur,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
+      home-manager,
       ...
     }:
     let
@@ -45,88 +66,49 @@
       overlays = [ nur.overlays.default ];
     in
     {
-      nixosConfigurations = {
-        koralleNipogi = nixpkgs.lib.nixosSystem {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
-
-          specialArgs = {
-            inherit inputs username;
-          };
-
-          modules = [
-            ./nix/nixos-nipogi/configuration.nix
-          ];
-        };
-
-        koralleDesktop = nixpkgs.lib.nixosSystem {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
-
-          specialArgs = {
-            inherit inputs username;
-          };
-
-          modules = [
-            ./nix/nixos-desktop/configuration.nix
-          ];
-        };
-      };
-
-      darwinConfigurations.koralle-darwin = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."koralle-macbookair" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
 
+        specialArgs = {
+          inherit username;
+        };
+
         modules = [
-          ./nix/nix-darwin/flake.nix
+          ./hosts/koralle-macbookair/flake.nix
+
+          { users.users."${username}".home = "/Users/${username}"; }
+
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+
+              user = "${username}";
+
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+              };
+
+              mutableTaps = false;
+            };
+          }
+
+          (
+            { config, ... }:
+            {
+              homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+            }
+          )
+
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs username; };
+            home-manager.users."${username}" = import ./modules/flake.nix;
+          }
         ];
-      };
-
-      homeConfigurations = {
-        "koralle@macbook-air" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            inherit overlays;
-            config.allowUnfree = true;
-          };
-
-          extraSpecialArgs = {
-            inherit inputs username;
-          };
-
-          modules = [ ./nix/home-manager/flake.nix ];
-        };
-
-        "koralle@nipogi" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            inherit overlays;
-            config.allowUnfree = true;
-          };
-
-          extraSpecialArgs = {
-            inherit inputs username;
-          };
-
-          modules = [ ./nix/home-manager/flake.nix ];
-        };
-
-        "koralle@desktop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            inherit overlays;
-            config.allowUnfree = true;
-          };
-
-          extraSpecialArgs = {
-            inherit inputs username;
-          };
-
-          modules = [ ./nix/home-manager/flake.nix ];
-        };
       };
     };
 }
