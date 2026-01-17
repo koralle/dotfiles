@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nix学習ガイド"
+  short_description: "Nixをやさしく学ぶ実践ガイド"
+  default_prompt: "$nix-specialist を使って、Nix言語・NixOS・Flakes・nix-darwinを初心者にもわかるように、やさしく順番に教えてください。"

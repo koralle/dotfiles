@@ -1,0 +1,19 @@
+# Revert selected commit
+bind main ! ?git revert %(commit)
+
+# Create PR in Status View
+bind status <Ctrl-r> ?gh pr create --assignee "koralle"
+
+# Rebase
+bind main R ?git rebase -i %(commit)
+
+# Stash
+bind stash S ?git stash push "%(prompt Enter stash comment: )"
+bind stash U ?git stash push -u "%(prompt Enter stash comment: )"
+bind stash P ?git stash pop %(stash)
+
+# Switch branch
+bind main B ?git switch -c "%(prompt Enter new branch name: )"
+
+# Preferences
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes

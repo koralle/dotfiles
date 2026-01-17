@@ -1,0 +1,46 @@
+[alias]
+
+[core]
+    editor = "nvim"
+    quotepath = false
+
+[user]
+    name = "koralle"
+
+[init]
+    defaultBranch = "main"
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[interactive]
+
+[merge]
+
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
+[help]
+    autocorrect = prompt
+
+[commit]
+    verbose = true
+
+[pull]
+    autostash = true
+
+[rebase]
+    autostash = true
+    autosquash = true

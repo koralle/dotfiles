@@ -1,0 +1,113 @@
+[tools]
+'npm:npm' = 'latest'
+'pnpm' = 'latest'
+'yarn' = 'latest'
+
+# ni
+# https://github.com/antfu-collective/ni
+'npm:@antfu/ni' = 'latest'
+
+# Gemini CLI
+# https://github.com/google-gemini/gemini-cli
+'npm:@google/gemini-cli' = 'latest'
+
+# tree-sitter-cli
+'npm:tree-sitter-cli'= 'latest'
+
+# difit
+# https://github.com/yoshiko-pg/difit
+'npm:difit' = 'latest'
+
+# ccmanager
+'npm:ccmanager' = 'latest'
+
+# agent-browser
+# https://github.com/vercel-labs/agent-browser
+'npm:agent-browser' = { version = 'latest', postinstall = 'agent-browser install' }
+
+# OpenCode
+# https://opencode.ai/
+'npm:opencode-ai' = "latest"
+
+# css-variables-language-server
+'npm:css-variables-language-server' = 'latest'
+
+# fish-lsp
+'npm:fish-lsp' = 'latest'
+
+# yaml-language-server
+'npm:yaml-language-server' = 'latest'
+
+'npm:uipro-cli' = 'latest'
+
+# Codex CLI
+# https://github.com/openai/codex
+'npm:@openai/codex' = 'latest'
+
+# uv
+# https://github.com/astral-sh/uv
+uv = 'latest'
+
+'npm:chrome-devtools-mcp' = 'latest'
+
+# cc-sdd
+# https://github.com/gotalab/cc-sdd
+'npm:cc-sdd' = 'latest'
+
+# @astrojs/language-server
+# https://github.com/withastro/language-tools
+'npm:@astrojs/language-server' = 'latest'
+
+'npm:typescript' = 'latest'
+
+# cargo-features-manager
+# https://github.com/ToBinio/cargo-features-manager
+'cargo:cargo-features-manager' = 'latest'
+
+# bacon
+# https://github.com/Canop/bacon
+# NOTE: https://syu-m-5151.hatenablog.com/entry/2025/10/16/170800
+'cargo:bacon' = { version = "latest", features = "clipboard sound" }
+
+# cargo-expand
+# https://github.com/dtolnay/cargo-expand
+'cargo:cargo-expand' = 'latest'
+
+# cargo-audit
+# https://github.com/rustsec/rustsec/blob/main/cargo-audit
+'cargo:cargo-audit' = 'latest'
+
+# cargo-edit
+# https://github.com/killercup/cargo-edit
+'cargo:cargo-edit' = 'latest'
+
+# cargo-update
+# https://github.com/nabijaczleweli/cargo-update
+'cargo:cargo-update' = 'latest'
+
+# cargo-binstall
+# https://github.com/cargo-bins/cargo-binstall
+'cargo:cargo-binstall' = 'latest'
+
+# cargo-outdated
+# https://github.com/kbknapp/cargo-outdated
+'cargo:cargo-outdated' = 'latest'
+
+# cargo-coupling
+# https://github.com/nwiizo/cargo-coupling
+# Note: https://syu-m-5151.hatenablog.com/entry/2025/12/20/195329
+'cargo:cargo-coupling' = 'latest'
+
+# cargo-udeps
+# https://github.com/est31/cargo-udeps
+'cargo:cargo-udeps' = 'latest'
+
+# rustowl
+# https://github.com/cordx56/rustowl
+'cargo:rustowl' = 'latest'
+
+[settings]
+idiomatic_version_file_enable_tools = ['node']
+
+[settings.npm]
+bun = true
