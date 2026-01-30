@@ -176,7 +176,14 @@
     # Claude Code
     claude-code
 
+    # Gemini CLI
+    gemini-cli
+
     # gopls
     gopls
+
+    # ast-grep
+    # https://github.com/ast-grep/ast-grep
+    ast-grep
   ];
 }

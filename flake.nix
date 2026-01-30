@@ -83,6 +83,9 @@
     }:
     let
       username = "koralle";
+
+      # ローカル overlay
+      gemini-cli-overlay = import ./overlays/gemini-cli;
     in
     {
       darwinConfigurations."koralle-macbookair" = nix-darwin.lib.darwinSystem {
@@ -92,6 +95,7 @@
           overlays = [
             nur.overlays.default
             claude-code-overlay.overlays.default
+            gemini-cli-overlay
           ];
         };
 
@@ -146,6 +150,7 @@
           overlays = [
             nur.overlays.default
             claude-code-overlay.overlays.default
+            gemini-cli-overlay
           ];
 
           config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -174,6 +179,26 @@
           }
         ];
       };
-    };
 
+      # 開発用パッケージ
+      packages = nixpkgs.lib.genAttrs [
+        "aarch64-darwin"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+      ] (
+        system: let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              nur.overlays.default
+              claude-code-overlay.overlays.default
+              gemini-cli-overlay
+            ];
+          };
+        in {
+          inherit (pkgs) gemini-cli;
+        }
+      );
+    };
 }

@@ -15,6 +15,10 @@
       # marksman
       # https://github.com/artempyanykh/marksman
       "marksman"
+
+      # mac-cleanup-go
+      # https://github.com/2ykwang/mac-cleanup-go
+      "mac-cleanup-go"
     ];
 
     casks = [

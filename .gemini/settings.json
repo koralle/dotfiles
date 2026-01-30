@@ -13,7 +13,8 @@
   "general": {
     "previewFeatures": true,
     "vimMode": true,
-    "disableAutoUpdate": true
+    "disableAutoUpdate": true,
+    "enableAutoUpdate": false
   },
   "ui": {
     "hideBanner": true,
