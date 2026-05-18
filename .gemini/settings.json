@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "@upstash/context7-mcp"
+      ],
+      "enabled": true
+    }
+  },
+  "general": {
+    "previewFeatures": true,
+    "vimMode": true,
+    "disableAutoUpdate": true,
+    "enableAutoUpdate": false
+  },
+  "ui": {
+    "hideBanner": true,
+    "hideTips": true,
+    "showStatusInTitle": true,
+    "hideWindowTitle": true
+  },
+  "experimental": {
+    "introspectionAgentSettings": {
+      "enabled": true
+    }
+  }
+}

@@ -9,3 +9,6 @@ AI_INSTRUCTIONS.md
 
 # lsmcp cache
 .lsmcp/cache
+
+# direnv
+.envrc
