@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "plugin": [
+     "superpowers@git+https://github.com/obra/superpowers.git",
+     "context-mode@git+https://github.com/mksglu/context-mode.git"
+  ],
+  "mcp": {
+    "cloudflare": {
+      "type": "remote",
+      "url": "https://docs.mcp.cloudflare.com/mcp",
+      "enabled": true
+    },
+    "chrome-devtools-mcp": {
+      "type": "local",
+      "command": ["chrome-devtools-mcp"],
+      "enabled": true
+    }
+  },
+  // OpenCodeにビルトインされている全てのLSPサーバーを有効化
+  // https://opencode.ai/docs/ja/lsp
+  "lsp": true
+}

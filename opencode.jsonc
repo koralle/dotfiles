@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "references": {
+    "nix-darwin": {
+      "repository": "nix-darwin/nix-darwin",
+      "branch": "master"
+    },
+    "home-manager": {
+      "repository": "nix-community/home-manager",
+      "branch": "master"
+    },
+    "nix-homebrew": {
+      "repository": "zhaofengli/nix-homebrew",
+      "branch": "main"
+    },
+    "neovim": {
+      "repository": "neovim/neovim",
+      "branch": "master"
+    },
+    "nur": {
+      "repository": "nix-community/nur",
+      "branch": "main"
+    }
+  }
+}
