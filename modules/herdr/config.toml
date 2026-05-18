@@ -1,0 +1,17 @@
+onboarding = false
+
+[terminal]
+default_shell = "fish"
+
+[theme]
+name = "nord"
+auto_switch = true
+
+[ui.sound]
+enabled = true
+
+[worktrees]
+directory = "~/.herdr/worktrees"
+
+[keys]
+prefix = "ctrl+b"

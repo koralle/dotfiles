@@ -1,11 +1,8 @@
 # macOS
 .DS_Store
 
-# VSCode
-.vscode
+# direnv
+.envrc
 
-# Claude Code
-AI_INSTRUCTIONS.md
-
-# lsmcp cache
-.lsmcp/cache
+# node_modules
+node_modules

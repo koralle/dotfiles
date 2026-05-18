@@ -1,0 +1,25 @@
+-- local vue_language_server_path = os.getenv("HOME")
+--   .. "/.local/share/mise/installs/npm-vue-language-server/3.2.6/bin/vue-language-server"
+-- local tsserver_filetypes =
+--   { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+-- local vue_plugin = {
+--   name = "@vue/typescript-plugin",
+--   location = vue_language_server_path,
+--   languages = { "vue" },
+--   configNamespace = "typescript",
+-- }
+--
+-- ---@type vim.lsp.Config
+-- return {
+--   capabilities = require("ddc_source_lsp").make_client_capabilities(),
+--   settings = {
+--     vtsls = {
+--       tsserver = {
+--         globalPlugins = {
+--           vue_plugin,
+--         },
+--       },
+--     },
+--   },
+--   filetypes = tsserver_filetypes,
+-- }
