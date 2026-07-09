@@ -6,8 +6,8 @@
     enableFishIntegration = true;
 
     onActivation = {
-      autoUpdate = false;
-      upgrade = false;
+      autoUpdate = true;
+      upgrade = true;
 
       cleanup = "uninstall";
     };
@@ -99,6 +99,10 @@
       {
         # OpenCode Desktop
         name = "opencode-desktop";
+      }
+
+      {
+        name = "docker-desktop";
       }
     ];
   };

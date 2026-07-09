@@ -157,8 +157,10 @@
     # https://github.com/ynqa/jnv
     jnv
 
-    # rtk
-    # https://github.com/rtk-ai/rtk
-    rtk
+    # glow
+    # https://github.com/charmbracelet/glow
+    glow
+
+    devcontainer
   ];
 }

@@ -3,15 +3,20 @@
   # Homebrew
   homebrew = {
     enable = true;
+    enableFishIntegration = true;
 
     onActivation = {
-      autoUpdate = false;
-      upgrade = false;
+      autoUpdate = true;
+      upgrade = true;
 
       cleanup = "uninstall";
     };
 
     brews = [
+      # mise
+      # https://github.com/jdx/mise
+      "mise"
+
       # marksman
       # https://github.com/artempyanykh/marksman
       "marksman"
